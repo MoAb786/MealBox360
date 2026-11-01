@@ -58,6 +58,15 @@ Thumbs.db
 .vscode/
 .idea/
 
+# Large Datasets & Raw Data
+backend/data/raw/
+backend/data/processed/
+*.csv
+*.pkl
+
+# Temporary Screenshots
+image*.png
+
 # Tooling metadata
 .agents/
 .codex/

@@ -1,0 +1,288 @@
+import React, { useState, useEffect } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  TouchableOpacity,
+  TextInput,
+  Alert,
+  ActivityIndicator,
+} from 'react-native';
+import { useAuth } from '../context/AuthContext';
+import { getPreferences, updatePreferences } from '../api/auth';
+import { UserPreferences } from '../types';
+
+const DIET_TYPES = [
+  { id: 'no_preference', label: 'No Preference' },
+  { id: 'vegetarian', label: 'Vegetarian 🥦' },
+  { id: 'eggetarian', label: 'Eggetarian 🥚' },
+  { id: 'non_vegetarian', label: 'Non-Vegetarian 🍗' },
+  { id: 'vegan', label: 'Vegan 🌱' },
+];
+
+export const ProfileScreen = () => {
+  const { user, logout } = useAuth();
+  const [prefs, setPrefs] = useState<UserPreferences | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+
+  // Edit fields
+  const [selectedDiet, setSelectedDiet] = useState('no_preference');
+  const [allergiesText, setAllergiesText] = useState('');
+  const [dislikedText, setDislikedText] = useState('');
+  const [maxMinutes, setMaxMinutes] = useState('');
+
+  useEffect(() => {
+    const load = async () => {
+      try {
+        const data = await getPreferences();
+        setPrefs(data);
+        setSelectedDiet(data.diet_type || 'no_preference');
+        setAllergiesText((data.allergies || []).join(', '));
+        setDislikedText((data.disliked_ingredients || []).join(', '));
+        setMaxMinutes(data.max_cooking_minutes ? String(data.max_cooking_minutes) : '');
+      } catch (err: any) {
+        console.error('Error loading preferences:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    load();
+  }, []);
+
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      const allergies = allergiesText
+        .split(',')
+        .map((s) => s.trim().toLowerCase())
+        .filter(Boolean);
+      const disliked = dislikedText
+        .split(',')
+        .map((s) => s.trim().toLowerCase())
+        .filter(Boolean);
+      const minutes = maxMinutes.trim() ? parseInt(maxMinutes.trim(), 10) : null;
+
+      await updatePreferences({
+        diet_type: selectedDiet as any,
+        allergies,
+        disliked_ingredients: disliked,
+        max_cooking_minutes: minutes,
+      });
+      Alert.alert('Saved', 'Your dietary preferences have been updated!');
+    } catch (err: any) {
+      Alert.alert('Error', err?.message || 'Could not save preferences');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleLogout = () => {
+    Alert.alert('Sign Out', 'Are you sure you want to log out?', [
+      { text: 'Cancel', style: 'cancel' },
+      { text: 'Log Out', style: 'destructive', onPress: logout },
+    ]);
+  };
+
+  if (loading) {
+    return (
+      <View style={styles.centerArea}>
+        <ActivityIndicator size="large" color="#0288d1" />
+      </View>
+    );
+  }
+
+  return (
+    <ScrollView style={styles.container}>
+      {/* User Info Header */}
+      <View style={styles.userCard}>
+        <View style={styles.avatar}>
+          <Text style={styles.avatarText}>
+            {user?.display_name ? user.display_name.charAt(0).toUpperCase() : '👤'}
+          </Text>
+        </View>
+        <View style={styles.userMeta}>
+          <Text style={styles.userName}>{user?.display_name || 'Chef'}</Text>
+          <Text style={styles.userEmail}>{user?.email || ''}</Text>
+        </View>
+      </View>
+
+      {/* Dietary Preferences Section */}
+      <View style={styles.sectionCard}>
+        <Text style={styles.sectionTitle}>Diet Type</Text>
+        <View style={styles.dietOptions}>
+          {DIET_TYPES.map((d) => (
+            <TouchableOpacity
+              key={d.id}
+              style={[
+                styles.dietOption,
+                selectedDiet === d.id && styles.dietOptionSelected,
+              ]}
+              onPress={() => setSelectedDiet(d.id)}
+            >
+              <Text
+                style={[
+                  styles.dietOptionText,
+                  selectedDiet === d.id && styles.dietOptionTextSelected,
+                ]}
+              >
+                {d.label}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+
+        <Text style={styles.inputLabel}>Known Allergies (comma-separated)</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="e.g. peanut, dairy, egg, shellfish"
+          value={allergiesText}
+          onChangeText={setAllergiesText}
+        />
+
+        <Text style={styles.inputLabel}>Disliked Ingredients (comma-separated)</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="e.g. mushroom, bitter gourd"
+          value={dislikedText}
+          onChangeText={setDislikedText}
+        />
+
+        <Text style={styles.inputLabel}>Max Cooking Time (Minutes)</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="e.g. 30"
+          keyboardType="numeric"
+          value={maxMinutes}
+          onChangeText={setMaxMinutes}
+        />
+
+        <TouchableOpacity
+          style={[styles.saveBtn, saving && styles.btnDisabled]}
+          onPress={handleSave}
+          disabled={saving}
+        >
+          {saving ? (
+            <ActivityIndicator color="#fff" />
+          ) : (
+            <Text style={styles.saveBtnText}>Save Preferences</Text>
+          )}
+        </TouchableOpacity>
+      </View>
+
+      {/* Data Sources and Attribution */}
+      <View style={styles.sectionCard}>
+        <Text style={styles.sectionTitle}>Data Sources & Attribution</Text>
+        <Text style={styles.attributionText}>
+          • Indian Starter Recipes: Curated original recipes{'\n'}
+          • Food.com Kaggle Dataset: Shuyang Li et al. (Academic prototype only){'\n'}
+          • TheMealDB API: TheMealDB free developer tier{'\n'}
+          • Open Food Facts: Open Food Facts community database (ODbL)
+        </Text>
+      </View>
+
+      {/* Medical Disclaimer Banner */}
+      <View style={styles.disclaimerCard}>
+        <Text style={styles.disclaimerTitle}>⚖️ Important Lifestyle Notice</Text>
+        <Text style={styles.disclaimerBody}>
+          MealBox360 provides general meal-planning and food-choice assistance for lifestyle convenience. It is not medical advice and is not intended to diagnose, treat, cure or prevent any disease. Always check ingredient labels for allergens.
+        </Text>
+      </View>
+
+      {/* Sign Out Button */}
+      <TouchableOpacity style={styles.logoutBtn} onPress={handleLogout}>
+        <Text style={styles.logoutBtnText}>Sign Out</Text>
+      </TouchableOpacity>
+    </ScrollView>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: '#f8fafc', padding: 16 },
+  centerArea: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  userCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+    borderRadius: 14,
+    padding: 16,
+    marginBottom: 14,
+    borderWidth: 1,
+    borderColor: '#e2e8f0',
+  },
+  avatar: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: '#0288d1',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 14,
+  },
+  avatarText: { color: '#ffffff', fontSize: 20, fontWeight: 'bold' },
+  userMeta: { flex: 1 },
+  userName: { fontSize: 18, fontWeight: 'bold', color: '#0f172a' },
+  userEmail: { fontSize: 13, color: '#64748b', marginTop: 2 },
+  sectionCard: {
+    backgroundColor: '#ffffff',
+    borderRadius: 14,
+    padding: 16,
+    marginBottom: 14,
+    borderWidth: 1,
+    borderColor: '#e2e8f0',
+  },
+  sectionTitle: { fontSize: 16, fontWeight: 'bold', color: '#0f172a', marginBottom: 12 },
+  dietOptions: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, marginBottom: 14 },
+  dietOption: {
+    borderWidth: 1,
+    borderColor: '#cbd5e1',
+    borderRadius: 20,
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+    backgroundColor: '#f8fafc',
+  },
+  dietOptionSelected: { backgroundColor: '#0288d1', borderColor: '#0288d1' },
+  dietOptionText: { fontSize: 13, color: '#475569', fontWeight: '500' },
+  dietOptionTextSelected: { color: '#ffffff', fontWeight: 'bold' },
+  inputLabel: { fontSize: 12, fontWeight: '600', color: '#475569', marginBottom: 4 },
+  input: {
+    borderWidth: 1,
+    borderColor: '#cbd5e1',
+    borderRadius: 8,
+    padding: 10,
+    fontSize: 14,
+    marginBottom: 12,
+    backgroundColor: '#f8fafc',
+  },
+  saveBtn: {
+    backgroundColor: '#0288d1',
+    borderRadius: 8,
+    paddingVertical: 12,
+    alignItems: 'center',
+    marginTop: 6,
+  },
+  saveBtnText: { color: '#ffffff', fontWeight: 'bold', fontSize: 14 },
+  btnDisabled: { opacity: 0.7 },
+  attributionText: { fontSize: 12, color: '#64748b', lineHeight: 20 },
+  disclaimerCard: {
+    backgroundColor: '#fef3c7',
+    padding: 14,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#fde68a',
+    marginBottom: 20,
+  },
+  disclaimerTitle: { fontSize: 13, fontWeight: 'bold', color: '#92400e', marginBottom: 4 },
+  disclaimerBody: { fontSize: 11, color: '#78350f', lineHeight: 16 },
+  logoutBtn: {
+    borderWidth: 1,
+    borderColor: '#ef4444',
+    borderRadius: 10,
+    paddingVertical: 14,
+    alignItems: 'center',
+    marginBottom: 40,
+    backgroundColor: '#fef2f2',
+  },
+  logoutBtnText: { color: '#dc2626', fontWeight: 'bold', fontSize: 15 },
+});

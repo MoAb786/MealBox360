@@ -1,64 +1,66 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
-from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
-from typing import List
 
-app = FastAPI()
+from app.core.config import settings
+from app.db.client import connect_db, close_db
+from app.db.indexes import ensure_indexes
+from app.api.v1.router import api_router
 
-# Allow CORS for Expo Go local testing
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    await connect_db()
+    await ensure_indexes()
+    yield
+    await close_db()
+
+
+app = FastAPI(
+    title="MealBox360 API",
+    description="Smart Pantry Management & Recipe Recommendation System",
+    version="2.0.0",
+    lifespan=lifespan,
+)
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=settings.cors_origins_list + ["*"],  # "*" fallback for Expo Go dev
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Mock Database (to be replaced by MongoDB in Phase 2)
-db_pantry = ["tomato", "onion", "garlic"]
-db_recipes = [
-    {"id": 1, "name": "Tomato Soup", "ingredients": ["tomato", "garlic", "salt", "water"]},
-    {"id": 2, "name": "Onion Rings", "ingredients": ["onion", "flour", "oil"]},
-    {"id": 3, "name": "Garlic Bread", "ingredients": ["garlic", "bread", "butter"]}
-]
 
-class Ingredient(BaseModel):
-    name: str
+@app.get("/health")
+async def health():
+    from app.db.client import get_db
+    try:
+        db = get_db()
+        await db.command("ping")
+        db_status = "connected"
+    except Exception as e:
+        db_status = f"error: {e}"
+    return {"status": "ok", "database": db_status, "version": "2.0.0"}
 
+
+# Mount all v1 routes
+app.include_router(api_router, prefix="/api/v1")
+
+# ---------------------------------------------------------------------------
+# Legacy Phase 1 aliases — kept so existing Expo Go app still partially works
+# while frontend is being upgraded (Stage 4). Remove after Stage 4.
+# ---------------------------------------------------------------------------
 @app.get("/pantry")
-def get_pantry():
-    return {"pantry": db_pantry}
+async def legacy_pantry():
+    return {"pantry": [], "message": "⚠️ Deprecated. Use /api/v1/pantry with auth token."}
+
 
 @app.post("/pantry/add")
-def add_ingredient(item: Ingredient):
-    if item.name.lower() not in db_pantry:
-        db_pantry.append(item.name.lower())
-    return {"message": "Added successfully", "pantry": db_pantry}
+async def legacy_add():
+    return {"message": "⚠️ Deprecated. Use POST /api/v1/pantry with auth token."}
+
 
 @app.get("/recommendations")
-def get_recommendations():
-    # Phase 1: Simple Content-Based Matching Logic
-    recommendations = []
-    for recipe in db_recipes:
-        recipe_ings = set(recipe["ingredients"])
-        pantry_set = set(db_pantry)
-        match_count = len(recipe_ings.intersection(pantry_set))
-        total = len(recipe_ings)
-        
-        if match_count == total:
-            status = "Cook Now (100% Match)"
-        elif match_count >= total - 2:
-            status = f"Almost There (Missing {total - match_count} items)"
-        else:
-            continue # Needs too many items
-            
-        recommendations.append({
-            "recipe": recipe["name"],
-            "status": status,
-            "match_rate": f"{match_count}/{total}",
-            "missing": list(recipe_ings - pantry_set)
-        })
-    
-    # Sort by best match
-    recommendations.sort(key=lambda x: x['status'], reverse=True)
-    return {"recommendations": recommendations}
+async def legacy_recommendations():
+    return {"recommendations": [], "message": "⚠️ Deprecated. Use /api/v1/recipes/recommendations with auth token."}
