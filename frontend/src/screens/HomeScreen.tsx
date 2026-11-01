@@ -7,51 +7,50 @@ import {
   TouchableOpacity,
   RefreshControl,
   ActivityIndicator,
+  Alert,
 } from 'react-native';
-import { useAuth } from '../context/AuthContext';
-import { getPantryItems, getExpiringItems } from '../api/pantry';
-import { getRecommendations } from '../api/recipes';
-import { getMealHistorySummary } from '../api/history';
+import { colors, radius, spacing, shadows } from '../theme/tokens';
+import { AppHeader } from '../components/AppHeader';
+import { SearchBar } from '../components/SearchBar';
+import { CategoryShortcut } from '../components/CategoryShortcut';
+import { IngredientCard } from '../components/IngredientCard';
 import { RecipeCard } from '../components/RecipeCard';
-import { RecommendationItem, PantryItem } from '../types';
+import { CATALOG_INGREDIENTS, CatalogIngredient } from '../data/mockIngredients';
+import { useAuth } from '../context/AuthContext';
+import { getPantryItems, addPantryItem, updatePantryItem, deletePantryItem } from '../api/pantry';
+import { getRecommendations } from '../api/recipes';
+import { PantryItem, RecommendationItem } from '../types';
+
+const CATEGORY_ITEMS = [
+  { id: 'Vegetables', label: 'Vege', icon: '🥦', bg: colors.categoryBg2 },
+  { id: 'Fruits', label: 'Fruits', icon: '🍎', bg: colors.categoryBg4 },
+  { id: 'Grains', label: 'Grains', icon: '🌾', bg: colors.categoryBg1 },
+  { id: 'Dairy', label: 'Dairy', icon: '🧀', bg: colors.categoryBg5 },
+  { id: 'Protein', label: 'Protein', icon: '🥚', bg: colors.categoryBg3 },
+  { id: 'Spices', label: 'Spices', icon: '🌶️', bg: colors.categoryBg6 },
+];
 
 export const HomeScreen = ({ navigation }: any) => {
   const { user } = useAuth();
-  const [loading, setLoading] = useState(true);
-  const [refreshing, setRefreshing] = useState(false);
-  const [pantryCount, setPantryCount] = useState(0);
-  const [expiringItems, setExpiringItems] = useState<PantryItem[]>([]);
+  const [pantry, setPantry] = useState<PantryItem[]>([]);
   const [cookNowItems, setCookNowItems] = useState<RecommendationItem[]>([]);
   const [almostThereItems, setAlmostThereItems] = useState<RecommendationItem[]>([]);
-  const [historySummary, setHistorySummary] = useState<{ total_meals_cooked: number } | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [refreshing, setRefreshing] = useState(false);
 
-  const loadDashboardData = useCallback(async () => {
+  const loadData = useCallback(async () => {
     try {
-      const [pantry, expiring, cookNowRes, almostRes, summary] = await Promise.allSettled([
+      const [pantryRes, cookNowRes, almostRes] = await Promise.allSettled([
         getPantryItems(),
-        getExpiringItems(7),
-        getRecommendations({ mode: 'cook_now', limit: 3 }),
-        getRecommendations({ mode: 'almost_there', limit: 3 }),
-        getMealHistorySummary(),
+        getRecommendations({ mode: 'cook_now', limit: 4 }),
+        getRecommendations({ mode: 'almost_there', limit: 4 }),
       ]);
 
-      if (pantry.status === 'fulfilled') {
-        setPantryCount(pantry.value.length);
-      }
-      if (expiring.status === 'fulfilled') {
-        setExpiringItems(expiring.value);
-      }
-      if (cookNowRes.status === 'fulfilled') {
-        setCookNowItems(cookNowRes.value.items);
-      }
-      if (almostRes.status === 'fulfilled') {
-        setAlmostThereItems(almostRes.value.items);
-      }
-      if (summary.status === 'fulfilled') {
-        setHistorySummary(summary.value);
-      }
+      if (pantryRes.status === 'fulfilled') setPantry(pantryRes.value);
+      if (cookNowRes.status === 'fulfilled') setCookNowItems(cookNowRes.value.items);
+      if (almostRes.status === 'fulfilled') setAlmostThereItems(almostRes.value.items);
     } catch (err) {
-      console.error('Error loading home dashboard:', err);
+      console.warn('Dashboard load error:', err);
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -59,155 +58,239 @@ export const HomeScreen = ({ navigation }: any) => {
   }, []);
 
   useEffect(() => {
-    loadDashboardData();
-  }, [loadDashboardData]);
+    loadData();
+  }, [loadData]);
 
   const onRefresh = () => {
     setRefreshing(true);
-    loadDashboardData();
+    loadData();
+  };
+
+  const getPantryQty = (name: string): { qty: number; id?: string } => {
+    const item = pantry.find(
+      (p) =>
+        p.display_name.toLowerCase().includes(name.toLowerCase()) ||
+        name.toLowerCase().includes(p.display_name.toLowerCase())
+    );
+    return { qty: item ? (item.quantity ?? 1) : 0, id: item?.id };
+  };
+
+  const handleIncrement = async (ingredient: CatalogIngredient) => {
+    const { qty, id } = getPantryQty(ingredient.name);
+    try {
+      if (id) {
+        const newQty = qty + 1;
+        await updatePantryItem(id, { quantity: newQty });
+        setPantry((prev) => prev.map((p) => (p.id === id ? { ...p, quantity: newQty } : p)));
+      } else {
+        const added = await addPantryItem({
+          display_name: ingredient.name,
+          category: ingredient.category.toLowerCase(),
+          quantity: 1,
+          unit: ingredient.defaultUnit,
+        });
+        setPantry((prev) => [...prev, added]);
+      }
+    } catch (err: any) {
+      Alert.alert('Pantry', err?.message || 'Could not update pantry');
+    }
+  };
+
+  const handleDecrement = async (ingredient: CatalogIngredient) => {
+    const { qty, id } = getPantryQty(ingredient.name);
+    if (!id) return;
+    try {
+      if (qty <= 1) {
+        await deletePantryItem(id);
+        setPantry((prev) => prev.filter((p) => p.id !== id));
+      } else {
+        const newQty = qty - 1;
+        await updatePantryItem(id, { quantity: newQty });
+        setPantry((prev) => prev.map((p) => (p.id === id ? { ...p, quantity: newQty } : p)));
+      }
+    } catch (err: any) {
+      Alert.alert('Pantry', err?.message || 'Could not update pantry');
+    }
   };
 
   return (
     <ScrollView
       style={styles.container}
       refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={styles.scrollContent}
     >
-      {/* Top Greeting */}
-      <View style={styles.greetingSection}>
-        <Text style={styles.greetingTitle}>
-          Hello, {user?.display_name || 'Chef'}! 👋
-        </Text>
-        <Text style={styles.greetingSubtitle}>
-          What are we cooking with today's pantry?
-        </Text>
-      </View>
-
-      {/* Overview Metric Cards */}
-      <View style={styles.metricsRow}>
-        <TouchableOpacity
-          style={styles.metricCard}
-          onPress={() => navigation.navigate('PantryTab')}
-          activeOpacity={0.8}
-        >
-          <Text style={styles.metricIcon}>🥫</Text>
-          <Text style={styles.metricValue}>{pantryCount}</Text>
-          <Text style={styles.metricLabel}>Pantry Items</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={[styles.metricCard, expiringItems.length > 0 && styles.expiringCard]}
-          onPress={() => navigation.navigate('PantryTab')}
-          activeOpacity={0.8}
-        >
-          <Text style={styles.metricIcon}>⏳</Text>
-          <Text style={[styles.metricValue, expiringItems.length > 0 && styles.expiringValue]}>
-            {expiringItems.length}
-          </Text>
-          <Text style={styles.metricLabel}>Expiring Soon</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          style={styles.metricCard}
-          onPress={() => navigation.navigate('HistoryTab')}
-          activeOpacity={0.8}
-        >
-          <Text style={styles.metricIcon}>🍳</Text>
-          <Text style={styles.metricValue}>{historySummary?.total_meals_cooked ?? 0}</Text>
-          <Text style={styles.metricLabel}>Cooked Meals</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Expiring Soon Banner */}
-      {expiringItems.length > 0 ? (
-        <View style={styles.expiringBanner}>
-          <Text style={styles.bannerTitle}>⚠️ Use Before It Expires:</Text>
-          <Text style={styles.bannerSubtitle}>
-            {expiringItems.map((i) => i.display_name).join(', ')}
-          </Text>
+      {/* 1. Curved Forest-Teal Header */}
+      <AppHeader
+        title="What's in your kitchen?"
+        subtitle={`Good day, ${user?.display_name || 'Chef'}`}
+        pantryCount={pantry.length}
+        onPantryPress={() => navigation.navigate('PantryTab')}
+      >
+        <View style={styles.searchContainer}>
+          <SearchBar
+            placeholder="Search ingredients or recipes..."
+            onPress={() => navigation.navigate('DiscoverTab')}
+            editable={false}
+          />
         </View>
-      ) : null}
+      </AppHeader>
 
-      {/* Quick Action Buttons */}
-      <View style={styles.actionsRow}>
-        <TouchableOpacity
-          style={styles.actionBtnPrimary}
-          onPress={() => navigation.navigate('PantryTab')}
+      {/* 2. Category Shortcuts */}
+      <View style={styles.categorySection}>
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={styles.categoryRail}
         >
-          <Text style={styles.actionBtnTextPrimary}>+ Add Ingredients</Text>
-        </TouchableOpacity>
+          {CATEGORY_ITEMS.map((cat) => (
+            <CategoryShortcut
+              key={cat.id}
+              label={cat.label}
+              icon={cat.icon}
+              bgColor={cat.bg}
+              onPress={() => navigation.navigate('IngredientBrowser', { category: cat.id })}
+            />
+          ))}
+        </ScrollView>
+      </View>
+
+      {/* 3. Promotional / Lifestyle Tip Banner */}
+      <View style={styles.bannerContainer}>
+        <View style={styles.promoBanner}>
+          <View style={{ flex: 1 }}>
+            <Text style={styles.promoBadge}>💡 SMART COOKING TIP</Text>
+            <Text style={styles.promoTitle}>Cook more with what you have</Text>
+            <Text style={styles.promoSub}>
+              Use ingredients before they expire to cut food waste!
+            </Text>
+          </View>
+          <TouchableOpacity
+            style={styles.promoBtn}
+            onPress={() => navigation.navigate('DiscoverTab')}
+            activeOpacity={0.85}
+          >
+            <Text style={styles.promoBtnText}>Explore →</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+
+      {/* 4. "You might need" Horizontal Rail */}
+      <View style={styles.sectionHeader}>
+        <Text style={styles.sectionTitle}>You might need</Text>
         <TouchableOpacity
-          style={styles.actionBtnSecondary}
-          onPress={() => navigation.navigate('DiscoverTab')}
+          onPress={() => navigation.navigate('IngredientBrowser', { category: 'All' })}
         >
-          <Text style={styles.actionBtnTextSecondary}>Discover Recipes 🔍</Text>
+          <Text style={styles.seeMoreText}>See all →</Text>
         </TouchableOpacity>
       </View>
+
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.horizontalRail}
+      >
+        {CATALOG_INGREDIENTS.slice(0, 6).map((item) => {
+          const { qty } = getPantryQty(item.name);
+          return (
+            <IngredientCard
+              key={item.id}
+              id={item.id}
+              name={item.name}
+              category={item.category}
+              unit={item.defaultUnit}
+              quantityInPantry={qty}
+              image={item.image}
+              onPress={() =>
+                navigation.navigate('IngredientDetail', {
+                  ingredientId: item.id,
+                  initialIngredient: item,
+                })
+              }
+              onIncrement={() => handleIncrement(item)}
+              onDecrement={() => handleDecrement(item)}
+            />
+          );
+        })}
+      </ScrollView>
 
       {loading ? (
-        <View style={styles.loadingArea}>
-          <ActivityIndicator size="large" color="#0288d1" />
+        <View style={styles.centerArea}>
+          <ActivityIndicator size="large" color={colors.forest} />
           <Text style={styles.loadingText}>Fetching personalized recipes...</Text>
         </View>
       ) : (
         <>
-          {/* Cook Now Section */}
+          {/* 5. "Cook now" Recipe Rail */}
           <View style={styles.sectionHeader}>
             <View>
-              <Text style={styles.sectionTitle}>🟢 Ready to Cook Now</Text>
-              <Text style={styles.sectionSubtitle}>You have all required ingredients</Text>
+              <Text style={styles.sectionTitle}>Ready to Cook Now 🟢</Text>
+              <Text style={styles.sectionSubtitle}>100% ingredients matched in your pantry</Text>
             </View>
             <TouchableOpacity onPress={() => navigation.navigate('DiscoverTab')}>
-              <Text style={styles.seeAllText}>See all →</Text>
+              <Text style={styles.seeMoreText}>See all</Text>
             </TouchableOpacity>
           </View>
 
-          {cookNowItems.length > 0 ? (
-            cookNowItems.map((item) => (
-              <RecipeCard
-                key={item.recipe_id}
-                item={item}
-                onPress={() => navigation.navigate('RecipeDetail', { recipeId: item.recipe_id })}
-              />
-            ))
-          ) : (
-            <View style={styles.emptyBox}>
-              <Text style={styles.emptyText}>
-                No 100% matches right now. Add a few staples or check Almost There!
-              </Text>
-            </View>
-          )}
+          <View style={styles.recipeList}>
+            {cookNowItems.length > 0 ? (
+              cookNowItems.map((recipe) => (
+                <RecipeCard
+                  key={recipe.recipe_id}
+                  item={recipe}
+                  onPress={() =>
+                    navigation.navigate('RecipeDetail', { recipeId: recipe.recipe_id })
+                  }
+                />
+              ))
+            ) : (
+              <View style={styles.emptyCard}>
+                <Text style={styles.emptyTitle}>No full matches yet 🍲</Text>
+                <Text style={styles.emptySub}>
+                  Add everyday items like onions or rice to your pantry to unlock instant meals!
+                </Text>
+              </View>
+            )}
+          </View>
 
-          {/* Almost There Section */}
+          {/* 6. "Almost there" Recipe Rail */}
           <View style={styles.sectionHeader}>
             <View>
-              <Text style={styles.sectionTitle}>🟠 Almost There</Text>
-              <Text style={styles.sectionSubtitle}>Missing just 1 or 2 ingredients</Text>
+              <Text style={styles.sectionTitle}>Almost There 🟠</Text>
+              <Text style={styles.sectionSubtitle}>Missing only 1 or 2 ingredients</Text>
             </View>
             <TouchableOpacity onPress={() => navigation.navigate('DiscoverTab')}>
-              <Text style={styles.seeAllText}>See all →</Text>
+              <Text style={styles.seeMoreText}>See all</Text>
             </TouchableOpacity>
           </View>
 
-          {almostThereItems.length > 0 ? (
-            almostThereItems.map((item) => (
-              <RecipeCard
-                key={item.recipe_id}
-                item={item}
-                onPress={() => navigation.navigate('RecipeDetail', { recipeId: item.recipe_id })}
-              />
-            ))
-          ) : (
-            <View style={styles.emptyBox}>
-              <Text style={styles.emptyText}>Add ingredients to your pantry to see recommendations!</Text>
-            </View>
-          )}
+          <View style={styles.recipeList}>
+            {almostThereItems.length > 0 ? (
+              almostThereItems.map((recipe) => (
+                <RecipeCard
+                  key={recipe.recipe_id}
+                  item={recipe}
+                  onPress={() =>
+                    navigation.navigate('RecipeDetail', { recipeId: recipe.recipe_id })
+                  }
+                />
+              ))
+            ) : (
+              <View style={styles.emptyCard}>
+                <Text style={styles.emptyTitle}>Keep building your pantry! 🥫</Text>
+                <Text style={styles.emptySub}>
+                  Recipes missing just 1 or 2 items will automatically appear here.
+                </Text>
+              </View>
+            )}
+          </View>
         </>
       )}
 
-      {/* Non-Medical Disclaimer */}
+      {/* Non-medical disclaimer footer */}
       <View style={styles.disclaimerContainer}>
         <Text style={styles.disclaimerText}>
-          ℹ️ MealBox360 provides lifestyle meal-planning convenience. It is not medical advice. Nutrition information is estimated where available.
+          MealBox360 is a lifestyle cooking companion. Not medical advice. Always check food labels for allergens.
         </Text>
       </View>
     </ScrollView>
@@ -215,86 +298,138 @@ export const HomeScreen = ({ navigation }: any) => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f8fafc', padding: 16 },
-  greetingSection: { marginTop: 12, marginBottom: 16 },
-  greetingTitle: { fontSize: 24, fontWeight: 'bold', color: '#0f172a' },
-  greetingSubtitle: { fontSize: 14, color: '#64748b', marginTop: 4 },
-  metricsRow: { flexDirection: 'row', gap: 10, marginBottom: 16 },
-  metricCard: {
+  container: {
     flex: 1,
-    backgroundColor: '#ffffff',
-    borderRadius: 12,
-    padding: 12,
-    alignItems: 'center',
-    shadowColor: '#000',
-    shadowOpacity: 0.04,
-    shadowRadius: 5,
-    elevation: 2,
-    borderWidth: 1,
-    borderColor: '#e2e8f0',
+    backgroundColor: colors.page,
   },
-  expiringCard: { borderColor: '#f97316', backgroundColor: '#fffaf5' },
-  metricIcon: { fontSize: 22, marginBottom: 4 },
-  metricValue: { fontSize: 20, fontWeight: 'bold', color: '#1e293b' },
-  expiringValue: { color: '#ea580c' },
-  metricLabel: { fontSize: 11, color: '#64748b', marginTop: 2, textAlign: 'center' },
-  expiringBanner: {
-    backgroundColor: '#fff7ed',
-    borderLeftWidth: 4,
-    borderLeftColor: '#f97316',
-    padding: 12,
-    borderRadius: 8,
+  scrollContent: {
+    paddingBottom: 100,
+  },
+  searchContainer: {
+    marginTop: 8,
+    marginBottom: 4,
+  },
+  categorySection: {
+    marginTop: -8,
     marginBottom: 16,
+    zIndex: 10,
   },
-  bannerTitle: { fontSize: 13, fontWeight: 'bold', color: '#c2410c' },
-  bannerSubtitle: { fontSize: 12, color: '#7c2d12', marginTop: 2 },
-  actionsRow: { flexDirection: 'row', gap: 10, marginBottom: 20 },
-  actionBtnPrimary: {
-    flex: 1,
-    backgroundColor: '#0288d1',
-    borderRadius: 8,
-    paddingVertical: 12,
+  categoryRail: {
+    paddingHorizontal: spacing.gutter,
+  },
+  bannerContainer: {
+    paddingHorizontal: spacing.gutter,
+    marginBottom: 18,
+  },
+  promoBanner: {
+    backgroundColor: colors.forestSoft,
+    borderRadius: radius.md,
+    padding: 16,
+    flexDirection: 'row',
     alignItems: 'center',
+    justifyContent: 'space-between',
+    ...shadows.subtle,
   },
-  actionBtnTextPrimary: { color: '#ffffff', fontWeight: 'bold', fontSize: 14 },
-  actionBtnSecondary: {
-    flex: 1,
-    backgroundColor: '#ffffff',
-    borderWidth: 1,
-    borderColor: '#cbd5e1',
-    borderRadius: 8,
-    paddingVertical: 12,
-    alignItems: 'center',
+  promoBadge: {
+    fontSize: 10,
+    fontWeight: '800',
+    color: colors.lime,
+    letterSpacing: 0.5,
+    marginBottom: 4,
   },
-  actionBtnTextSecondary: { color: '#334155', fontWeight: 'bold', fontSize: 14 },
+  promoTitle: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: colors.surface,
+  },
+  promoSub: {
+    fontSize: 11,
+    color: colors.mint,
+    marginTop: 2,
+  },
+  promoBtn: {
+    backgroundColor: colors.lime,
+    paddingHorizontal: 12,
+    paddingVertical: 8,
+    borderRadius: radius.pill,
+    marginLeft: 10,
+  },
+  promoBtnText: {
+    color: colors.forest,
+    fontWeight: '700',
+    fontSize: 12,
+  },
   sectionHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'flex-end',
+    paddingHorizontal: spacing.gutter,
+    marginBottom: 12,
+    marginTop: 6,
+  },
+  sectionTitle: {
+    fontSize: 17,
+    fontWeight: '700',
+    color: colors.ink,
+  },
+  sectionSubtitle: {
+    fontSize: 11,
+    color: colors.muted,
+    marginTop: 2,
+  },
+  seeMoreText: {
+    fontSize: 13,
+    color: colors.forest,
+    fontWeight: '700',
+  },
+  horizontalRail: {
+    paddingHorizontal: spacing.gutter,
+    paddingBottom: 10,
+  },
+  recipeList: {
+    paddingHorizontal: spacing.gutter,
+  },
+  centerArea: {
+    padding: 30,
     alignItems: 'center',
+  },
+  loadingText: {
+    color: colors.muted,
+    fontSize: 13,
     marginTop: 8,
+  },
+  emptyCard: {
+    backgroundColor: colors.surface,
+    padding: 16,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.border,
+    alignItems: 'center',
     marginBottom: 12,
   },
-  sectionTitle: { fontSize: 18, fontWeight: 'bold', color: '#0f172a' },
-  sectionSubtitle: { fontSize: 12, color: '#64748b' },
-  seeAllText: { fontSize: 13, color: '#0288d1', fontWeight: '600' },
-  loadingArea: { padding: 40, alignItems: 'center' },
-  loadingText: { color: '#64748b', marginTop: 10, fontSize: 14 },
-  emptyBox: {
-    backgroundColor: '#ffffff',
-    padding: 18,
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: '#e2e8f0',
-    alignItems: 'center',
-    marginBottom: 16,
+  emptyTitle: {
+    fontSize: 14,
+    fontWeight: '700',
+    color: colors.ink,
+    marginBottom: 4,
   },
-  emptyText: { color: '#64748b', fontSize: 13, textAlign: 'center' },
+  emptySub: {
+    fontSize: 12,
+    color: colors.muted,
+    textAlign: 'center',
+  },
   disclaimerContainer: {
-    marginTop: 10,
-    marginBottom: 40,
+    marginHorizontal: spacing.gutter,
+    marginTop: 20,
     padding: 12,
-    borderRadius: 8,
-    backgroundColor: '#f1f5f9',
+    borderRadius: radius.sm,
+    backgroundColor: colors.mint,
+    opacity: 0.8,
   },
-  disclaimerText: { fontSize: 11, color: '#64748b', textAlign: 'center', lineHeight: 16 },
+  disclaimerText: {
+    fontSize: 11,
+    color: colors.forest,
+    textAlign: 'center',
+    lineHeight: 16,
+  },
 });

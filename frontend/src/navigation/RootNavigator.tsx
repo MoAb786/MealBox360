@@ -7,6 +7,9 @@ import { LoginScreen } from '../screens/LoginScreen';
 import { RegisterScreen } from '../screens/RegisterScreen';
 import { BottomTabNavigator } from './BottomTabNavigator';
 import { RecipeDetailScreen } from '../screens/RecipeDetailScreen';
+import { IngredientBrowserScreen } from '../screens/IngredientBrowserScreen';
+import { IngredientDetailScreen } from '../screens/IngredientDetailScreen';
+import { colors } from '../theme/tokens';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,8 +18,8 @@ export const RootNavigator = () => {
 
   if (isLoading) {
     return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#f8fafc' }}>
-        <ActivityIndicator size="large" color="#0288d1" />
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: colors.page }}>
+        <ActivityIndicator size="large" color={colors.forest} />
       </View>
     );
   }
@@ -31,16 +34,9 @@ export const RootNavigator = () => {
       ) : (
         <>
           <Stack.Screen name="Main" component={BottomTabNavigator} />
-          <Stack.Screen
-            name="RecipeDetail"
-            component={RecipeDetailScreen}
-            options={{
-              headerShown: true,
-              title: 'Recipe Detail',
-              headerBackTitle: 'Back',
-              headerTintColor: '#0288d1',
-            }}
-          />
+          <Stack.Screen name="IngredientBrowser" component={IngredientBrowserScreen} />
+          <Stack.Screen name="IngredientDetail" component={IngredientDetailScreen} />
+          <Stack.Screen name="RecipeDetail" component={RecipeDetailScreen} />
         </>
       )}
     </Stack.Navigator>

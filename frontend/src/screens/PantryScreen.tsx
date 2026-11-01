@@ -9,29 +9,31 @@ import {
   Alert,
   ActivityIndicator,
   Modal,
-  Platform,
 } from 'react-native';
-import { getPantryItems, addPantryItem, deletePantryItem, updatePantryItem } from '../api/pantry';
-import { PantryItem } from '../types';
+import { colors, radius, spacing, shadows } from '../theme/tokens';
+import { AppHeader } from '../components/AppHeader';
+import { SearchBar } from '../components/SearchBar';
 import { IngredientBadge } from '../components/IngredientBadge';
 import { EmptyState } from '../components/EmptyState';
+import { getPantryItems, addPantryItem, deletePantryItem, updatePantryItem } from '../api/pantry';
+import { PantryItem } from '../types';
 
-const CATEGORIES = ['All', 'vegetable', 'grain', 'protein', 'dairy', 'spice', 'oil', 'other'];
+const CATEGORIES = ['All', 'vegetable', 'grain', 'protein', 'dairy', 'spice', 'other'];
 
-export const PantryScreen = () => {
+export const PantryScreen = ({ navigation }: any) => {
   const [items, setItems] = useState<PantryItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Modal State for Add / Edit
+  // Modal State
   const [modalVisible, setModalVisible] = useState(false);
   const [editingItem, setEditingItem] = useState<PantryItem | null>(null);
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
   const [unit, setUnit] = useState('');
   const [category, setCategory] = useState('');
-  const [expiryDays, setExpiryDays] = useState(''); // e.g. "5" for expires in 5 days
+  const [expiryDays, setExpiryDays] = useState('');
   const [submitting, setSubmitting] = useState(false);
 
   const loadItems = useCallback(async () => {
@@ -40,7 +42,7 @@ export const PantryScreen = () => {
       const data = await getPantryItems(selectedCategory === 'All' ? undefined : selectedCategory);
       setItems(data);
     } catch (err: any) {
-      console.error('Error fetching pantry:', err);
+      console.warn('Error fetching pantry:', err);
     } finally {
       setLoading(false);
     }
@@ -123,7 +125,7 @@ export const PantryScreen = () => {
   };
 
   const handleDelete = (item: PantryItem) => {
-    Alert.alert('Remove Ingredient', `Remove "${item.display_name}" from pantry?`, [
+    Alert.alert('Remove Ingredient', `Remove "${item.display_name}" from your pantry?`, [
       { text: 'Cancel', style: 'cancel' },
       {
         text: 'Delete',
@@ -146,26 +148,35 @@ export const PantryScreen = () => {
 
   return (
     <View style={styles.container}>
-      {/* Search & Add bar */}
+      {/* Curved Forest Header */}
+      <AppHeader
+        title="Digital Pantry"
+        subtitle={`${items.length} items on hand`}
+        pantryCount={items.length}
+      />
+
+      {/* Top Search & Actions */}
       <View style={styles.topBar}>
-        <TextInput
-          style={styles.searchInput}
-          placeholder="🔍 Search pantry..."
-          value={searchQuery}
-          onChangeText={setSearchQuery}
-        />
-        <TouchableOpacity style={styles.addBtn} onPress={openAddModal}>
+        <View style={{ flex: 1 }}>
+          <SearchBar
+            placeholder="Search pantry items..."
+            value={searchQuery}
+            onChangeText={setSearchQuery}
+          />
+        </View>
+        <TouchableOpacity style={styles.addBtn} onPress={openAddModal} activeOpacity={0.85}>
           <Text style={styles.addBtnText}>+ Add</Text>
         </TouchableOpacity>
       </View>
 
       {/* Category Filter Chips */}
-      <View style={styles.chipsContainer}>
+      <View style={styles.chipsRow}>
         <FlatList
           horizontal
           showsHorizontalScrollIndicator={false}
           data={CATEGORIES}
           keyExtractor={(c) => c}
+          contentContainerStyle={{ paddingHorizontal: spacing.gutter }}
           renderItem={({ item }) => (
             <TouchableOpacity
               style={[
@@ -189,13 +200,13 @@ export const PantryScreen = () => {
 
       {loading ? (
         <View style={styles.centerArea}>
-          <ActivityIndicator size="large" color="#0288d1" />
+          <ActivityIndicator size="large" color={colors.forest} />
         </View>
       ) : filteredItems.length === 0 ? (
         <EmptyState
           icon="🥫"
           title="Your Pantry is Empty"
-          description="Add everyday ingredients like onions, rice, dal or eggs to get instant meal ideas!"
+          description="Add everyday ingredients like onions, rice, dal or eggs to get instant recipe recommendations!"
           buttonTitle="+ Add Your First Ingredient"
           onButtonPress={openAddModal}
         />
@@ -204,6 +215,7 @@ export const PantryScreen = () => {
           data={filteredItems}
           keyExtractor={(item) => item.id}
           contentContainerStyle={styles.listContent}
+          showsVerticalScrollIndicator={false}
           renderItem={({ item }) => (
             <View style={styles.itemRow}>
               <View style={styles.itemInfo}>
@@ -244,13 +256,14 @@ export const PantryScreen = () => {
         <View style={styles.modalOverlay}>
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>
-              {editingItem ? 'Edit Ingredient' : 'Add to Pantry'}
+              {editingItem ? 'Edit Pantry Item' : 'Add to Pantry'}
             </Text>
 
             <Text style={styles.modalLabel}>Ingredient Name *</Text>
             <TextInput
               style={styles.modalInput}
-              placeholder="e.g. Tomato, Rice, Eggs"
+              placeholder="e.g. Tomatoes, Basmati Rice, Eggs"
+              placeholderTextColor={colors.muted}
               value={name}
               onChangeText={setName}
             />
@@ -261,6 +274,7 @@ export const PantryScreen = () => {
                 <TextInput
                   style={styles.modalInput}
                   placeholder="e.g. 500"
+                  placeholderTextColor={colors.muted}
                   keyboardType="numeric"
                   value={quantity}
                   onChangeText={setQuantity}
@@ -271,6 +285,7 @@ export const PantryScreen = () => {
                 <TextInput
                   style={styles.modalInput}
                   placeholder="g, kg, cup, pcs"
+                  placeholderTextColor={colors.muted}
                   value={unit}
                   onChangeText={setUnit}
                 />
@@ -281,6 +296,7 @@ export const PantryScreen = () => {
             <TextInput
               style={styles.modalInput}
               placeholder="e.g. 3 for three days"
+              placeholderTextColor={colors.muted}
               keyboardType="numeric"
               value={expiryDays}
               onChangeText={setExpiryDays}
@@ -294,14 +310,14 @@ export const PantryScreen = () => {
                 <Text style={styles.cancelBtnText}>Cancel</Text>
               </TouchableOpacity>
               <TouchableOpacity
-                style={[styles.saveBtn, submitting && styles.btnDisabled]}
+                style={[styles.saveBtn, submitting && { opacity: 0.7 }]}
                 onPress={handleSave}
                 disabled={submitting}
               >
                 {submitting ? (
-                  <ActivityIndicator color="#fff" />
+                  <ActivityIndicator color={colors.forest} />
                 ) : (
-                  <Text style={styles.saveBtnText}>Save</Text>
+                  <Text style={styles.saveBtnText}>Save Item</Text>
                 )}
               </TouchableOpacity>
             </View>
@@ -313,91 +329,174 @@ export const PantryScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f8fafc', padding: 16 },
-  topBar: { flexDirection: 'row', gap: 10, marginBottom: 12 },
-  searchInput: {
+  container: {
     flex: 1,
-    backgroundColor: '#ffffff',
-    borderWidth: 1,
-    borderColor: '#cbd5e1',
-    borderRadius: 8,
-    paddingHorizontal: 12,
-    paddingVertical: 10,
-    fontSize: 14,
+    backgroundColor: colors.page,
+  },
+  topBar: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: spacing.gutter,
+    marginTop: -16,
+    marginBottom: 12,
+    zIndex: 10,
+    gap: 8,
   },
   addBtn: {
-    backgroundColor: '#0288d1',
+    backgroundColor: colors.lime,
+    height: 48,
     paddingHorizontal: 16,
-    borderRadius: 8,
+    borderRadius: radius.pill,
+    justifyContent: 'center',
+    alignItems: 'center',
+    ...shadows.subtle,
+  },
+  addBtnText: {
+    color: colors.forest,
+    fontWeight: '700',
+    fontSize: 14,
+  },
+  chipsRow: {
+    marginBottom: 12,
+  },
+  chip: {
+    backgroundColor: colors.surface,
+    paddingHorizontal: 14,
+    paddingVertical: 7,
+    borderRadius: radius.pill,
+    marginRight: 8,
+    borderWidth: 1,
+    borderColor: colors.border,
+  },
+  chipSelected: {
+    backgroundColor: colors.forest,
+    borderColor: colors.forest,
+  },
+  chipText: {
+    fontSize: 13,
+    color: colors.ink,
+    fontWeight: '600',
+  },
+  chipTextSelected: {
+    color: colors.surface,
+    fontWeight: '700',
+  },
+  centerArea: {
+    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  addBtnText: { color: '#ffffff', fontWeight: 'bold', fontSize: 14 },
-  chipsContainer: { marginBottom: 12 },
-  chip: {
-    backgroundColor: '#f1f5f9',
-    paddingHorizontal: 14,
-    paddingVertical: 6,
-    borderRadius: 20,
-    marginRight: 8,
-    borderWidth: 1,
-    borderColor: '#e2e8f0',
+  listContent: {
+    paddingHorizontal: spacing.gutter,
+    paddingBottom: 90,
   },
-  chipSelected: { backgroundColor: '#0288d1', borderColor: '#0288d1' },
-  chipText: { fontSize: 13, color: '#475569', fontWeight: '500' },
-  chipTextSelected: { color: '#ffffff', fontWeight: 'bold' },
-  centerArea: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  listContent: { paddingBottom: 30 },
   itemRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: '#ffffff',
+    backgroundColor: colors.surface,
     padding: 14,
-    borderRadius: 10,
+    borderRadius: radius.md,
     marginBottom: 10,
     borderWidth: 1,
-    borderColor: '#e2e8f0',
+    borderColor: colors.border,
+    ...shadows.subtle,
   },
-  itemInfo: { flex: 1 },
-  itemName: { fontSize: 16, fontWeight: 'bold', color: '#1e293b' },
-  badgeRow: { flexDirection: 'row', alignItems: 'center', marginTop: 4, flexWrap: 'wrap' },
-  qtyText: { fontSize: 13, color: '#64748b', marginRight: 8, fontWeight: '500' },
-  expiryFresh: { fontSize: 11, color: '#94a3b8' },
-  itemActions: { flexDirection: 'row', gap: 8 },
-  iconBtn: { padding: 6 },
-  iconBtnText: { fontSize: 18 },
+  itemInfo: {
+    flex: 1,
+  },
+  itemName: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: colors.ink,
+  },
+  badgeRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 6,
+    flexWrap: 'wrap',
+  },
+  qtyText: {
+    fontSize: 13,
+    color: colors.muted,
+    marginRight: 8,
+    fontWeight: '600',
+  },
+  expiryFresh: {
+    fontSize: 11,
+    color: colors.mutedLight,
+  },
+  itemActions: {
+    flexDirection: 'row',
+    gap: 6,
+  },
+  iconBtn: {
+    padding: 6,
+  },
+  iconBtnText: {
+    fontSize: 18,
+  },
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.4)',
+    backgroundColor: 'rgba(0, 46, 42, 0.45)',
     justifyContent: 'center',
     padding: 20,
   },
   modalContent: {
-    backgroundColor: '#ffffff',
-    borderRadius: 16,
+    backgroundColor: colors.surface,
+    borderRadius: radius.lg,
     padding: 22,
-    shadowColor: '#000',
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
-    elevation: 5,
+    ...shadows.floating,
   },
-  modalTitle: { fontSize: 18, fontWeight: 'bold', color: '#0f172a', marginBottom: 16 },
-  modalLabel: { fontSize: 12, fontWeight: '600', color: '#475569', marginBottom: 4 },
+  modalTitle: {
+    fontSize: 18,
+    fontWeight: '700',
+    color: colors.forest,
+    marginBottom: 16,
+  },
+  modalLabel: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: colors.muted,
+    marginBottom: 4,
+  },
   modalInput: {
     borderWidth: 1,
-    borderColor: '#cbd5e1',
-    borderRadius: 8,
+    borderColor: colors.border,
+    borderRadius: radius.sm,
     padding: 10,
     fontSize: 14,
     marginBottom: 12,
-    backgroundColor: '#f8fafc',
+    backgroundColor: colors.page,
+    color: colors.ink,
   },
-  rowInputs: { flexDirection: 'row' },
-  modalButtons: { flexDirection: 'row', justifyContent: 'flex-end', gap: 10, marginTop: 10 },
-  cancelBtn: { paddingVertical: 10, paddingHorizontal: 16, borderRadius: 8 },
-  cancelBtnText: { color: '#64748b', fontWeight: 'bold' },
-  saveBtn: { backgroundColor: '#0288d1', paddingVertical: 10, paddingHorizontal: 20, borderRadius: 8 },
-  saveBtnText: { color: '#ffffff', fontWeight: 'bold' },
-  btnDisabled: { opacity: 0.7 },
+  rowInputs: {
+    flexDirection: 'row',
+  },
+  modalButtons: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    gap: 10,
+    marginTop: 10,
+  },
+  cancelBtn: {
+    paddingVertical: 10,
+    paddingHorizontal: 16,
+    borderRadius: radius.pill,
+  },
+  cancelBtnText: {
+    color: colors.muted,
+    fontWeight: '700',
+  },
+  saveBtn: {
+    backgroundColor: colors.lime,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: radius.pill,
+    ...shadows.subtle,
+  },
+  saveBtnText: {
+    color: colors.forest,
+    fontWeight: '700',
+  },
 });

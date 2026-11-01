@@ -6,13 +6,15 @@ import {
   FlatList,
   TouchableOpacity,
   ActivityIndicator,
-  TextInput,
   RefreshControl,
 } from 'react-native';
-import { getRecommendations } from '../api/recipes';
+import { colors, radius, spacing, shadows } from '../theme/tokens';
+import { AppHeader } from '../components/AppHeader';
+import { SearchBar } from '../components/SearchBar';
 import { RecipeCard } from '../components/RecipeCard';
-import { RecommendationItem } from '../types';
 import { EmptyState } from '../components/EmptyState';
+import { getRecommendations } from '../api/recipes';
+import { RecommendationItem } from '../types';
 
 export const DiscoverScreen = ({ navigation }: any) => {
   const [mode, setMode] = useState<'cook_now' | 'almost_there'>('cook_now');
@@ -32,7 +34,7 @@ export const DiscoverScreen = ({ navigation }: any) => {
       });
       setRecipes(data.items);
     } catch (err: any) {
-      console.error('Error fetching recommendations:', err);
+      console.warn('Error fetching recommendations:', err);
     } finally {
       setLoading(false);
       setRefreshing(false);
@@ -54,11 +56,26 @@ export const DiscoverScreen = ({ navigation }: any) => {
 
   return (
     <View style={styles.container}>
-      {/* Segmented Control: Cook Now vs Almost There */}
+      <AppHeader
+        title="Discover Recipes"
+        subtitle="Smart meal planning"
+        onPantryPress={() => navigation.navigate('PantryTab')}
+      />
+
+      <View style={styles.searchWrapper}>
+        <SearchBar
+          placeholder="Search recipes..."
+          value={searchFilter}
+          onChangeText={setSearchFilter}
+        />
+      </View>
+
+      {/* Segmented Control: Ready to Cook vs Almost There */}
       <View style={styles.segmentContainer}>
         <TouchableOpacity
           style={[styles.segmentBtn, mode === 'cook_now' && styles.segmentActive]}
           onPress={() => setMode('cook_now')}
+          activeOpacity={0.85}
         >
           <Text
             style={[styles.segmentText, mode === 'cook_now' && styles.segmentTextActive]}
@@ -70,26 +87,17 @@ export const DiscoverScreen = ({ navigation }: any) => {
         <TouchableOpacity
           style={[styles.segmentBtn, mode === 'almost_there' && styles.segmentActive]}
           onPress={() => setMode('almost_there')}
+          activeOpacity={0.85}
         >
           <Text
             style={[styles.segmentText, mode === 'almost_there' && styles.segmentTextActive]}
           >
-            🟠 Almost There (Missing 1–2)
+            🟠 Almost There
           </Text>
         </TouchableOpacity>
       </View>
 
-      {/* Filter / Search Bar */}
-      <View style={styles.filterBar}>
-        <TextInput
-          style={styles.filterInput}
-          placeholder="Filter recipes by name..."
-          value={searchFilter}
-          onChangeText={setSearchFilter}
-        />
-      </View>
-
-      {/* Time quick filter chips */}
+      {/* Time filter chips */}
       <View style={styles.timeChipsRow}>
         <Text style={styles.chipLabel}>Max Time:</Text>
         {[undefined, 15, 30, 45].map((mins) => (
@@ -97,6 +105,7 @@ export const DiscoverScreen = ({ navigation }: any) => {
             key={mins === undefined ? 'any' : mins}
             style={[styles.timeChip, maxTime === mins && styles.timeChipSelected]}
             onPress={() => setMaxTime(mins)}
+            activeOpacity={0.8}
           >
             <Text
               style={[
@@ -112,7 +121,7 @@ export const DiscoverScreen = ({ navigation }: any) => {
 
       {loading ? (
         <View style={styles.centerArea}>
-          <ActivityIndicator size="large" color="#0288d1" />
+          <ActivityIndicator size="large" color={colors.forest} />
           <Text style={styles.loadingText}>Scoring recipes against your pantry...</Text>
         </View>
       ) : filteredRecipes.length === 0 ? (
@@ -125,7 +134,7 @@ export const DiscoverScreen = ({ navigation }: any) => {
           }
           description={
             mode === 'cook_now'
-              ? 'Switch to "Almost There" to see what you can make by buying just 1 or 2 items, or add more ingredients to your pantry!'
+              ? 'Switch to "Almost There" to see recipes you can make by adding just 1 or 2 items, or add more ingredients to your pantry!'
               : 'Add a few more pantry items to find recipes that are almost ready to cook.'
           }
           buttonTitle="Manage Digital Pantry"
@@ -136,6 +145,7 @@ export const DiscoverScreen = ({ navigation }: any) => {
           data={filteredRecipes}
           keyExtractor={(item) => item.recipe_id}
           contentContainerStyle={styles.listContent}
+          showsVerticalScrollIndicator={false}
           refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
           renderItem={({ item }) => (
             <RecipeCard
@@ -150,53 +160,90 @@ export const DiscoverScreen = ({ navigation }: any) => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f8fafc', padding: 16 },
+  container: {
+    flex: 1,
+    backgroundColor: colors.page,
+  },
+  searchWrapper: {
+    paddingHorizontal: spacing.gutter,
+    marginTop: -16,
+    marginBottom: 10,
+    zIndex: 10,
+  },
   segmentContainer: {
     flexDirection: 'row',
-    backgroundColor: '#e2e8f0',
-    borderRadius: 10,
+    backgroundColor: colors.surface,
+    borderRadius: radius.pill,
     padding: 4,
-    marginBottom: 12,
+    marginHorizontal: spacing.gutter,
+    marginBottom: 10,
+    borderWidth: 1,
+    borderColor: colors.border,
+    ...shadows.subtle,
   },
   segmentBtn: {
     flex: 1,
-    paddingVertical: 10,
+    paddingVertical: 9,
     alignItems: 'center',
-    borderRadius: 8,
+    borderRadius: radius.pill,
   },
   segmentActive: {
-    backgroundColor: '#ffffff',
-    shadowColor: '#000',
-    shadowOpacity: 0.05,
-    shadowRadius: 3,
-    elevation: 2,
+    backgroundColor: colors.lime,
   },
-  segmentText: { fontSize: 13, fontWeight: '600', color: '#64748b' },
-  segmentTextActive: { color: '#0f172a', fontWeight: 'bold' },
-  filterBar: { marginBottom: 10 },
-  filterInput: {
-    backgroundColor: '#ffffff',
-    borderWidth: 1,
-    borderColor: '#cbd5e1',
-    borderRadius: 8,
-    paddingHorizontal: 12,
-    paddingVertical: 8,
-    fontSize: 14,
+  segmentText: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: colors.muted,
   },
-  timeChipsRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 12, gap: 8 },
-  chipLabel: { fontSize: 12, color: '#64748b', fontWeight: '600' },
+  segmentTextActive: {
+    color: colors.forest,
+    fontWeight: '700',
+  },
+  timeChipsRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: spacing.gutter,
+    marginBottom: 12,
+    gap: 8,
+  },
+  chipLabel: {
+    fontSize: 12,
+    color: colors.muted,
+    fontWeight: '700',
+  },
   timeChip: {
     paddingHorizontal: 10,
     paddingVertical: 5,
-    borderRadius: 16,
-    backgroundColor: '#ffffff',
+    borderRadius: radius.pill,
+    backgroundColor: colors.surface,
     borderWidth: 1,
-    borderColor: '#cbd5e1',
+    borderColor: colors.border,
   },
-  timeChipSelected: { backgroundColor: '#0288d1', borderColor: '#0288d1' },
-  timeChipText: { fontSize: 12, color: '#475569', fontWeight: '500' },
-  timeChipTextSelected: { color: '#ffffff', fontWeight: 'bold' },
-  centerArea: { flex: 1, justifyContent: 'center', alignItems: 'center' },
-  loadingText: { color: '#64748b', marginTop: 12, fontSize: 14 },
-  listContent: { paddingBottom: 24 },
+  timeChipSelected: {
+    backgroundColor: colors.forest,
+    borderColor: colors.forest,
+  },
+  timeChipText: {
+    fontSize: 12,
+    color: colors.ink,
+    fontWeight: '600',
+  },
+  timeChipTextSelected: {
+    color: colors.surface,
+    fontWeight: '700',
+  },
+  centerArea: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loadingText: {
+    color: colors.muted,
+    marginTop: 10,
+    fontSize: 13,
+  },
+  listContent: {
+    paddingHorizontal: spacing.gutter,
+    paddingBottom: 90,
+  },
 });

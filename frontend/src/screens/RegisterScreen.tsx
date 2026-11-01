@@ -9,9 +9,12 @@ import {
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  StatusBar,
 } from 'react-native';
 import { registerUser } from '../api/auth';
 import { useAuth } from '../context/AuthContext';
+import { colors, radius, spacing, shadows } from '../theme/tokens';
+import { CurvedHeaderBackground } from '../components/CurvedHeaderBackground';
 
 export const RegisterScreen = ({ navigation }: any) => {
   const [displayName, setDisplayName] = useState('');
@@ -51,69 +54,85 @@ export const RegisterScreen = ({ navigation }: any) => {
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : undefined}
     >
-      <ScrollView contentContainerStyle={styles.scroll}>
-        <View style={styles.headerArea}>
-          <Text style={styles.brandIcon}>🥗</Text>
-          <Text style={styles.title}>Join MealBox360</Text>
-          <Text style={styles.subtitle}>Cook smart, reduce waste</Text>
+      <StatusBar barStyle="light-content" />
+      <ScrollView contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}>
+        {/* Forest Curved Top Section */}
+        <View style={styles.topCurvedSection}>
+          <CurvedHeaderBackground height={210} curveRadius={32}>
+            <View style={styles.headerArea}>
+              <View style={styles.brandIconBubble}>
+                <Text style={styles.brandIcon}>🥗</Text>
+              </View>
+              <Text style={styles.title}>Join MealBox360</Text>
+              <Text style={styles.subtitle}>Cook smart, reduce food waste</Text>
+            </View>
+          </CurvedHeaderBackground>
         </View>
 
-        <View style={styles.card}>
-          <Text style={styles.cardTitle}>Create Account</Text>
+        {/* Card Form */}
+        <View style={styles.formContainer}>
+          <View style={styles.card}>
+            <Text style={styles.cardTitle}>Create Account</Text>
 
-          {error ? (
-            <View style={styles.errorBox}>
-              <Text style={styles.errorText}>⚠️ {error}</Text>
-            </View>
-          ) : null}
+            {error ? (
+              <View style={styles.errorBox}>
+                <Text style={styles.errorText}>⚠️ {error}</Text>
+              </View>
+            ) : null}
 
-          <Text style={styles.label}>Your Name</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="e.g., Alex"
-            value={displayName}
-            onChangeText={setDisplayName}
-          />
+            <Text style={styles.label}>Your Name</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="e.g. Alex"
+              placeholderTextColor={colors.subtext}
+              value={displayName}
+              onChangeText={setDisplayName}
+            />
 
-          <Text style={styles.label}>Email Address</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="e.g., alex@example.com"
-            keyboardType="email-address"
-            autoCapitalize="none"
-            value={email}
-            onChangeText={setEmail}
-          />
+            <Text style={styles.label}>Email Address</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="e.g. alex@example.com"
+              placeholderTextColor={colors.subtext}
+              keyboardType="email-address"
+              autoCapitalize="none"
+              value={email}
+              onChangeText={setEmail}
+            />
 
-          <Text style={styles.label}>Password (min 6 characters)</Text>
-          <TextInput
-            style={styles.input}
-            placeholder="••••••••"
-            secureTextEntry
-            value={password}
-            onChangeText={setPassword}
-          />
+            <Text style={styles.label}>Password (min 6 characters)</Text>
+            <TextInput
+              style={styles.input}
+              placeholder="••••••••"
+              placeholderTextColor={colors.subtext}
+              secureTextEntry
+              value={password}
+              onChangeText={setPassword}
+            />
 
-          <TouchableOpacity
-            style={[styles.btn, loading && styles.btnDisabled]}
-            onPress={handleRegister}
-            disabled={loading}
-          >
-            {loading ? (
-              <ActivityIndicator color="#fff" />
-            ) : (
-              <Text style={styles.btnText}>Sign Up</Text>
-            )}
-          </TouchableOpacity>
+            <TouchableOpacity
+              style={[styles.btn, loading && styles.btnDisabled]}
+              onPress={handleRegister}
+              disabled={loading}
+              activeOpacity={0.85}
+            >
+              {loading ? (
+                <ActivityIndicator color={colors.forest} />
+              ) : (
+                <Text style={styles.btnText}>Sign Up</Text>
+              )}
+            </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.switchBtn}
-            onPress={() => navigation.navigate('Login')}
-          >
-            <Text style={styles.switchText}>
-              Already have an account? <Text style={styles.switchLink}>Sign In</Text>
-            </Text>
-          </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.switchBtn}
+              onPress={() => navigation.navigate('Login')}
+              activeOpacity={0.7}
+            >
+              <Text style={styles.switchText}>
+                Already have an account? <Text style={styles.switchLink}>Sign In</Text>
+              </Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -121,51 +140,117 @@ export const RegisterScreen = ({ navigation }: any) => {
 };
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#f8fafc' },
-  scroll: { flexGrow: 1, justifyContent: 'center', padding: 20 },
-  headerArea: { alignItems: 'center', marginBottom: 20 },
-  brandIcon: { fontSize: 48, marginBottom: 8 },
-  title: { fontSize: 26, fontWeight: 'bold', color: '#0f172a' },
-  subtitle: { fontSize: 14, color: '#64748b', marginTop: 4 },
-  card: {
-    backgroundColor: '#ffffff',
-    borderRadius: 16,
-    padding: 24,
-    shadowColor: '#000',
-    shadowOpacity: 0.08,
-    shadowRadius: 10,
-    elevation: 3,
+  container: {
+    flex: 1,
+    backgroundColor: colors.page,
   },
-  cardTitle: { fontSize: 20, fontWeight: 'bold', color: '#1e293b', marginBottom: 18 },
-  label: { fontSize: 13, fontWeight: '600', color: '#475569', marginBottom: 6 },
+  scroll: {
+    flexGrow: 1,
+    paddingBottom: spacing.xl,
+  },
+  topCurvedSection: {
+    marginBottom: -24,
+  },
+  headerArea: {
+    alignItems: 'center',
+    paddingTop: 48,
+    paddingHorizontal: spacing.lg,
+  },
+  brandIconBubble: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: spacing.xs,
+  },
+  brandIcon: {
+    fontSize: 32,
+  },
+  title: {
+    fontSize: 26,
+    fontWeight: '800',
+    color: colors.white,
+    letterSpacing: -0.5,
+  },
+  subtitle: {
+    fontSize: 13,
+    color: colors.cream,
+    marginTop: 2,
+    opacity: 0.85,
+  },
+  formContainer: {
+    paddingHorizontal: spacing.md,
+  },
+  card: {
+    backgroundColor: colors.white,
+    borderRadius: radius.xl,
+    padding: spacing.lg,
+    ...shadows.card,
+  },
+  cardTitle: {
+    fontSize: 20,
+    fontWeight: '800',
+    color: colors.forest,
+    marginBottom: spacing.md,
+  },
+  label: {
+    fontSize: 13,
+    fontWeight: '600',
+    color: colors.text,
+    marginBottom: 6,
+  },
   input: {
-    borderWidth: 1,
-    borderColor: '#cbd5e1',
-    borderRadius: 8,
-    padding: 12,
+    borderWidth: 1.5,
+    borderColor: colors.divider,
+    borderRadius: radius.md,
+    paddingHorizontal: spacing.md,
+    paddingVertical: spacing.sm + 2,
     fontSize: 15,
-    marginBottom: 16,
-    backgroundColor: '#f8fafc',
+    marginBottom: spacing.md,
+    backgroundColor: colors.page,
+    color: colors.text,
   },
   btn: {
-    backgroundColor: '#0288d1',
-    borderRadius: 8,
+    backgroundColor: colors.lime,
+    borderRadius: radius.pill,
     paddingVertical: 14,
     alignItems: 'center',
-    marginTop: 8,
+    marginTop: spacing.xs,
+    ...shadows.card,
   },
-  btnDisabled: { opacity: 0.7 },
-  btnText: { color: '#ffffff', fontSize: 16, fontWeight: 'bold' },
+  btnDisabled: {
+    opacity: 0.6,
+  },
+  btnText: {
+    color: colors.forest,
+    fontSize: 16,
+    fontWeight: '800',
+  },
   errorBox: {
-    backgroundColor: '#fee2e2',
+    backgroundColor: '#FEE2E2',
     borderWidth: 1,
-    borderColor: '#fca5a5',
-    borderRadius: 8,
+    borderColor: '#FCA5A5',
+    borderRadius: radius.sm,
     padding: 10,
-    marginBottom: 14,
+    marginBottom: spacing.md,
   },
-  errorText: { color: '#b91c1c', fontSize: 13, fontWeight: '500' },
-  switchBtn: { marginTop: 18, alignItems: 'center' },
-  switchText: { fontSize: 14, color: '#64748b' },
-  switchLink: { color: '#0288d1', fontWeight: 'bold' },
+  errorText: {
+    color: '#B91C1C',
+    fontSize: 13,
+    fontWeight: '500',
+  },
+  switchBtn: {
+    marginTop: spacing.md,
+    alignItems: 'center',
+  },
+  switchText: {
+    fontSize: 14,
+    color: colors.subtext,
+  },
+  switchLink: {
+    color: colors.forest,
+    fontWeight: '800',
+  },
 });

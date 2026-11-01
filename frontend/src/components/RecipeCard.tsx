@@ -1,57 +1,71 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, ViewStyle } from 'react-native';
 import { RecommendationItem } from '../types';
+import { colors, radius, shadows, spacing } from '../theme/tokens';
 
 interface RecipeCardProps {
   item: RecommendationItem;
   onPress: () => void;
+  style?: ViewStyle;
 }
 
-export const RecipeCard: React.FC<RecipeCardProps> = ({ item, onPress }) => {
+export const RecipeCard: React.FC<RecipeCardProps> = ({ item, onPress, style }) => {
   const isCookNow = item.missing_ingredients.length === 0;
 
   return (
-    <TouchableOpacity style={styles.card} onPress={onPress} activeOpacity={0.8}>
-      {item.image_url ? (
-        <Image source={{ uri: item.image_url }} style={styles.image} resizeMode="cover" />
-      ) : null}
+    <TouchableOpacity
+      style={[styles.card, style]}
+      onPress={onPress}
+      activeOpacity={0.88}
+      accessibilityRole="button"
+      accessibilityLabel={`${item.title}, ${isCookNow ? 'ready to cook' : `needs ${item.missing_ingredients.length} items`}`}
+    >
+      <View style={styles.imageContainer}>
+        {item.image_url ? (
+          <Image source={{ uri: item.image_url }} style={styles.image} resizeMode="cover" />
+        ) : (
+          <View style={styles.placeholderBox}>
+            <Text style={styles.placeholderEmoji}>🍳</Text>
+          </View>
+        )}
+        <View
+          style={[
+            styles.badgePill,
+            { backgroundColor: isCookNow ? colors.lime : '#FEF3C7' },
+          ]}
+        >
+          <Text
+            style={[
+              styles.badgeText,
+              { color: isCookNow ? colors.forest : '#92400E' },
+            ]}
+          >
+            {isCookNow ? '✓ Cook Now' : `Needs ${item.missing_ingredients.length}`}
+          </Text>
+        </View>
+      </View>
 
       <View style={styles.content}>
         <View style={styles.headerRow}>
-          <Text style={styles.title} numberOfLines={2}>
+          <Text style={styles.title} numberOfLines={1}>
             {item.title}
           </Text>
-          <View
-            style={[
-              styles.statusPill,
-              { backgroundColor: isCookNow ? '#e8f5e9' : '#fff3e0' },
-            ]}
-          >
-            <Text
-              style={[
-                styles.statusText,
-                { color: isCookNow ? '#2e7d32' : '#e65100' },
-              ]}
-            >
-              {isCookNow ? 'Cook Now' : `Needs ${item.missing_ingredients.length}`}
-            </Text>
-          </View>
         </View>
 
         <View style={styles.metaRow}>
-          {item.cuisine ? <Text style={styles.metaBadge}>🏷️ {item.cuisine}</Text> : null}
+          {item.cuisine ? <Text style={styles.metaPill}>🏷️ {item.cuisine}</Text> : null}
           {item.total_time_minutes ? (
-            <Text style={styles.metaBadge}>⏱️ {item.total_time_minutes}m</Text>
+            <Text style={styles.metaPill}>⏱️ {item.total_time_minutes}m</Text>
           ) : null}
-          <Text style={styles.matchBadge}>
-            Match: {item.matched_count}/{item.required_count} ({item.match_percent}%)
+          <Text style={styles.matchPill}>
+            {item.matched_count}/{item.required_count} ({item.match_percent}%)
           </Text>
         </View>
 
         {item.recommendation_reasons && item.recommendation_reasons.length > 0 ? (
           <View style={styles.reasonsContainer}>
-            {item.recommendation_reasons.slice(0, 2).map((reason, idx) => (
-              <Text key={idx} style={styles.reasonText}>
+            {item.recommendation_reasons.slice(0, 1).map((reason, idx) => (
+              <Text key={idx} style={styles.reasonText} numberOfLines={1}>
                 ✨ {reason}
               </Text>
             ))}
@@ -59,8 +73,8 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ item, onPress }) => {
         ) : null}
 
         {item.missing_ingredients && item.missing_ingredients.length > 0 ? (
-          <Text style={styles.missingText}>
-            Missing: {item.missing_ingredients.join(', ')}
+          <Text style={styles.missingText} numberOfLines={1}>
+            Need: {item.missing_ingredients.slice(0, 3).join(', ')}
           </Text>
         ) : null}
       </View>
@@ -70,22 +84,45 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ item, onPress }) => {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#ffffff',
-    borderRadius: 12,
-    marginBottom: 14,
-    shadowColor: '#000',
-    shadowOpacity: 0.06,
-    shadowRadius: 6,
-    shadowOffset: { width: 0, height: 2 },
-    elevation: 3,
-    overflow: 'hidden',
+    backgroundColor: colors.surface,
+    borderRadius: radius.lg,
+    marginBottom: spacing.md,
     borderWidth: 1,
-    borderColor: '#f0f0f0',
+    borderColor: colors.border,
+    overflow: 'hidden',
+    ...shadows.subtle,
+  },
+  imageContainer: {
+    width: '100%',
+    height: 140,
+    backgroundColor: '#EAEFEA',
+    position: 'relative',
   },
   image: {
     width: '100%',
-    height: 140,
-    backgroundColor: '#e0e0e0',
+    height: '100%',
+  },
+  placeholderBox: {
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.mint,
+  },
+  placeholderEmoji: {
+    fontSize: 40,
+  },
+  badgePill: {
+    position: 'absolute',
+    top: 10,
+    right: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderRadius: radius.pill,
+  },
+  badgeText: {
+    fontSize: 11,
+    fontWeight: '700',
   },
   content: {
     padding: 14,
@@ -93,24 +130,14 @@ const styles = StyleSheet.create({
   headerRow: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    marginBottom: 6,
+    alignItems: 'center',
+    marginBottom: 4,
   },
   title: {
     fontSize: 16,
-    fontWeight: 'bold',
-    color: '#1a1a1a',
-    flex: 1,
-    marginRight: 8,
-  },
-  statusPill: {
-    paddingHorizontal: 8,
-    paddingVertical: 4,
-    borderRadius: 12,
-  },
-  statusText: {
-    fontSize: 11,
     fontWeight: '700',
+    color: colors.ink,
+    flex: 1,
   },
   metaRow: {
     flexDirection: 'row',
@@ -118,38 +145,38 @@ const styles = StyleSheet.create({
     gap: 6,
     marginVertical: 6,
   },
-  metaBadge: {
-    fontSize: 12,
-    color: '#555',
-    backgroundColor: '#f5f5f5',
+  metaPill: {
+    fontSize: 11,
+    color: colors.muted,
+    backgroundColor: colors.page,
     paddingHorizontal: 8,
     paddingVertical: 3,
-    borderRadius: 6,
+    borderRadius: radius.sm,
+    fontWeight: '500',
   },
-  matchBadge: {
-    fontSize: 12,
-    color: '#0288d1',
-    backgroundColor: '#e1f5fe',
+  matchPill: {
+    fontSize: 11,
+    color: colors.forest,
+    backgroundColor: colors.limeSoft,
     paddingHorizontal: 8,
     paddingVertical: 3,
-    borderRadius: 6,
-    fontWeight: '600',
+    borderRadius: radius.sm,
+    fontWeight: '700',
   },
   reasonsContainer: {
-    marginTop: 6,
+    marginTop: 4,
     borderTopWidth: 1,
-    borderTopColor: '#f5f5f5',
+    borderTopColor: colors.border,
     paddingTop: 6,
   },
   reasonText: {
     fontSize: 12,
-    color: '#388e3c',
-    marginBottom: 2,
-    fontWeight: '500',
+    color: colors.success,
+    fontWeight: '600',
   },
   missingText: {
     fontSize: 12,
-    color: '#d32f2f',
+    color: colors.danger,
     marginTop: 4,
     fontStyle: 'italic',
   },
