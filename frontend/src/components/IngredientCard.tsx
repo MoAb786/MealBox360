@@ -69,20 +69,24 @@ export const IngredientCard: React.FC<IngredientCardProps> = ({
 const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.surface,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,           // 18px per design system image card
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.divider,
     padding: 10,
     width: 140,
     marginRight: 12,
-    ...shadows.subtle,
+    shadowColor: colors.shadow,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 20,
+    elevation: 2,
   },
   imageContainer: {
     width: '100%',
     height: 95,
-    borderRadius: radius.sm,
+    borderRadius: radius.md,           // 12px
     overflow: 'hidden',
-    backgroundColor: '#F1F5F2',
+    backgroundColor: colors.surfaceAlt,
     marginBottom: 8,
     justifyContent: 'center',
     alignItems: 'center',
@@ -96,7 +100,7 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.limeSoft,
+    backgroundColor: colors.surfaceAlt,
   },
   placeholderIcon: {
     fontSize: 32,
@@ -108,13 +112,13 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 13,
     fontWeight: '700',
-    color: colors.ink,
+    color: colors.textPrimary,
     minHeight: 34,
     lineHeight: 17,
   },
   unitText: {
     fontSize: 11,
-    color: colors.muted,
+    color: colors.textSecondary,
     marginBottom: 8,
     fontWeight: '500',
   },

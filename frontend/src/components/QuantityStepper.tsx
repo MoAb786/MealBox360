@@ -78,8 +78,8 @@ export const QuantityStepper: React.FC<QuantityStepperProps> = ({
 
 const styles = StyleSheet.create({
   addPill: {
-    backgroundColor: colors.lime,
-    borderRadius: radius.pill,
+    backgroundColor: colors.primary,   // forest green
+    borderRadius: radius.md,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     height: 44,
   },
   plusText: {
-    color: colors.forest,
+    color: '#FFFFFF',
     fontWeight: '800',
     lineHeight: 18,
   },
@@ -100,8 +100,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: colors.lime,
-    borderRadius: radius.pill,
+    backgroundColor: colors.primary,
+    borderRadius: radius.md,
   },
   stepperSmall: {
     height: 32,
@@ -116,12 +116,13 @@ const styles = StyleSheet.create({
   stepBtn: {
     width: 28,
     height: 28,
-    borderRadius: 14,
+    borderRadius: radius.sm,
+    backgroundColor: 'rgba(255,255,255,0.15)',
     alignItems: 'center',
     justifyContent: 'center',
   },
   stepIcon: {
-    color: colors.forest,
+    color: '#FFFFFF',
     fontWeight: '800',
   },
   textSmall: {
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
   },
   qtyText: {
     fontWeight: '800',
-    color: colors.forest,
+    color: '#FFFFFF',
     textAlign: 'center',
   },
   qtySmall: {

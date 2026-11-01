@@ -8,7 +8,7 @@ import {
   StyleProp,
   ViewStyle,
 } from 'react-native';
-import { colors, radius, shadows, spacing } from '../theme/tokens';
+import { colors, radius, spacing } from '../theme/tokens';
 
 interface SearchBarProps {
   placeholder?: string;
@@ -77,22 +77,22 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: colors.white,
-    borderRadius: radius.pill,
+    backgroundColor: colors.surface,
+    borderRadius: radius.xl,         // pill feel per design system
     paddingHorizontal: spacing.md,
     paddingVertical: 10,
-    ...shadows.card,
+    borderWidth: 1.5,
+    borderColor: colors.divider,
   },
   searchIcon: {
     fontSize: 16,
     marginRight: spacing.sm,
-    opacity: 0.7,
+    opacity: 0.6,
   },
   input: {
     flex: 1,
     fontSize: 14,
-    color: colors.text,
-    paddingVertical: 0,
+    color: colors.textPrimary,
   },
   clearBtn: {
     padding: 4,
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   },
   clearIcon: {
     fontSize: 14,
-    color: colors.subtext,
+    color: colors.textMuted,
     fontWeight: 'bold',
   },
 });

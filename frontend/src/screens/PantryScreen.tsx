@@ -200,7 +200,7 @@ export const PantryScreen = ({ navigation }: any) => {
 
       {loading ? (
         <View style={styles.centerArea}>
-          <ActivityIndicator size="large" color={colors.forest} />
+          <ActivityIndicator size="large" color={colors.primary} />
         </View>
       ) : filteredItems.length === 0 ? (
         <EmptyState
@@ -315,7 +315,7 @@ export const PantryScreen = ({ navigation }: any) => {
                 disabled={submitting}
               >
                 {submitting ? (
-                  <ActivityIndicator color={colors.forest} />
+                  <ActivityIndicator color={colors.primary} />
                 ) : (
                   <Text style={styles.saveBtnText}>Save Item</Text>
                 )}
@@ -331,7 +331,7 @@ export const PantryScreen = ({ navigation }: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.page,
+    backgroundColor: colors.bg,
   },
   topBar: {
     flexDirection: 'row',
@@ -343,16 +343,20 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   addBtn: {
-    backgroundColor: colors.lime,
+    backgroundColor: colors.primary,
     height: 48,
     paddingHorizontal: 16,
-    borderRadius: radius.pill,
+    borderRadius: radius.xl,           // pill CTA
     justifyContent: 'center',
     alignItems: 'center',
-    ...shadows.subtle,
+    shadowColor: colors.shadow,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 8,
+    elevation: 2,
   },
   addBtnText: {
-    color: colors.forest,
+    color: '#FFFFFF',
     fontWeight: '700',
     fontSize: 14,
   },
@@ -366,19 +370,19 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     marginRight: 8,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.divider,
   },
   chipSelected: {
-    backgroundColor: colors.forest,
-    borderColor: colors.forest,
+    backgroundColor: colors.primary,
+    borderColor: colors.primary,
   },
   chipText: {
     fontSize: 13,
-    color: colors.ink,
+    color: colors.textPrimary,
     fontWeight: '600',
   },
   chipTextSelected: {
-    color: colors.surface,
+    color: '#FFFFFF',
     fontWeight: '700',
   },
   centerArea: {
@@ -399,8 +403,12 @@ const styles = StyleSheet.create({
     borderRadius: radius.md,
     marginBottom: 10,
     borderWidth: 1,
-    borderColor: colors.border,
-    ...shadows.subtle,
+    borderColor: colors.divider,
+    shadowColor: colors.shadow,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 8,
+    elevation: 1,
   },
   itemInfo: {
     flex: 1,
@@ -408,7 +416,7 @@ const styles = StyleSheet.create({
   itemName: {
     fontSize: 15,
     fontWeight: '700',
-    color: colors.ink,
+    color: colors.textPrimary,
   },
   badgeRow: {
     flexDirection: 'row',
@@ -418,13 +426,13 @@ const styles = StyleSheet.create({
   },
   qtyText: {
     fontSize: 13,
-    color: colors.muted,
+    color: colors.textSecondary,
     marginRight: 8,
     fontWeight: '600',
   },
   expiryFresh: {
     fontSize: 11,
-    color: colors.mutedLight,
+    color: colors.textMuted,
   },
   itemActions: {
     flexDirection: 'row',
@@ -438,7 +446,7 @@ const styles = StyleSheet.create({
   },
   modalOverlay: {
     flex: 1,
-    backgroundColor: 'rgba(0, 46, 42, 0.45)',
+    backgroundColor: 'rgba(28, 28, 26, 0.50)',
     justifyContent: 'center',
     padding: 20,
   },
@@ -446,29 +454,33 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
     borderRadius: radius.lg,
     padding: 22,
-    ...shadows.floating,
+    shadowColor: colors.shadow,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 1,
+    shadowRadius: 20,
+    elevation: 8,
   },
   modalTitle: {
     fontSize: 18,
     fontWeight: '700',
-    color: colors.forest,
+    color: colors.primary,
     marginBottom: 16,
   },
   modalLabel: {
     fontSize: 12,
     fontWeight: '600',
-    color: colors.muted,
+    color: colors.textSecondary,
     marginBottom: 4,
   },
   modalInput: {
-    borderWidth: 1,
-    borderColor: colors.border,
+    borderWidth: 1.5,
+    borderColor: colors.divider,
     borderRadius: radius.sm,
     padding: 10,
     fontSize: 14,
     marginBottom: 12,
-    backgroundColor: colors.page,
-    color: colors.ink,
+    backgroundColor: colors.bg,
+    color: colors.textPrimary,
   },
   rowInputs: {
     flexDirection: 'row',
@@ -485,18 +497,22 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
   },
   cancelBtnText: {
-    color: colors.muted,
+    color: colors.textSecondary,
     fontWeight: '700',
   },
   saveBtn: {
-    backgroundColor: colors.lime,
+    backgroundColor: colors.primary,
     paddingVertical: 10,
     paddingHorizontal: 20,
-    borderRadius: radius.pill,
-    ...shadows.subtle,
+    borderRadius: radius.xl,
+    shadowColor: colors.shadow,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 8,
+    elevation: 2,
   },
   saveBtnText: {
-    color: colors.forest,
+    color: '#FFFFFF',
     fontWeight: '700',
   },
 });

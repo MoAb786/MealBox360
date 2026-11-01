@@ -159,10 +159,10 @@ export const HomeScreen = ({ navigation }: any) => {
       <View style={styles.bannerContainer}>
         <View style={styles.promoBanner}>
           <View style={{ flex: 1 }}>
-            <Text style={styles.promoBadge}>💡 SMART COOKING TIP</Text>
+            <Text style={styles.promoBadge}>💡 Smart cooking tip</Text>
             <Text style={styles.promoTitle}>Cook more with what you have</Text>
             <Text style={styles.promoSub}>
-              Use ingredients before they expire to cut food waste!
+              Use up ingredients before they expire — less waste, more flavour!
             </Text>
           </View>
           <TouchableOpacity
@@ -216,7 +216,7 @@ export const HomeScreen = ({ navigation }: any) => {
 
       {loading ? (
         <View style={styles.centerArea}>
-          <ActivityIndicator size="large" color={colors.forest} />
+          <ActivityIndicator size="large" color={colors.primary} />
           <Text style={styles.loadingText}>Fetching personalized recipes...</Text>
         </View>
       ) : (
@@ -300,7 +300,7 @@ export const HomeScreen = ({ navigation }: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.page,
+    backgroundColor: colors.bg,           // #F0EDE4 warm off-white
   },
   scrollContent: {
     paddingBottom: 100,
@@ -322,40 +322,44 @@ const styles = StyleSheet.create({
     marginBottom: 18,
   },
   promoBanner: {
-    backgroundColor: colors.forestSoft,
-    borderRadius: radius.md,
+    backgroundColor: colors.primary,      // forest green banner
+    borderRadius: radius.lg,
     padding: 16,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    ...shadows.subtle,
+    shadowColor: colors.shadow,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 20,
+    elevation: 2,
   },
   promoBadge: {
     fontSize: 10,
-    fontWeight: '800',
-    color: colors.lime,
-    letterSpacing: 0.5,
+    fontWeight: '700',
+    color: colors.accent,                  // golden accent
+    letterSpacing: 0.3,
     marginBottom: 4,
   },
   promoTitle: {
     fontSize: 15,
     fontWeight: '700',
-    color: colors.surface,
+    color: '#FFFFFF',
   },
   promoSub: {
     fontSize: 11,
-    color: colors.mint,
+    color: 'rgba(255,255,255,0.75)',
     marginTop: 2,
   },
   promoBtn: {
-    backgroundColor: colors.lime,
+    backgroundColor: colors.accent,       // golden CTA
     paddingHorizontal: 12,
     paddingVertical: 8,
-    borderRadius: radius.pill,
+    borderRadius: radius.md,
     marginLeft: 10,
   },
   promoBtnText: {
-    color: colors.forest,
+    color: colors.textPrimary,
     fontWeight: '700',
     fontSize: 12,
   },
@@ -370,16 +374,17 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 17,
     fontWeight: '700',
-    color: colors.ink,
+    color: colors.textPrimary,
+    letterSpacing: -0.2,
   },
   sectionSubtitle: {
     fontSize: 11,
-    color: colors.muted,
+    color: colors.textSecondary,
     marginTop: 2,
   },
   seeMoreText: {
     fontSize: 13,
-    color: colors.forest,
+    color: colors.primary,
     fontWeight: '700',
   },
   horizontalRail: {
@@ -394,28 +399,33 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   loadingText: {
-    color: colors.muted,
+    color: colors.textSecondary,
     fontSize: 13,
     marginTop: 8,
   },
   emptyCard: {
     backgroundColor: colors.surface,
     padding: 16,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.divider,
     alignItems: 'center',
     marginBottom: 12,
+    shadowColor: colors.shadow,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 20,
+    elevation: 1,
   },
   emptyTitle: {
     fontSize: 14,
     fontWeight: '700',
-    color: colors.ink,
+    color: colors.textPrimary,
     marginBottom: 4,
   },
   emptySub: {
     fontSize: 12,
-    color: colors.muted,
+    color: colors.textSecondary,
     textAlign: 'center',
   },
   disclaimerContainer: {
@@ -423,12 +433,11 @@ const styles = StyleSheet.create({
     marginTop: 20,
     padding: 12,
     borderRadius: radius.sm,
-    backgroundColor: colors.mint,
-    opacity: 0.8,
+    backgroundColor: colors.surfaceAlt,
   },
   disclaimerText: {
     fontSize: 11,
-    color: colors.forest,
+    color: colors.textSecondary,
     textAlign: 'center',
     lineHeight: 16,
   },

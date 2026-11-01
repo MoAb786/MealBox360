@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     borderColor: 'transparent',
   },
   circleSelected: {
-    borderColor: colors.forest,
+    borderColor: colors.primary,     // forest green border when selected
   },
   icon: {
     fontSize: 26,
@@ -66,11 +66,11 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 12,
     fontWeight: '600',
-    color: colors.text,
+    color: colors.textPrimary,
     textAlign: 'center',
   },
   labelSelected: {
-    color: colors.forest,
-    fontWeight: '800',
+    color: colors.primary,
+    fontWeight: '700',
   },
 });

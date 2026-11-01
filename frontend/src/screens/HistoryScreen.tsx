@@ -178,7 +178,7 @@ export const HistoryScreen = ({ navigation }: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.page,
+    backgroundColor: colors.bg,
   },
   mainWrapper: {
     flex: 1,
@@ -187,28 +187,31 @@ const styles = StyleSheet.create({
     zIndex: 10,
   },
   summaryCard: {
-    backgroundColor: colors.surface,
-    borderRadius: radius.md,
+    backgroundColor: colors.primary,    // forest green summary card
+    borderRadius: radius.lg,
     padding: 16,
-    marginBottom: 12,
+    marginBottom: 14,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: colors.border,
-    ...shadows.subtle,
+    shadowColor: colors.shadow,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 20,
+    elevation: 2,
   },
   summaryLeft: {
     flex: 1,
   },
   summaryCount: {
-    fontSize: 26,
-    fontWeight: '800',
-    color: colors.forest,
+    fontSize: 28,
+    fontWeight: '700',
+    color: '#FFFFFF',
+    letterSpacing: -0.3,
   },
   summarySub: {
     fontSize: 12,
-    color: colors.muted,
+    color: 'rgba(255,255,255,0.75)',
     fontWeight: '600',
     marginTop: 2,
   },
@@ -219,13 +222,13 @@ const styles = StyleSheet.create({
   },
   topMealLabel: {
     fontSize: 10,
-    color: colors.muted,
-    textTransform: 'uppercase',
+    color: colors.accent,            // golden accent label
+    fontWeight: '700',
   },
   topMealTitle: {
     fontSize: 13,
     fontWeight: '700',
-    color: colors.ink,
+    color: '#FFFFFF',
     marginTop: 2,
   },
   list: {
@@ -233,12 +236,16 @@ const styles = StyleSheet.create({
   },
   historyCard: {
     backgroundColor: colors.surface,
-    borderRadius: radius.md,
+    borderRadius: radius.lg,
     padding: 14,
     marginBottom: 10,
     borderWidth: 1,
-    borderColor: colors.border,
-    ...shadows.subtle,
+    borderColor: colors.divider,
+    shadowColor: colors.shadow,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 20,
+    elevation: 1,
   },
   cardHeader: {
     flexDirection: 'row',
@@ -247,11 +254,11 @@ const styles = StyleSheet.create({
   recipeTitle: {
     fontSize: 15,
     fontWeight: '700',
-    color: colors.ink,
+    color: colors.textPrimary,
   },
   cookedDate: {
     fontSize: 12,
-    color: colors.muted,
+    color: colors.textSecondary,
     marginTop: 4,
   },
   deleteBtn: {
@@ -259,7 +266,7 @@ const styles = StyleSheet.create({
   },
   deleteIcon: {
     fontSize: 13,
-    color: colors.mutedLight,
+    color: colors.textMuted,
   },
   footerRow: {
     flexDirection: 'row',
@@ -267,23 +274,25 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 10,
     borderTopWidth: 1,
-    borderTopColor: colors.border,
+    borderTopColor: colors.divider,
     paddingTop: 8,
   },
   ratingBadge: {
-    backgroundColor: '#FEF9C3',
+    backgroundColor: 'rgba(232,193,50,0.18)',
     paddingHorizontal: 8,
     paddingVertical: 4,
     borderRadius: radius.sm,
+    borderWidth: 1,
+    borderColor: 'rgba(232,193,50,0.35)',
   },
   ratingText: {
     fontSize: 12,
-    color: '#854D0E',
+    color: '#7A5A00',
     fontWeight: '600',
   },
   viewRecipeText: {
     fontSize: 12,
-    color: colors.forest,
+    color: colors.primary,
     fontWeight: '700',
   },
   centerArea: {

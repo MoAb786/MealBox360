@@ -107,25 +107,29 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     backgroundColor: colors.surface,
-    borderRadius: radius.pill,
+    borderRadius: radius.xl,          // 28px pill
     paddingVertical: 6,
     paddingHorizontal: 8,
     alignItems: 'center',
     justifyContent: 'space-around',
     width: '100%',
     borderWidth: 1,
-    borderColor: 'rgba(0, 59, 54, 0.08)',
-    ...shadows.floating,
+    borderColor: colors.divider,
+    shadowColor: colors.shadow,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 1,
+    shadowRadius: 20,
+    elevation: 6,
   },
   tabItem: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 5,
-    borderRadius: radius.pill,
+    borderRadius: radius.md,
   },
   tabItemActive: {
-    backgroundColor: colors.limeSoft,
+    backgroundColor: 'rgba(74,107,58,0.10)',  // primarySoft
   },
   tabIcon: {
     fontSize: 18,
@@ -139,10 +143,10 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   tabLabelActive: {
-    color: colors.forest,
+    color: colors.primary,
     fontWeight: '700',
   },
   tabLabelInactive: {
-    color: colors.muted,
+    color: colors.textMuted,
   },
 });

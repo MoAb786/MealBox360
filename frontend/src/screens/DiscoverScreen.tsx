@@ -121,7 +121,7 @@ export const DiscoverScreen = ({ navigation }: any) => {
 
       {loading ? (
         <View style={styles.centerArea}>
-          <ActivityIndicator size="large" color={colors.forest} />
+          <ActivityIndicator size="large" color={colors.primary} />
           <Text style={styles.loadingText}>Scoring recipes against your pantry...</Text>
         </View>
       ) : filteredRecipes.length === 0 ? (
@@ -162,7 +162,7 @@ export const DiscoverScreen = ({ navigation }: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.page,
+    backgroundColor: colors.bg,
   },
   searchWrapper: {
     paddingHorizontal: spacing.gutter,
@@ -173,30 +173,34 @@ const styles = StyleSheet.create({
   segmentContainer: {
     flexDirection: 'row',
     backgroundColor: colors.surface,
-    borderRadius: radius.pill,
+    borderRadius: radius.xl,             // big pill
     padding: 4,
     marginHorizontal: spacing.gutter,
     marginBottom: 10,
     borderWidth: 1,
-    borderColor: colors.border,
-    ...shadows.subtle,
+    borderColor: colors.divider,
+    shadowColor: colors.shadow,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 8,
+    elevation: 1,
   },
   segmentBtn: {
     flex: 1,
     paddingVertical: 9,
     alignItems: 'center',
-    borderRadius: radius.pill,
+    borderRadius: radius.lg,
   },
   segmentActive: {
-    backgroundColor: colors.lime,
+    backgroundColor: colors.primary,    // forest green active tab
   },
   segmentText: {
     fontSize: 13,
     fontWeight: '600',
-    color: colors.muted,
+    color: colors.textSecondary,
   },
   segmentTextActive: {
-    color: colors.forest,
+    color: '#FFFFFF',
     fontWeight: '700',
   },
   timeChipsRow: {
@@ -208,7 +212,7 @@ const styles = StyleSheet.create({
   },
   chipLabel: {
     fontSize: 12,
-    color: colors.muted,
+    color: colors.textSecondary,
     fontWeight: '700',
   },
   timeChip: {
@@ -217,19 +221,19 @@ const styles = StyleSheet.create({
     borderRadius: radius.pill,
     backgroundColor: colors.surface,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.divider,
   },
   timeChipSelected: {
-    backgroundColor: colors.forest,
-    borderColor: colors.forest,
+    backgroundColor: colors.accent,     // golden active chip
+    borderColor: colors.accent,
   },
   timeChipText: {
     fontSize: 12,
-    color: colors.ink,
+    color: colors.textPrimary,
     fontWeight: '600',
   },
   timeChipTextSelected: {
-    color: colors.surface,
+    color: colors.textPrimary,
     fontWeight: '700',
   },
   centerArea: {
@@ -238,7 +242,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   loadingText: {
-    color: colors.muted,
+    color: colors.textSecondary,
     marginTop: 10,
     fontSize: 13,
   },

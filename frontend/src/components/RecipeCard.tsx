@@ -31,13 +31,13 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ item, onPress, style }) 
         <View
           style={[
             styles.badgePill,
-            { backgroundColor: isCookNow ? colors.lime : '#FEF3C7' },
+            { backgroundColor: isCookNow ? colors.accent : 'rgba(232,193,50,0.25)' },
           ]}
         >
           <Text
             style={[
               styles.badgeText,
-              { color: isCookNow ? colors.forest : '#92400E' },
+              { color: isCookNow ? colors.textPrimary : '#7A5A00' },
             ]}
           >
             {isCookNow ? '✓ Cook Now' : `Needs ${item.missing_ingredients.length}`}
@@ -85,17 +85,21 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ item, onPress, style }) 
 const styles = StyleSheet.create({
   card: {
     backgroundColor: colors.surface,
-    borderRadius: radius.lg,
+    borderRadius: radius.lg,           // 18px per design system
     marginBottom: spacing.md,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.divider,
     overflow: 'hidden',
-    ...shadows.subtle,
+    shadowColor: colors.shadow,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 20,
+    elevation: 2,
   },
   imageContainer: {
     width: '100%',
-    height: 140,
-    backgroundColor: '#EAEFEA',
+    height: 148,
+    backgroundColor: colors.surfaceAlt,
     position: 'relative',
   },
   image: {
@@ -107,7 +111,7 @@ const styles = StyleSheet.create({
     height: '100%',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.mint,
+    backgroundColor: colors.surfaceAlt,
   },
   placeholderEmoji: {
     fontSize: 40,
@@ -118,7 +122,7 @@ const styles = StyleSheet.create({
     right: 10,
     paddingHorizontal: 10,
     paddingVertical: 5,
-    borderRadius: radius.pill,
+    borderRadius: radius.full,
   },
   badgeText: {
     fontSize: 11,
@@ -134,10 +138,11 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   title: {
-    fontSize: 16,
+    fontSize: 15,
     fontWeight: '700',
-    color: colors.ink,
+    color: colors.textPrimary,
     flex: 1,
+    letterSpacing: -0.2,
   },
   metaRow: {
     flexDirection: 'row',
@@ -147,8 +152,8 @@ const styles = StyleSheet.create({
   },
   metaPill: {
     fontSize: 11,
-    color: colors.muted,
-    backgroundColor: colors.page,
+    color: colors.textSecondary,
+    backgroundColor: colors.bg,
     paddingHorizontal: 8,
     paddingVertical: 3,
     borderRadius: radius.sm,
@@ -156,8 +161,8 @@ const styles = StyleSheet.create({
   },
   matchPill: {
     fontSize: 11,
-    color: colors.forest,
-    backgroundColor: colors.limeSoft,
+    color: colors.primary,
+    backgroundColor: 'rgba(74,107,58,0.12)',
     paddingHorizontal: 8,
     paddingVertical: 3,
     borderRadius: radius.sm,
@@ -166,12 +171,12 @@ const styles = StyleSheet.create({
   reasonsContainer: {
     marginTop: 4,
     borderTopWidth: 1,
-    borderTopColor: colors.border,
+    borderTopColor: colors.divider,
     paddingTop: 6,
   },
   reasonText: {
     fontSize: 12,
-    color: colors.success,
+    color: colors.primary,
     fontWeight: '600',
   },
   missingText: {

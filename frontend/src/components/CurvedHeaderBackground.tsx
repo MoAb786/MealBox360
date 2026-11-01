@@ -34,7 +34,7 @@ export const CurvedHeaderBackground: React.FC<Props> = ({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.forest,
+    backgroundColor: colors.primary,   // Forest green #4A6B3A
     overflow: 'hidden',
     width: '100%',
   },

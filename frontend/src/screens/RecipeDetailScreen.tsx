@@ -221,7 +221,7 @@ export const RecipeDetailScreen = ({ route, navigation }: any) => {
           activeOpacity={0.88}
         >
           {cooking ? (
-            <ActivityIndicator color={colors.forest} />
+            <ActivityIndicator color={colors.primary} />
           ) : (
             <Text style={styles.cookBtnText}>🍳 Mark as Cooked</Text>
           )}
@@ -234,7 +234,7 @@ export const RecipeDetailScreen = ({ route, navigation }: any) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.page,
+    backgroundColor: colors.bg,
   },
   scrollContent: {
     paddingHorizontal: spacing.gutter,
@@ -242,11 +242,15 @@ const styles = StyleSheet.create({
   },
   imageCard: {
     backgroundColor: colors.surface,
-    borderRadius: radius.lg,
+    borderRadius: radius.lg,            // 18px
     height: 220,
     width: '100%',
     overflow: 'hidden',
-    ...shadows.subtle,
+    shadowColor: colors.shadow,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 20,
+    elevation: 2,
     marginBottom: 14,
   },
   heroImage: {
@@ -256,7 +260,7 @@ const styles = StyleSheet.create({
   placeholderBox: {
     width: '100%',
     height: '100%',
-    backgroundColor: colors.mint,
+    backgroundColor: colors.surfaceAlt,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -264,7 +268,11 @@ const styles = StyleSheet.create({
     backgroundColor: colors.surface,
     borderRadius: radius.lg,
     padding: 18,
-    ...shadows.subtle,
+    shadowColor: colors.shadow,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 20,
+    elevation: 1,
   },
   titleRow: {
     flexDirection: 'row',
@@ -275,26 +283,27 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     fontWeight: '700',
-    color: colors.ink,
+    color: colors.textPrimary,
     flex: 1,
     marginRight: 10,
+    letterSpacing: -0.3,
   },
   heartBtn: {
     width: 40,
     height: 40,
-    borderRadius: radius.full,
-    backgroundColor: colors.page,
+    borderRadius: radius.md,
+    backgroundColor: colors.bg,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.divider,
   },
   heartIcon: {
     fontSize: 20,
   },
   description: {
-    fontSize: 14,
-    color: colors.muted,
+    fontSize: 13,
+    color: colors.textSecondary,
     lineHeight: 20,
     marginBottom: 10,
   },
@@ -305,48 +314,51 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
   metaPill: {
-    backgroundColor: colors.page,
+    backgroundColor: colors.surfaceAlt,
     borderWidth: 1,
-    borderColor: colors.border,
+    borderColor: colors.divider,
     paddingHorizontal: 10,
     paddingVertical: 5,
     borderRadius: radius.sm,
     fontSize: 12,
-    color: colors.ink,
+    color: colors.textPrimary,
     fontWeight: '600',
   },
   nutritionBox: {
-    backgroundColor: colors.limeSoft,
-    padding: 10,
+    backgroundColor: 'rgba(74,107,58,0.08)',
+    padding: 12,
     borderRadius: radius.sm,
     marginVertical: 10,
+    borderWidth: 1,
+    borderColor: 'rgba(74,107,58,0.18)',
   },
   nutritionTitle: {
     fontSize: 11,
     fontWeight: '700',
-    color: colors.forest,
+    color: colors.primary,
   },
   nutritionValue: {
     fontSize: 13,
     fontWeight: '600',
-    color: colors.forestSoft,
+    color: colors.textSecondary,
     marginTop: 2,
   },
   sectionDivider: {
     marginTop: 18,
     borderTopWidth: 1,
-    borderTopColor: colors.border,
+    borderTopColor: colors.divider,
     paddingTop: 14,
   },
   sectionHeading: {
     fontSize: 17,
     fontWeight: '700',
-    color: colors.ink,
+    color: colors.textPrimary,
     marginBottom: 2,
+    letterSpacing: -0.2,
   },
   sectionSubtitle: {
     fontSize: 11,
-    color: colors.muted,
+    color: colors.textSecondary,
     marginBottom: 10,
   },
   ingredientsWrap: {
@@ -360,7 +372,7 @@ const styles = StyleSheet.create({
   },
   optionalText: {
     fontSize: 11,
-    color: colors.mutedLight,
+    color: colors.textMuted,
     fontStyle: 'italic',
     marginLeft: 4,
   },
@@ -372,26 +384,26 @@ const styles = StyleSheet.create({
     width: 24,
     height: 24,
     borderRadius: radius.full,
-    backgroundColor: colors.forest,
+    backgroundColor: colors.primary,
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 10,
     marginTop: 2,
   },
   stepNumberText: {
-    color: colors.surface,
+    color: '#FFFFFF',
     fontWeight: '700',
     fontSize: 12,
   },
   stepText: {
     flex: 1,
-    fontSize: 14,
-    color: colors.ink,
+    fontSize: 13,
+    color: colors.textPrimary,
     lineHeight: 22,
   },
   attributionText: {
     fontSize: 11,
-    color: colors.mutedLight,
+    color: colors.textMuted,
     textAlign: 'center',
     marginTop: 16,
     fontStyle: 'italic',
@@ -405,26 +417,35 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.gutter,
     paddingTop: 12,
     borderTopWidth: 1,
-    borderTopColor: colors.border,
-    ...shadows.floating,
+    borderTopColor: colors.divider,
+    shadowColor: colors.shadow,
+    shadowOffset: { width: 0, height: -4 },
+    shadowOpacity: 1,
+    shadowRadius: 20,
+    elevation: 8,
   },
   cookBtn: {
-    backgroundColor: colors.lime,
-    borderRadius: radius.pill,
-    height: 50,
+    backgroundColor: colors.primary,
+    borderRadius: radius.xl,            // pill CTA
+    height: 56,
     justifyContent: 'center',
     alignItems: 'center',
-    ...shadows.subtle,
+    shadowColor: 'rgba(74,107,58,0.25)',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 8,
+    elevation: 2,
   },
   cookBtnText: {
     fontSize: 16,
     fontWeight: '700',
-    color: colors.forest,
+    color: '#FFFFFF',
   },
   centerArea: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: colors.bg,
   },
   errorText: {
     color: colors.danger,

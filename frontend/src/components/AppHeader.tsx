@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: -2,
     right: -2,
-    backgroundColor: colors.lime,
+    backgroundColor: colors.accent,
     borderRadius: radius.pill,
     minWidth: 18,
     height: 18,
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   badgeText: {
-    color: colors.forest,
+    color: colors.textPrimary,
     fontSize: 10,
     fontWeight: '900',
   },
@@ -149,11 +149,8 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 11,
     fontWeight: '600',
-    color: colors.cream,
-    letterSpacing: 0.5,
-    textTransform: 'uppercase',
+    color: 'rgba(255,255,255,0.72)',
     marginBottom: 2,
-    opacity: 0.9,
   },
   title: {
     fontSize: 19,

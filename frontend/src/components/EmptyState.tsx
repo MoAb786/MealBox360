@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { colors, radius, spacing, shadows } from '../theme/tokens';
 
 interface EmptyStateProps {
   icon?: string;
@@ -35,39 +36,42 @@ const styles = StyleSheet.create({
     padding: 30,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#ffffff',
-    borderRadius: 12,
+    backgroundColor: colors.surface,
+    borderRadius: radius.lg,         // 18px
     marginVertical: 15,
     borderWidth: 1,
-    borderColor: '#eee',
+    borderColor: colors.divider,
+    ...shadows.subtle,
   },
   icon: {
     fontSize: 48,
     marginBottom: 12,
   },
   title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    color: '#333',
+    fontSize: 17,
+    fontWeight: '700',
+    color: colors.textPrimary,
     marginBottom: 8,
     textAlign: 'center',
   },
   description: {
-    fontSize: 14,
-    color: '#666',
+    fontSize: 13,
+    color: colors.textSecondary,
     textAlign: 'center',
     lineHeight: 20,
     marginBottom: 16,
   },
   button: {
-    backgroundColor: '#0288d1',
+    backgroundColor: colors.primary,
     paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 8,
+    paddingVertical: 12,
+    borderRadius: radius.xl,         // pill CTA
+    minWidth: 180,
+    alignItems: 'center',
   },
   buttonText: {
-    color: '#ffffff',
-    fontWeight: 'bold',
+    color: '#FFFFFF',
+    fontWeight: '700',
     fontSize: 14,
   },
 });

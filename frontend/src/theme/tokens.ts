@@ -1,136 +1,156 @@
 export const colors = {
-  // Primary Reference Palette
-  forest: '#003B36',       // Deep forest-teal for headers, primary brand
-  forestDark: '#002925',   // Darker forest for deep accents
-  forestLight: '#084B45',  // Lighter forest variant
-  forestSoft: 'rgba(0, 59, 54, 0.08)', // Tinted forest for badges/subtle boxes
-  lime: '#B9ED62',         // High-energy lime-green for buttons, badges, selected pills
-  limeDark: '#9FD447',     // Lime active/pressed state
-  limeLight: '#E8F8CE',    // Subtle lime background tint
-  limeSoft: '#E8F8CE',     // Soft lime tint alias
-  mint: '#D1FAE5',         // Minty fresh light green
+  // ─── Mealbox Design System Palette ───────────────────────────────────────
+  // Primary
+  primary:       '#4A6B3A',   // Forest green — buttons, icons, borders, links
+  primaryDark:   '#3A5530',   // Pressed / hover state
+  primarySoft:   'rgba(74,107,58,0.08)', // Tinted primary for subtle surfaces
 
-  // Neutral & Surfaces
-  page: '#F6F8F7',         // Clean soft grayish-green background
-  white: '#FFFFFF',
-  card: '#FFFFFF',
-  surface: '#FFFFFF',      // Surface alias
-  surfaceSubtle: '#F1F4F3',
-  divider: '#E4EAE7',
-  border: '#DFE5E2',
+  // Accent (use sparingly)
+  accent:        '#E8C132',   // Golden — badges, active states, highlights
+  accentDark:    '#C9A820',   // Accent hover
 
-  // Typography
-  ink: '#12201D',          // Primary high-contrast dark text
-  text: '#12201D',         // High-contrast deep slate/teal
-  muted: '#4A5B57',        // Secondary muted body text
-  mutedLight: '#768783',   // Lighter secondary text
-  textMuted: '#4A5B57',    // Body text secondary
-  subtext: '#768783',      // Subtle metadata / placeholders
-  cream: '#FEFFE5',        // Soft warm cream for header subtitles
+  // Surfaces
+  bg:            '#F0EDE4',   // Warm off-white app background
+  surface:       '#FAFAF5',   // Card / panel surface
+  surfaceAlt:    '#EBEBE6',   // Nutrition chips, muted backgrounds
+
+  // Text
+  textPrimary:   '#1C1C1A',   // Headlines, bold labels
+  textSecondary: '#6B6B65',   // Body text, captions
+  textMuted:     '#9E9E96',   // Strikethrough, disabled
+
+  // Structural
+  divider:       '#DDDDD5',   // Horizontal rules, card separators
+  shadow:        'rgba(60,60,40,0.10)', // Card drop shadow
+
+  // ─── Legacy aliases (keep for backward compat with unchanged screens) ──
+  forest:        '#4A6B3A',
+  forestDark:    '#3A5530',
+  forestLight:   '#4A6B3A',
+  forestSoft:    'rgba(74,107,58,0.08)',
+  lime:          '#E8C132',   // Remapped to accent gold
+  limeDark:      '#C9A820',
+  limeLight:     'rgba(232,193,50,0.15)',
+  limeSoft:      'rgba(232,193,50,0.15)',
+  mint:          '#EBEBE6',   // Remapped to surfaceAlt
+
+  page:          '#F0EDE4',   // Remapped to bg
+  white:         '#FAFAF5',   // Remapped to surface
+  card:          '#FAFAF5',
+  surfaceSubtle: '#EBEBE6',
+  border:        '#DDDDD5',
+
+  ink:           '#1C1C1A',
+  text:          '#1C1C1A',
+  muted:         '#6B6B65',
+  mutedLight:    '#9E9E96',
+  textMuted_:    '#6B6B65',
+  subtext:       '#9E9E96',
+  cream:         'rgba(255,255,255,0.75)',
 
   // Semantic
-  danger: '#EF4444',
-  dangerBg: '#FEE2E2',
-  warning: '#F59E0B',
-  warningBg: '#FEF3C7',
-  success: '#10B981',
-  successBg: '#D1FAE5',
+  danger:        '#EF4444',
+  dangerBg:      '#FEE2E2',
+  warning:       '#F59E0B',
+  warningBg:     '#FEF3C7',
+  success:       '#4A6B3A',
+  successBg:     '#EBEBE6',
 
-  // Pastel Category Backgrounds (matching reference 1 & 2 tiles)
-  categoryBg1: '#FFF3E2', // Grains (amber-tinted)
-  categoryBg2: '#EBF7EE', // Vegetables (sage-green)
-  categoryBg3: '#F3E8FF', // Protein (lavender-tinted)
-  categoryBg4: '#FDECEE', // Fruits (blush-coral)
-  categoryBg5: '#E5F3FE', // Dairy (sky-blue)
-  categoryBg6: '#FFFBE6', // Spices (golden yellow)
+  // Category pastel chips
+  categoryBg1: '#FFF3E2',
+  categoryBg2: '#EBF7EE',
+  categoryBg3: '#F3E8FF',
+  categoryBg4: '#FDECEE',
+  categoryBg5: '#E5F3FE',
+  categoryBg6: '#FFFBE6',
 
   pastels: {
     vegetables: '#EBF7EE',
-    fruits: '#FDECEE',
-    grains: '#FFF3E2',
-    dairy: '#E5F3FE',
-    protein: '#F3E8FF',
-    spices: '#FFFBE6',
-    all: '#E6F4F1',
+    fruits:     '#FDECEE',
+    grains:     '#FFF3E2',
+    dairy:      '#E5F3FE',
+    protein:    '#F3E8FF',
+    spices:     '#FFFBE6',
+    all:        '#EBEBE6',
   },
 };
 
 export const spacing = {
-  xs: 4,
-  sm: 8,
-  md: 16,
-  gutter: 16,
-  lg: 24,
-  xl: 32,
+  xs: 4,    // --space-xs
+  sm: 8,    // --space-sm
+  md: 16,   // --space-md  (also horizontal gutter)
+  gutter: 20, // 20px horizontal padding per spec
+  lg: 24,   // --space-lg
+  xl: 32,   // --space-xl
   xxl: 40,
 };
 
 export const radius = {
   xs: 4,
-  sm: 8,
-  md: 12,
-  lg: 16,
-  xl: 24,
+  sm: 8,    // --radius-sm: nutrition chips, small tags
+  md: 12,   // --radius-md: quantity buttons, badges
+  lg: 18,   // --radius-lg: product image card
+  xl: 28,   // --radius-xl: full-width CTA button
   xxl: 32,
-  pill: 9999,
-  full: 9999,
+  pill: 999, // --radius-full
+  full: 999,
 };
 
 export const typography = {
   titleLarge: {
-    fontSize: 24,
-    fontWeight: '800' as const,
-    color: colors.text,
-    letterSpacing: -0.5,
+    fontSize: 22,           // --text-lg
+    fontWeight: '700' as const,
+    color: colors.textPrimary,
+    letterSpacing: -0.3,
   },
   titleMedium: {
-    fontSize: 18,
-    fontWeight: '700' as const,
-    color: colors.text,
+    fontSize: 17,           // --text-md
+    fontWeight: '600' as const,
+    color: colors.textPrimary,
   },
   bodyRegular: {
-    fontSize: 14,
-    color: colors.textMuted,
+    fontSize: 13,           // --text-sm
+    color: colors.textSecondary,
     lineHeight: 20,
   },
   bodySmall: {
-    fontSize: 12,
-    color: colors.subtext,
+    fontSize: 11,           // --text-xs
+    color: colors.textMuted,
   },
   labelBold: {
     fontSize: 13,
     fontWeight: '700' as const,
-    color: colors.text,
+    color: colors.textPrimary,
   },
 };
 
 export const shadows = {
   header: {
-    shadowColor: '#000000',
+    shadowColor: colors.shadow,
     shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.12,
-    shadowRadius: 10,
+    shadowOpacity: 1,
+    shadowRadius: 20,
     elevation: 4,
   },
   card: {
-    shadowColor: '#0D2420',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
-    shadowRadius: 8,
+    shadowColor: colors.shadow,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 1,
+    shadowRadius: 20,
     elevation: 2,
   },
   subtle: {
-    shadowColor: '#0D2420',
+    shadowColor: colors.shadow,
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.06,
+    shadowOpacity: 1,
     shadowRadius: 8,
-    elevation: 2,
+    elevation: 1,
   },
   floating: {
-    shadowColor: '#0D2420',
+    shadowColor: colors.shadow,
     shadowOffset: { width: 0, height: 8 },
-    shadowOpacity: 0.14,
-    shadowRadius: 16,
-    elevation: 8,
+    shadowOpacity: 1,
+    shadowRadius: 20,
+    elevation: 6,
   },
 };
