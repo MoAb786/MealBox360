@@ -13,7 +13,8 @@ import {
 } from 'react-native';
 import { loginUser } from '../api/auth';
 import { useAuth } from '../context/AuthContext';
-import { colors, radius, spacing, shadows } from '../theme/tokens';
+import { getBaseUrl, setCustomBaseUrl } from '../api/client';
+import { colors, radius, spacing } from '../theme/tokens';
 import { CurvedHeaderBackground } from '../components/CurvedHeaderBackground';
 
 export const LoginScreen = ({ navigation }: any) => {
@@ -21,6 +22,10 @@ export const LoginScreen = ({ navigation }: any) => {
   const [password, setPassword] = useState('demo1234');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showServerConfig, setShowServerConfig] = useState(false);
+  const [currentBaseUrl, setCurrentBaseUrl] = useState(getBaseUrl());
+  const [serverUrl, setServerUrl] = useState(getBaseUrl());
+  const [serverSavedMsg, setServerSavedMsg] = useState<string | null>(null);
   const { login } = useAuth();
 
   const handleLogin = async () => {
@@ -38,6 +43,14 @@ export const LoginScreen = ({ navigation }: any) => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleSaveServer = async () => {
+    if (!serverUrl.trim()) return;
+    await setCustomBaseUrl(serverUrl.trim());
+    setCurrentBaseUrl(getBaseUrl());
+    setServerSavedMsg('Server URL updated!');
+    setTimeout(() => setServerSavedMsg(null), 3000);
   };
 
   return (
@@ -120,6 +133,38 @@ export const LoginScreen = ({ navigation }: any) => {
                 Don't have an account? <Text style={styles.switchLink}>Create One</Text>
               </Text>
             </TouchableOpacity>
+
+            {/* Configurable Server URL */}
+            <TouchableOpacity
+              style={styles.serverToggleBtn}
+              onPress={() => setShowServerConfig(!showServerConfig)}
+              activeOpacity={0.7}
+            >
+              <Text style={styles.serverToggleText}>
+                ⚙️ Server: {currentBaseUrl} {showServerConfig ? '▲' : '▼'}
+              </Text>
+            </TouchableOpacity>
+
+            {showServerConfig ? (
+              <View style={styles.serverBox}>
+                <Text style={styles.serverBoxLabel}>Backend API URL (FastAPI)</Text>
+                <TextInput
+                  style={styles.serverInput}
+                  value={serverUrl}
+                  onChangeText={setServerUrl}
+                  placeholder="http://192.168.1.66:8001"
+                  placeholderTextColor={colors.subtext}
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                />
+                <TouchableOpacity style={styles.saveServerBtn} onPress={handleSaveServer}>
+                  <Text style={styles.saveServerBtnText}>Update Server URL</Text>
+                </TouchableOpacity>
+                {serverSavedMsg ? (
+                  <Text style={styles.serverSavedText}>✓ {serverSavedMsg}</Text>
+                ) : null}
+              </View>
+            ) : null}
           </View>
         </View>
       </ScrollView>
@@ -207,7 +252,7 @@ const styles = StyleSheet.create({
   },
   btn: {
     backgroundColor: colors.primary,
-    borderRadius: radius.xl,            // pill CTA
+    borderRadius: radius.xl,
     paddingVertical: 14,
     alignItems: 'center',
     marginTop: spacing.xs,
@@ -267,5 +312,57 @@ const styles = StyleSheet.create({
   switchLink: {
     color: colors.primary,
     fontWeight: '700',
+  },
+  serverToggleBtn: {
+    marginTop: spacing.lg,
+    paddingVertical: 6,
+    alignItems: 'center',
+  },
+  serverToggleText: {
+    fontSize: 12,
+    color: colors.textSecondary,
+  },
+  serverBox: {
+    marginTop: spacing.xs,
+    padding: spacing.sm,
+    backgroundColor: colors.bg,
+    borderRadius: radius.md,
+    borderWidth: 1,
+    borderColor: colors.divider,
+  },
+  serverBoxLabel: {
+    fontSize: 11,
+    fontWeight: '600',
+    color: colors.textSecondary,
+    marginBottom: 4,
+  },
+  serverInput: {
+    borderWidth: 1,
+    borderColor: colors.divider,
+    borderRadius: radius.sm,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: 6,
+    fontSize: 13,
+    backgroundColor: '#FFFFFF',
+    color: colors.textPrimary,
+    marginBottom: 8,
+  },
+  saveServerBtn: {
+    backgroundColor: colors.primary,
+    paddingVertical: 8,
+    borderRadius: radius.sm,
+    alignItems: 'center',
+  },
+  saveServerBtnText: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: '700',
+  },
+  serverSavedText: {
+    color: colors.success,
+    fontSize: 11,
+    fontWeight: '600',
+    textAlign: 'center',
+    marginTop: 4,
   },
 });

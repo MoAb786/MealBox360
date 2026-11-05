@@ -1,5 +1,33 @@
 {
-  "plugins": [
-    "expo-secure-store"
-  ]
+  "expo": {
+    "name": "MealBox",
+    "slug": "mealbox-frontend",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#003B36"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mealbox.app"
+    },
+    "android": {
+      "package": "com.mealbox.app",
+      "usesCleartextTraffic": true,
+      "adaptiveIcon": {
+        "backgroundColor": "#003B36"
+      }
+    },
+    "plugins": [
+      "expo-secure-store",
+      "./plugins/withCleartextTraffic.js"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "d97b53ea-23cd-40b2-903d-6cd5e21269e9"
+      }
+    }
+  }
 }

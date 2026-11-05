@@ -10,8 +10,14 @@ from app.api.v1.router import api_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    await connect_db()
-    await ensure_indexes()
+    try:
+        await connect_db()
+    except Exception as e:
+        print(f"⚠️ Warning during connect_db: {e}")
+    try:
+        await ensure_indexes()
+    except Exception as e:
+        print(f"⚠️ Warning during ensure_indexes: {e}")
     yield
     await close_db()
 
