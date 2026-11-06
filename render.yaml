@@ -8,6 +8,8 @@ services:
     plan: free
     healthCheckPath: /health
     envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
       - key: APP_ENV
         value: production
       - key: MONGODB_URI
@@ -16,3 +18,5 @@ services:
         value: mealbox360
       - key: JWT_SECRET_KEY
         generateValue: true
+      - key: CORS_ORIGINS
+        value: "*"
