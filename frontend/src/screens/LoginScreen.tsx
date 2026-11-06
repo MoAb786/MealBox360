@@ -152,7 +152,7 @@ export const LoginScreen = ({ navigation }: any) => {
                   style={styles.serverInput}
                   value={serverUrl}
                   onChangeText={setServerUrl}
-                  placeholder="http://192.168.1.66:8001"
+                  placeholder="https://mealbox360.onrender.com"
                   placeholderTextColor={colors.subtext}
                   autoCapitalize="none"
                   autoCorrect={false}

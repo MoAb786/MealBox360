@@ -8,10 +8,9 @@ declare const process: {
   };
 };
 
-// Machine LAN IP default fallback
+// Production Render HTTPS URL fallback
 const DEFAULT_SERVER_URL =
-  process.env.EXPO_PUBLIC_API_URL ||
-  (Platform.OS === 'android' ? 'http://192.168.1.66:8001' : 'http://127.0.0.1:8001');
+  process.env.EXPO_PUBLIC_API_URL || 'https://mealbox360.onrender.com';
 
 let customBaseUrl: string | null = null;
 const SERVER_URL_STORAGE_KEY = 'mealbox360_api_base_url';
