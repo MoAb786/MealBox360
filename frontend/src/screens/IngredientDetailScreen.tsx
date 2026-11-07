@@ -17,6 +17,7 @@ import { getPantryItems, addPantryItem, updatePantryItem, deletePantryItem } fro
 import { searchRecipes } from '../api/recipes';
 import { PantryItem, Recipe } from '../types';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { getRecipeImageUrl } from '../data/recipeImages';
 
 export const IngredientDetailScreen = ({ route, navigation }: any) => {
   const { ingredientId, initialIngredient } = route.params || {};
@@ -199,11 +200,11 @@ export const IngredientDetailScreen = ({ route, navigation }: any) => {
                     activeOpacity={0.85}
                   >
                     <View style={styles.miniImageContainer}>
-                      {r.image_url ? (
-                        <Image source={{ uri: r.image_url }} style={styles.miniImage} />
-                      ) : (
-                        <Text style={{ fontSize: 24 }}>🍲</Text>
-                      )}
+                      <Image
+                        source={{ uri: getRecipeImageUrl(r) }}
+                        style={styles.miniImage}
+                        resizeMode="cover"
+                      />
                     </View>
                     <Text style={styles.miniTitle} numberOfLines={2}>
                       {r.title}

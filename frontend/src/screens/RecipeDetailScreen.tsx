@@ -16,6 +16,7 @@ import { getRecipeDetail, addFavourite, removeFavourite, getFavourites } from '.
 import { markRecipeCooked } from '../api/history';
 import { Recipe } from '../types';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { getRecipeImageUrl } from '../data/recipeImages';
 
 export const RecipeDetailScreen = ({ route, navigation }: any) => {
   const { recipeId } = route.params;
@@ -24,6 +25,7 @@ export const RecipeDetailScreen = ({ route, navigation }: any) => {
   const [loading, setLoading] = useState(true);
   const [isFav, setIsFav] = useState(false);
   const [cooking, setCooking] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   useEffect(() => {
     const loadDetail = async () => {
@@ -112,8 +114,13 @@ export const RecipeDetailScreen = ({ route, navigation }: any) => {
       >
         {/* Large Hero Food Image Frame */}
         <View style={styles.imageCard}>
-          {recipe.image_url ? (
-            <Image source={{ uri: recipe.image_url }} style={styles.heroImage} resizeMode="cover" />
+          {!imageError ? (
+            <Image
+              source={{ uri: getRecipeImageUrl(recipe) }}
+              style={styles.heroImage}
+              resizeMode="cover"
+              onError={() => setImageError(true)}
+            />
           ) : (
             <View style={styles.placeholderBox}>
               <Text style={{ fontSize: 48 }}>🥘</Text>

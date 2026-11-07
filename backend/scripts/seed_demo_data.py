@@ -95,14 +95,17 @@ async def main():
             if ing_doc:
                 normalized_ids.append(ing_doc["_id"])
 
-        recipe_doc = {
+        update_data = {
             **recipe,
             "normalized_ingredient_ids": normalized_ids,
-            "created_at": datetime.now(timezone.utc),
+            "updated_at": datetime.now(timezone.utc),
         }
         await db.recipes.update_one(
             {"external_source": recipe["external_source"], "external_id": recipe["external_id"]},
-            {"$setOnInsert": recipe_doc},
+            {
+                "$set": update_data,
+                "$setOnInsert": {"created_at": datetime.now(timezone.utc)},
+            },
             upsert=True,
         )
         recipe_count += 1

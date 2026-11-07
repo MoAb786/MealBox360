@@ -4,18 +4,79 @@
     "external_id": "poha",
     "title": "Poha (Flattened Rice Breakfast)",
     "description": "A quick and light Indian breakfast made with flattened rice, onions, and spices.",
-    "ingredient_names": ["poha", "onion", "green chilli", "mustard seeds", "curry leaves", "turmeric powder", "lemon", "coriander leaves", "cooking oil", "salt"],
+    "ingredient_names": [
+      "poha",
+      "onion",
+      "green chilli",
+      "mustard seeds",
+      "curry leaves",
+      "turmeric powder",
+      "lemon",
+      "coriander leaves",
+      "cooking oil",
+      "salt"
+    ],
     "ingredients_detail": [
-      {"name": "poha", "quantity": 1.5, "unit": "cup", "required": true},
-      {"name": "onion", "quantity": 1, "unit": "medium", "required": true},
-      {"name": "green chilli", "quantity": 2, "unit": null, "required": true},
-      {"name": "mustard seeds", "quantity": 0.5, "unit": "tsp", "required": true},
-      {"name": "curry leaves", "quantity": 8, "unit": "leaves", "required": true},
-      {"name": "turmeric powder", "quantity": 0.25, "unit": "tsp", "required": true},
-      {"name": "lemon", "quantity": 0.5, "unit": "piece", "required": false},
-      {"name": "coriander leaves", "quantity": null, "unit": null, "required": false},
-      {"name": "cooking oil", "quantity": 2, "unit": "tbsp", "required": true},
-      {"name": "salt", "quantity": null, "unit": "to taste", "required": true}
+      {
+        "name": "poha",
+        "quantity": 1.5,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "green chilli",
+        "quantity": 2,
+        "unit": null,
+        "required": true
+      },
+      {
+        "name": "mustard seeds",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "curry leaves",
+        "quantity": 8,
+        "unit": "leaves",
+        "required": true
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.25,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "lemon",
+        "quantity": 0.5,
+        "unit": "piece",
+        "required": false
+      },
+      {
+        "name": "coriander leaves",
+        "quantity": null,
+        "unit": null,
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 2,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
     ],
     "steps": [
       "Wash the poha in a colander under running water until just softened. Do not soak. Set aside.",
@@ -33,10 +94,20 @@
     "servings": 2,
     "difficulty": "easy",
     "cuisine": "Indian",
-    "diet_tags": ["vegetarian", "vegan"],
+    "diet_tags": [
+      "vegetarian",
+      "vegan"
+    ],
     "allergen_tags": [],
-    "nutrition_per_serving": {"calories_kcal": null, "protein_g": null, "carbohydrates_g": null, "fat_g": null, "source": null, "is_estimate": true},
-    "image_url": null,
+    "nutrition_per_serving": {
+      "calories_kcal": null,
+      "protein_g": null,
+      "carbohydrates_g": null,
+      "fat_g": null,
+      "source": null,
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1645177628172-a94c1f96e6db?w=800&auto=format&fit=crop&q=80",
     "source_url": null,
     "attribution": "manual — original recipe",
     "quantity_aware": true
@@ -46,20 +117,93 @@
     "external_id": "dal-rice",
     "title": "Dal Rice (Red Lentil Dal with Steamed Rice)",
     "description": "Simple everyday dal made with red lentils and basic spices, served over steamed rice.",
-    "ingredient_names": ["red lentils", "rice", "onion", "tomato", "garlic", "ginger", "turmeric powder", "cumin seeds", "red chilli powder", "coriander powder", "cooking oil", "salt"],
+    "ingredient_names": [
+      "red lentils",
+      "rice",
+      "onion",
+      "tomato",
+      "garlic",
+      "ginger",
+      "turmeric powder",
+      "cumin seeds",
+      "red chilli powder",
+      "coriander powder",
+      "cooking oil",
+      "salt"
+    ],
     "ingredients_detail": [
-      {"name": "red lentils", "quantity": 0.5, "unit": "cup", "required": true},
-      {"name": "rice", "quantity": 1, "unit": "cup", "required": true},
-      {"name": "onion", "quantity": 1, "unit": "medium", "required": true},
-      {"name": "tomato", "quantity": 1, "unit": "medium", "required": true},
-      {"name": "garlic", "quantity": 3, "unit": "cloves", "required": true},
-      {"name": "ginger", "quantity": 0.5, "unit": "inch", "required": false},
-      {"name": "turmeric powder", "quantity": 0.5, "unit": "tsp", "required": true},
-      {"name": "cumin seeds", "quantity": 1, "unit": "tsp", "required": true},
-      {"name": "red chilli powder", "quantity": 0.5, "unit": "tsp", "required": false},
-      {"name": "coriander powder", "quantity": 1, "unit": "tsp", "required": false},
-      {"name": "cooking oil", "quantity": 2, "unit": "tbsp", "required": true},
-      {"name": "salt", "quantity": null, "unit": "to taste", "required": true}
+      {
+        "name": "red lentils",
+        "quantity": 0.5,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "rice",
+        "quantity": 1,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "garlic",
+        "quantity": 3,
+        "unit": "cloves",
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 0.5,
+        "unit": "inch",
+        "required": false
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "cumin seeds",
+        "quantity": 1,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "red chilli powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "coriander powder",
+        "quantity": 1,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 2,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
     ],
     "steps": [
       "Wash and soak red lentils for 15 minutes. Wash rice separately.",
@@ -78,10 +222,20 @@
     "servings": 2,
     "difficulty": "easy",
     "cuisine": "Indian",
-    "diet_tags": ["vegetarian", "vegan"],
+    "diet_tags": [
+      "vegetarian",
+      "vegan"
+    ],
     "allergen_tags": [],
-    "nutrition_per_serving": {"calories_kcal": null, "protein_g": null, "carbohydrates_g": null, "fat_g": null, "source": null, "is_estimate": true},
-    "image_url": null,
+    "nutrition_per_serving": {
+      "calories_kcal": null,
+      "protein_g": null,
+      "carbohydrates_g": null,
+      "fat_g": null,
+      "source": null,
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=800&auto=format&fit=crop&q=80",
     "source_url": null,
     "attribution": "manual — original recipe",
     "quantity_aware": true
@@ -91,19 +245,86 @@
     "external_id": "egg-bhurji",
     "title": "Egg Bhurji (Indian Scrambled Eggs)",
     "description": "Spiced Indian scrambled eggs cooked with onions, tomatoes and green chillies.",
-    "ingredient_names": ["egg", "onion", "tomato", "green chilli", "ginger", "turmeric powder", "red chilli powder", "cumin seeds", "coriander leaves", "cooking oil", "salt"],
+    "ingredient_names": [
+      "egg",
+      "onion",
+      "tomato",
+      "green chilli",
+      "ginger",
+      "turmeric powder",
+      "red chilli powder",
+      "cumin seeds",
+      "coriander leaves",
+      "cooking oil",
+      "salt"
+    ],
     "ingredients_detail": [
-      {"name": "egg", "quantity": 3, "unit": null, "required": true},
-      {"name": "onion", "quantity": 1, "unit": "medium", "required": true},
-      {"name": "tomato", "quantity": 1, "unit": "medium", "required": true},
-      {"name": "green chilli", "quantity": 1, "unit": null, "required": true},
-      {"name": "ginger", "quantity": 0.25, "unit": "inch", "required": false},
-      {"name": "turmeric powder", "quantity": 0.25, "unit": "tsp", "required": true},
-      {"name": "red chilli powder", "quantity": 0.25, "unit": "tsp", "required": false},
-      {"name": "cumin seeds", "quantity": 0.5, "unit": "tsp", "required": false},
-      {"name": "coriander leaves", "quantity": null, "unit": null, "required": false},
-      {"name": "cooking oil", "quantity": 2, "unit": "tbsp", "required": true},
-      {"name": "salt", "quantity": null, "unit": "to taste", "required": true}
+      {
+        "name": "egg",
+        "quantity": 3,
+        "unit": null,
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "green chilli",
+        "quantity": 1,
+        "unit": null,
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 0.25,
+        "unit": "inch",
+        "required": false
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.25,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "red chilli powder",
+        "quantity": 0.25,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "cumin seeds",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "coriander leaves",
+        "quantity": null,
+        "unit": null,
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 2,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
     ],
     "steps": [
       "Beat eggs with a pinch of salt and set aside.",
@@ -122,10 +343,21 @@
     "servings": 2,
     "difficulty": "easy",
     "cuisine": "Indian",
-    "diet_tags": ["eggetarian"],
-    "allergen_tags": ["egg"],
-    "nutrition_per_serving": {"calories_kcal": null, "protein_g": null, "carbohydrates_g": null, "fat_g": null, "source": null, "is_estimate": true},
-    "image_url": null,
+    "diet_tags": [
+      "eggetarian"
+    ],
+    "allergen_tags": [
+      "egg"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": null,
+      "protein_g": null,
+      "carbohydrates_g": null,
+      "fat_g": null,
+      "source": null,
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&auto=format&fit=crop&q=80",
     "source_url": null,
     "attribution": "manual — original recipe",
     "quantity_aware": true
@@ -135,18 +367,79 @@
     "external_id": "besan-chilla",
     "title": "Besan Chilla (Chickpea Flour Pancakes)",
     "description": "Crispy savoury pancakes made from chickpea flour, great for breakfast or a light meal.",
-    "ingredient_names": ["chickpea flour", "onion", "tomato", "green chilli", "coriander leaves", "turmeric powder", "red chilli powder", "cumin seeds", "cooking oil", "salt"],
+    "ingredient_names": [
+      "chickpea flour",
+      "onion",
+      "tomato",
+      "green chilli",
+      "coriander leaves",
+      "turmeric powder",
+      "red chilli powder",
+      "cumin seeds",
+      "cooking oil",
+      "salt"
+    ],
     "ingredients_detail": [
-      {"name": "chickpea flour", "quantity": 1, "unit": "cup", "required": true},
-      {"name": "onion", "quantity": 0.5, "unit": "medium", "required": true},
-      {"name": "tomato", "quantity": 0.5, "unit": "medium", "required": false},
-      {"name": "green chilli", "quantity": 1, "unit": null, "required": false},
-      {"name": "coriander leaves", "quantity": null, "unit": "handful", "required": false},
-      {"name": "turmeric powder", "quantity": 0.25, "unit": "tsp", "required": true},
-      {"name": "red chilli powder", "quantity": 0.25, "unit": "tsp", "required": false},
-      {"name": "cumin seeds", "quantity": 0.5, "unit": "tsp", "required": false},
-      {"name": "cooking oil", "quantity": 2, "unit": "tsp", "required": true},
-      {"name": "salt", "quantity": null, "unit": "to taste", "required": true}
+      {
+        "name": "chickpea flour",
+        "quantity": 1,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 0.5,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 0.5,
+        "unit": "medium",
+        "required": false
+      },
+      {
+        "name": "green chilli",
+        "quantity": 1,
+        "unit": null,
+        "required": false
+      },
+      {
+        "name": "coriander leaves",
+        "quantity": null,
+        "unit": "handful",
+        "required": false
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.25,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "red chilli powder",
+        "quantity": 0.25,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "cumin seeds",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 2,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
     ],
     "steps": [
       "In a bowl, mix chickpea flour with turmeric, red chilli powder, cumin seeds and salt.",
@@ -164,10 +457,20 @@
     "servings": 2,
     "difficulty": "easy",
     "cuisine": "Indian",
-    "diet_tags": ["vegetarian", "vegan"],
+    "diet_tags": [
+      "vegetarian",
+      "vegan"
+    ],
     "allergen_tags": [],
-    "nutrition_per_serving": {"calories_kcal": null, "protein_g": null, "carbohydrates_g": null, "fat_g": null, "source": null, "is_estimate": true},
-    "image_url": null,
+    "nutrition_per_serving": {
+      "calories_kcal": null,
+      "protein_g": null,
+      "carbohydrates_g": null,
+      "fat_g": null,
+      "source": null,
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=800&auto=format&fit=crop&q=80",
     "source_url": null,
     "attribution": "manual — original recipe",
     "quantity_aware": true
@@ -177,17 +480,72 @@
     "external_id": "curd-rice",
     "title": "Curd Rice (Thayir Sadam)",
     "description": "Cooling South Indian comfort food — cooked rice mixed with curd and tempered spices.",
-    "ingredient_names": ["rice", "curd", "mustard seeds", "curry leaves", "green chilli", "ginger", "asafoetida", "cooking oil", "salt"],
+    "ingredient_names": [
+      "rice",
+      "curd",
+      "mustard seeds",
+      "curry leaves",
+      "green chilli",
+      "ginger",
+      "asafoetida",
+      "cooking oil",
+      "salt"
+    ],
     "ingredients_detail": [
-      {"name": "rice", "quantity": 1, "unit": "cup", "required": true},
-      {"name": "curd", "quantity": 1, "unit": "cup", "required": true},
-      {"name": "mustard seeds", "quantity": 0.5, "unit": "tsp", "required": true},
-      {"name": "curry leaves", "quantity": 8, "unit": "leaves", "required": true},
-      {"name": "green chilli", "quantity": 1, "unit": null, "required": false},
-      {"name": "ginger", "quantity": 0.25, "unit": "inch", "required": false},
-      {"name": "asafoetida", "quantity": 1, "unit": "pinch", "required": false},
-      {"name": "cooking oil", "quantity": 1, "unit": "tsp", "required": true},
-      {"name": "salt", "quantity": null, "unit": "to taste", "required": true}
+      {
+        "name": "rice",
+        "quantity": 1,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "curd",
+        "quantity": 1,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "mustard seeds",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "curry leaves",
+        "quantity": 8,
+        "unit": "leaves",
+        "required": true
+      },
+      {
+        "name": "green chilli",
+        "quantity": 1,
+        "unit": null,
+        "required": false
+      },
+      {
+        "name": "ginger",
+        "quantity": 0.25,
+        "unit": "inch",
+        "required": false
+      },
+      {
+        "name": "asafoetida",
+        "quantity": 1,
+        "unit": "pinch",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 1,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
     ],
     "steps": [
       "Cook rice until very soft (add extra water compared to normal). Let it cool slightly.",
@@ -204,10 +562,21 @@
     "servings": 2,
     "difficulty": "easy",
     "cuisine": "South Indian",
-    "diet_tags": ["vegetarian"],
-    "allergen_tags": ["dairy"],
-    "nutrition_per_serving": {"calories_kcal": null, "protein_g": null, "carbohydrates_g": null, "fat_g": null, "source": null, "is_estimate": true},
-    "image_url": null,
+    "diet_tags": [
+      "vegetarian"
+    ],
+    "allergen_tags": [
+      "dairy"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": null,
+      "protein_g": null,
+      "carbohydrates_g": null,
+      "fat_g": null,
+      "source": null,
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1589302168068-964664d93dc0?w=800&auto=format&fit=crop&q=80",
     "source_url": null,
     "attribution": "manual — original recipe",
     "quantity_aware": true
@@ -217,19 +586,86 @@
     "external_id": "vegetable-pulao",
     "title": "Vegetable Pulao",
     "description": "Fragrant one-pot rice dish with mixed vegetables and whole spices.",
-    "ingredient_names": ["basmati rice", "green peas", "carrot", "onion", "garlic", "ginger", "cumin seeds", "garam masala", "turmeric powder", "cooking oil", "salt"],
+    "ingredient_names": [
+      "basmati rice",
+      "green peas",
+      "carrot",
+      "onion",
+      "garlic",
+      "ginger",
+      "cumin seeds",
+      "garam masala",
+      "turmeric powder",
+      "cooking oil",
+      "salt"
+    ],
     "ingredients_detail": [
-      {"name": "basmati rice", "quantity": 1, "unit": "cup", "required": true},
-      {"name": "green peas", "quantity": 0.5, "unit": "cup", "required": true},
-      {"name": "carrot", "quantity": 1, "unit": "medium", "required": true},
-      {"name": "onion", "quantity": 1, "unit": "medium", "required": true},
-      {"name": "garlic", "quantity": 3, "unit": "cloves", "required": true},
-      {"name": "ginger", "quantity": 0.5, "unit": "inch", "required": false},
-      {"name": "cumin seeds", "quantity": 1, "unit": "tsp", "required": true},
-      {"name": "garam masala", "quantity": 0.5, "unit": "tsp", "required": false},
-      {"name": "turmeric powder", "quantity": 0.25, "unit": "tsp", "required": false},
-      {"name": "cooking oil", "quantity": 2, "unit": "tbsp", "required": true},
-      {"name": "salt", "quantity": null, "unit": "to taste", "required": true}
+      {
+        "name": "basmati rice",
+        "quantity": 1,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "green peas",
+        "quantity": 0.5,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "carrot",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "garlic",
+        "quantity": 3,
+        "unit": "cloves",
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 0.5,
+        "unit": "inch",
+        "required": false
+      },
+      {
+        "name": "cumin seeds",
+        "quantity": 1,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "garam masala",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.25,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 2,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
     ],
     "steps": [
       "Wash basmati rice and soak for 20 minutes. Drain.",
@@ -249,10 +685,20 @@
     "servings": 2,
     "difficulty": "easy",
     "cuisine": "Indian",
-    "diet_tags": ["vegetarian", "vegan"],
+    "diet_tags": [
+      "vegetarian",
+      "vegan"
+    ],
     "allergen_tags": [],
-    "nutrition_per_serving": {"calories_kcal": null, "protein_g": null, "carbohydrates_g": null, "fat_g": null, "source": null, "is_estimate": true},
-    "image_url": null,
+    "nutrition_per_serving": {
+      "calories_kcal": null,
+      "protein_g": null,
+      "carbohydrates_g": null,
+      "fat_g": null,
+      "source": null,
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=800&auto=format&fit=crop&q=80",
     "source_url": null,
     "attribution": "manual — original recipe",
     "quantity_aware": true
@@ -262,20 +708,93 @@
     "external_id": "paneer-bhurji",
     "title": "Paneer Bhurji (Scrambled Cottage Cheese)",
     "description": "Quick and protein-rich paneer scramble with onions, tomatoes and spices.",
-    "ingredient_names": ["paneer", "onion", "tomato", "green chilli", "garlic", "ginger", "turmeric powder", "red chilli powder", "cumin seeds", "coriander leaves", "cooking oil", "salt"],
+    "ingredient_names": [
+      "paneer",
+      "onion",
+      "tomato",
+      "green chilli",
+      "garlic",
+      "ginger",
+      "turmeric powder",
+      "red chilli powder",
+      "cumin seeds",
+      "coriander leaves",
+      "cooking oil",
+      "salt"
+    ],
     "ingredients_detail": [
-      {"name": "paneer", "quantity": 200, "unit": "g", "required": true},
-      {"name": "onion", "quantity": 1, "unit": "medium", "required": true},
-      {"name": "tomato", "quantity": 1, "unit": "medium", "required": true},
-      {"name": "green chilli", "quantity": 1, "unit": null, "required": false},
-      {"name": "garlic", "quantity": 2, "unit": "cloves", "required": true},
-      {"name": "ginger", "quantity": 0.25, "unit": "inch", "required": false},
-      {"name": "turmeric powder", "quantity": 0.25, "unit": "tsp", "required": true},
-      {"name": "red chilli powder", "quantity": 0.5, "unit": "tsp", "required": false},
-      {"name": "cumin seeds", "quantity": 0.5, "unit": "tsp", "required": true},
-      {"name": "coriander leaves", "quantity": null, "unit": null, "required": false},
-      {"name": "cooking oil", "quantity": 2, "unit": "tbsp", "required": true},
-      {"name": "salt", "quantity": null, "unit": "to taste", "required": true}
+      {
+        "name": "paneer",
+        "quantity": 200,
+        "unit": "g",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "green chilli",
+        "quantity": 1,
+        "unit": null,
+        "required": false
+      },
+      {
+        "name": "garlic",
+        "quantity": 2,
+        "unit": "cloves",
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 0.25,
+        "unit": "inch",
+        "required": false
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.25,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "red chilli powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "cumin seeds",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "coriander leaves",
+        "quantity": null,
+        "unit": null,
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 2,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
     ],
     "steps": [
       "Crumble paneer into small pieces with your hands. Set aside.",
@@ -293,10 +812,21 @@
     "servings": 2,
     "difficulty": "easy",
     "cuisine": "Indian",
-    "diet_tags": ["vegetarian"],
-    "allergen_tags": ["dairy"],
-    "nutrition_per_serving": {"calories_kcal": null, "protein_g": null, "carbohydrates_g": null, "fat_g": null, "source": null, "is_estimate": true},
-    "image_url": null,
+    "diet_tags": [
+      "vegetarian"
+    ],
+    "allergen_tags": [
+      "dairy"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": null,
+      "protein_g": null,
+      "carbohydrates_g": null,
+      "fat_g": null,
+      "source": null,
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=800&auto=format&fit=crop&q=80",
     "source_url": null,
     "attribution": "manual — original recipe",
     "quantity_aware": true
@@ -306,18 +836,79 @@
     "external_id": "oats-upma",
     "title": "Oats Upma",
     "description": "A quick and healthy South Indian-style savoury oats dish with vegetables and tempering.",
-    "ingredient_names": ["oats", "onion", "tomato", "green chilli", "mustard seeds", "curry leaves", "turmeric powder", "carrot", "cooking oil", "salt"],
+    "ingredient_names": [
+      "oats",
+      "onion",
+      "tomato",
+      "green chilli",
+      "mustard seeds",
+      "curry leaves",
+      "turmeric powder",
+      "carrot",
+      "cooking oil",
+      "salt"
+    ],
     "ingredients_detail": [
-      {"name": "oats", "quantity": 1, "unit": "cup", "required": true},
-      {"name": "onion", "quantity": 0.5, "unit": "medium", "required": true},
-      {"name": "tomato", "quantity": 0.5, "unit": "medium", "required": false},
-      {"name": "green chilli", "quantity": 1, "unit": null, "required": false},
-      {"name": "mustard seeds", "quantity": 0.5, "unit": "tsp", "required": true},
-      {"name": "curry leaves", "quantity": 6, "unit": "leaves", "required": false},
-      {"name": "turmeric powder", "quantity": 0.25, "unit": "tsp", "required": true},
-      {"name": "carrot", "quantity": 0.5, "unit": "small", "required": false},
-      {"name": "cooking oil", "quantity": 1, "unit": "tbsp", "required": true},
-      {"name": "salt", "quantity": null, "unit": "to taste", "required": true}
+      {
+        "name": "oats",
+        "quantity": 1,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 0.5,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 0.5,
+        "unit": "medium",
+        "required": false
+      },
+      {
+        "name": "green chilli",
+        "quantity": 1,
+        "unit": null,
+        "required": false
+      },
+      {
+        "name": "mustard seeds",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "curry leaves",
+        "quantity": 6,
+        "unit": "leaves",
+        "required": false
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.25,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "carrot",
+        "quantity": 0.5,
+        "unit": "small",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 1,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
     ],
     "steps": [
       "Dry roast oats in a pan for 3–4 minutes until lightly fragrant. Set aside.",
@@ -337,10 +928,20 @@
     "servings": 1,
     "difficulty": "easy",
     "cuisine": "Indian",
-    "diet_tags": ["vegetarian", "vegan"],
+    "diet_tags": [
+      "vegetarian",
+      "vegan"
+    ],
     "allergen_tags": [],
-    "nutrition_per_serving": {"calories_kcal": null, "protein_g": null, "carbohydrates_g": null, "fat_g": null, "source": null, "is_estimate": true},
-    "image_url": null,
+    "nutrition_per_serving": {
+      "calories_kcal": null,
+      "protein_g": null,
+      "carbohydrates_g": null,
+      "fat_g": null,
+      "source": null,
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?w=800&auto=format&fit=crop&q=80",
     "source_url": null,
     "attribution": "manual — original recipe",
     "quantity_aware": true
@@ -350,16 +951,65 @@
     "external_id": "bread-omelette",
     "title": "Bread Omelette",
     "description": "Street-style quick breakfast — fluffy spiced omelette sandwiched between toasted bread.",
-    "ingredient_names": ["egg", "bread", "onion", "green chilli", "coriander leaves", "turmeric powder", "butter", "salt"],
+    "ingredient_names": [
+      "egg",
+      "bread",
+      "onion",
+      "green chilli",
+      "coriander leaves",
+      "turmeric powder",
+      "butter",
+      "salt"
+    ],
     "ingredients_detail": [
-      {"name": "egg", "quantity": 2, "unit": null, "required": true},
-      {"name": "bread", "quantity": 2, "unit": "slices", "required": true},
-      {"name": "onion", "quantity": 0.5, "unit": "small", "required": true},
-      {"name": "green chilli", "quantity": 1, "unit": null, "required": false},
-      {"name": "coriander leaves", "quantity": null, "unit": "handful", "required": false},
-      {"name": "turmeric powder", "quantity": 1, "unit": "pinch", "required": false},
-      {"name": "butter", "quantity": 1, "unit": "tsp", "required": true},
-      {"name": "salt", "quantity": null, "unit": "to taste", "required": true}
+      {
+        "name": "egg",
+        "quantity": 2,
+        "unit": null,
+        "required": true
+      },
+      {
+        "name": "bread",
+        "quantity": 2,
+        "unit": "slices",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 0.5,
+        "unit": "small",
+        "required": true
+      },
+      {
+        "name": "green chilli",
+        "quantity": 1,
+        "unit": null,
+        "required": false
+      },
+      {
+        "name": "coriander leaves",
+        "quantity": null,
+        "unit": "handful",
+        "required": false
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 1,
+        "unit": "pinch",
+        "required": false
+      },
+      {
+        "name": "butter",
+        "quantity": 1,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
     ],
     "steps": [
       "Beat eggs with salt, turmeric, finely chopped onion, green chilli and coriander.",
@@ -376,10 +1026,23 @@
     "servings": 1,
     "difficulty": "easy",
     "cuisine": "Indian",
-    "diet_tags": ["eggetarian"],
-    "allergen_tags": ["egg", "dairy", "gluten"],
-    "nutrition_per_serving": {"calories_kcal": null, "protein_g": null, "carbohydrates_g": null, "fat_g": null, "source": null, "is_estimate": true},
-    "image_url": null,
+    "diet_tags": [
+      "eggetarian"
+    ],
+    "allergen_tags": [
+      "egg",
+      "dairy",
+      "gluten"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": null,
+      "protein_g": null,
+      "carbohydrates_g": null,
+      "fat_g": null,
+      "source": null,
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1525351484163-7529414344d8?w=800&auto=format&fit=crop&q=80",
     "source_url": null,
     "attribution": "manual — original recipe",
     "quantity_aware": true
@@ -389,16 +1052,65 @@
     "external_id": "aloo-sabzi",
     "title": "Aloo Sabzi (Spiced Potato Stir-Fry)",
     "description": "Simple and satisfying dry potato dish with mustard seeds, turmeric and spices.",
-    "ingredient_names": ["potato", "mustard seeds", "turmeric powder", "red chilli powder", "coriander powder", "curry leaves", "cooking oil", "salt"],
+    "ingredient_names": [
+      "potato",
+      "mustard seeds",
+      "turmeric powder",
+      "red chilli powder",
+      "coriander powder",
+      "curry leaves",
+      "cooking oil",
+      "salt"
+    ],
     "ingredients_detail": [
-      {"name": "potato", "quantity": 3, "unit": "medium", "required": true},
-      {"name": "mustard seeds", "quantity": 0.5, "unit": "tsp", "required": true},
-      {"name": "turmeric powder", "quantity": 0.5, "unit": "tsp", "required": true},
-      {"name": "red chilli powder", "quantity": 0.5, "unit": "tsp", "required": false},
-      {"name": "coriander powder", "quantity": 1, "unit": "tsp", "required": false},
-      {"name": "curry leaves", "quantity": 8, "unit": "leaves", "required": false},
-      {"name": "cooking oil", "quantity": 2, "unit": "tbsp", "required": true},
-      {"name": "salt", "quantity": null, "unit": "to taste", "required": true}
+      {
+        "name": "potato",
+        "quantity": 3,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "mustard seeds",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "red chilli powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "coriander powder",
+        "quantity": 1,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "curry leaves",
+        "quantity": 8,
+        "unit": "leaves",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 2,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
     ],
     "steps": [
       "Boil or pressure-cook potatoes until just tender. Peel and cut into cubes.",
@@ -415,10 +1127,20 @@
     "servings": 2,
     "difficulty": "easy",
     "cuisine": "Indian",
-    "diet_tags": ["vegetarian", "vegan"],
+    "diet_tags": [
+      "vegetarian",
+      "vegan"
+    ],
     "allergen_tags": [],
-    "nutrition_per_serving": {"calories_kcal": null, "protein_g": null, "carbohydrates_g": null, "fat_g": null, "source": null, "is_estimate": true},
-    "image_url": null,
+    "nutrition_per_serving": {
+      "calories_kcal": null,
+      "protein_g": null,
+      "carbohydrates_g": null,
+      "fat_g": null,
+      "source": null,
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&auto=format&fit=crop&q=80",
     "source_url": null,
     "attribution": "manual — original recipe",
     "quantity_aware": true
@@ -428,18 +1150,79 @@
     "external_id": "tomato-rice",
     "title": "Tomato Rice",
     "description": "Tangy South Indian rice dish cooked with tomatoes and aromatic spices.",
-    "ingredient_names": ["rice", "tomato", "onion", "mustard seeds", "curry leaves", "turmeric powder", "red chilli powder", "garlic", "cooking oil", "salt"],
+    "ingredient_names": [
+      "rice",
+      "tomato",
+      "onion",
+      "mustard seeds",
+      "curry leaves",
+      "turmeric powder",
+      "red chilli powder",
+      "garlic",
+      "cooking oil",
+      "salt"
+    ],
     "ingredients_detail": [
-      {"name": "rice", "quantity": 1, "unit": "cup", "required": true},
-      {"name": "tomato", "quantity": 2, "unit": "medium", "required": true},
-      {"name": "onion", "quantity": 1, "unit": "medium", "required": true},
-      {"name": "mustard seeds", "quantity": 0.5, "unit": "tsp", "required": true},
-      {"name": "curry leaves", "quantity": 8, "unit": "leaves", "required": false},
-      {"name": "turmeric powder", "quantity": 0.25, "unit": "tsp", "required": true},
-      {"name": "red chilli powder", "quantity": 0.5, "unit": "tsp", "required": false},
-      {"name": "garlic", "quantity": 2, "unit": "cloves", "required": false},
-      {"name": "cooking oil", "quantity": 2, "unit": "tbsp", "required": true},
-      {"name": "salt", "quantity": null, "unit": "to taste", "required": true}
+      {
+        "name": "rice",
+        "quantity": 1,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 2,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "mustard seeds",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "curry leaves",
+        "quantity": 8,
+        "unit": "leaves",
+        "required": false
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.25,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "red chilli powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "garlic",
+        "quantity": 2,
+        "unit": "cloves",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 2,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
     ],
     "steps": [
       "Cook rice separately and let it cool slightly (spread on a plate to avoid clumping).",
@@ -457,10 +1240,20 @@
     "servings": 2,
     "difficulty": "easy",
     "cuisine": "South Indian",
-    "diet_tags": ["vegetarian", "vegan"],
+    "diet_tags": [
+      "vegetarian",
+      "vegan"
+    ],
     "allergen_tags": [],
-    "nutrition_per_serving": {"calories_kcal": null, "protein_g": null, "carbohydrates_g": null, "fat_g": null, "source": null, "is_estimate": true},
-    "image_url": null,
+    "nutrition_per_serving": {
+      "calories_kcal": null,
+      "protein_g": null,
+      "carbohydrates_g": null,
+      "fat_g": null,
+      "source": null,
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800&auto=format&fit=crop&q=80",
     "source_url": null,
     "attribution": "manual — original recipe",
     "quantity_aware": true
@@ -470,17 +1263,72 @@
     "external_id": "masala-omelette",
     "title": "Masala Omelette",
     "description": "Spiced Indian-style omelette — quick protein-rich meal any time of day.",
-    "ingredient_names": ["egg", "onion", "tomato", "green chilli", "coriander leaves", "turmeric powder", "red chilli powder", "cooking oil", "salt"],
+    "ingredient_names": [
+      "egg",
+      "onion",
+      "tomato",
+      "green chilli",
+      "coriander leaves",
+      "turmeric powder",
+      "red chilli powder",
+      "cooking oil",
+      "salt"
+    ],
     "ingredients_detail": [
-      {"name": "egg", "quantity": 2, "unit": null, "required": true},
-      {"name": "onion", "quantity": 0.5, "unit": "small", "required": true},
-      {"name": "tomato", "quantity": 0.5, "unit": "small", "required": false},
-      {"name": "green chilli", "quantity": 1, "unit": null, "required": false},
-      {"name": "coriander leaves", "quantity": null, "unit": "handful", "required": false},
-      {"name": "turmeric powder", "quantity": 1, "unit": "pinch", "required": false},
-      {"name": "red chilli powder", "quantity": 0.25, "unit": "tsp", "required": false},
-      {"name": "cooking oil", "quantity": 1, "unit": "tsp", "required": true},
-      {"name": "salt", "quantity": null, "unit": "to taste", "required": true}
+      {
+        "name": "egg",
+        "quantity": 2,
+        "unit": null,
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 0.5,
+        "unit": "small",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 0.5,
+        "unit": "small",
+        "required": false
+      },
+      {
+        "name": "green chilli",
+        "quantity": 1,
+        "unit": null,
+        "required": false
+      },
+      {
+        "name": "coriander leaves",
+        "quantity": null,
+        "unit": "handful",
+        "required": false
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 1,
+        "unit": "pinch",
+        "required": false
+      },
+      {
+        "name": "red chilli powder",
+        "quantity": 0.25,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 1,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
     ],
     "steps": [
       "Beat eggs with salt, turmeric, red chilli powder.",
@@ -496,10 +1344,21 @@
     "servings": 1,
     "difficulty": "easy",
     "cuisine": "Indian",
-    "diet_tags": ["eggetarian"],
-    "allergen_tags": ["egg"],
-    "nutrition_per_serving": {"calories_kcal": null, "protein_g": null, "carbohydrates_g": null, "fat_g": null, "source": null, "is_estimate": true},
-    "image_url": null,
+    "diet_tags": [
+      "eggetarian"
+    ],
+    "allergen_tags": [
+      "egg"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": null,
+      "protein_g": null,
+      "carbohydrates_g": null,
+      "fat_g": null,
+      "source": null,
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1510693206972-df098062cb71?w=800&auto=format&fit=crop&q=80",
     "source_url": null,
     "attribution": "manual — original recipe",
     "quantity_aware": true
@@ -509,19 +1368,86 @@
     "external_id": "anda-curry",
     "title": "Egg Curry (Anda Masala)",
     "description": "Boiled eggs simmered in a rich onion-tomato masala gravy.",
-    "ingredient_names": ["egg", "onion", "tomato", "garlic", "ginger", "turmeric powder", "red chilli powder", "coriander powder", "garam masala", "cooking oil", "salt"],
+    "ingredient_names": [
+      "egg",
+      "onion",
+      "tomato",
+      "garlic",
+      "ginger",
+      "turmeric powder",
+      "red chilli powder",
+      "coriander powder",
+      "garam masala",
+      "cooking oil",
+      "salt"
+    ],
     "ingredients_detail": [
-      {"name": "egg", "quantity": 4, "unit": null, "required": true},
-      {"name": "onion", "quantity": 2, "unit": "medium", "required": true},
-      {"name": "tomato", "quantity": 2, "unit": "medium", "required": true},
-      {"name": "garlic", "quantity": 4, "unit": "cloves", "required": true},
-      {"name": "ginger", "quantity": 0.5, "unit": "inch", "required": false},
-      {"name": "turmeric powder", "quantity": 0.5, "unit": "tsp", "required": true},
-      {"name": "red chilli powder", "quantity": 1, "unit": "tsp", "required": false},
-      {"name": "coriander powder", "quantity": 1.5, "unit": "tsp", "required": false},
-      {"name": "garam masala", "quantity": 0.5, "unit": "tsp", "required": false},
-      {"name": "cooking oil", "quantity": 3, "unit": "tbsp", "required": true},
-      {"name": "salt", "quantity": null, "unit": "to taste", "required": true}
+      {
+        "name": "egg",
+        "quantity": 4,
+        "unit": null,
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 2,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 2,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "garlic",
+        "quantity": 4,
+        "unit": "cloves",
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 0.5,
+        "unit": "inch",
+        "required": false
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "red chilli powder",
+        "quantity": 1,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "coriander powder",
+        "quantity": 1.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "garam masala",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 3,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
     ],
     "steps": [
       "Hard boil eggs for 10 minutes. Peel and make 2 shallow cuts on each egg. Set aside.",
@@ -538,10 +1464,21 @@
     "servings": 2,
     "difficulty": "medium",
     "cuisine": "Indian",
-    "diet_tags": ["eggetarian"],
-    "allergen_tags": ["egg"],
-    "nutrition_per_serving": {"calories_kcal": null, "protein_g": null, "carbohydrates_g": null, "fat_g": null, "source": null, "is_estimate": true},
-    "image_url": null,
+    "diet_tags": [
+      "eggetarian"
+    ],
+    "allergen_tags": [
+      "egg"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": null,
+      "protein_g": null,
+      "carbohydrates_g": null,
+      "fat_g": null,
+      "source": null,
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=800&auto=format&fit=crop&q=80",
     "source_url": null,
     "attribution": "manual — original recipe",
     "quantity_aware": true
@@ -551,18 +1488,79 @@
     "external_id": "palak-dal",
     "title": "Palak Dal (Spinach Lentil Soup)",
     "description": "Nutritious dal made with red lentils and fresh spinach, tempered with cumin and garlic.",
-    "ingredient_names": ["red lentils", "spinach", "onion", "tomato", "garlic", "turmeric powder", "cumin seeds", "red chilli powder", "cooking oil", "salt"],
+    "ingredient_names": [
+      "red lentils",
+      "spinach",
+      "onion",
+      "tomato",
+      "garlic",
+      "turmeric powder",
+      "cumin seeds",
+      "red chilli powder",
+      "cooking oil",
+      "salt"
+    ],
     "ingredients_detail": [
-      {"name": "red lentils", "quantity": 0.5, "unit": "cup", "required": true},
-      {"name": "spinach", "quantity": 2, "unit": "cups", "required": true},
-      {"name": "onion", "quantity": 1, "unit": "small", "required": true},
-      {"name": "tomato", "quantity": 1, "unit": "small", "required": false},
-      {"name": "garlic", "quantity": 3, "unit": "cloves", "required": true},
-      {"name": "turmeric powder", "quantity": 0.5, "unit": "tsp", "required": true},
-      {"name": "cumin seeds", "quantity": 1, "unit": "tsp", "required": true},
-      {"name": "red chilli powder", "quantity": 0.5, "unit": "tsp", "required": false},
-      {"name": "cooking oil", "quantity": 2, "unit": "tbsp", "required": true},
-      {"name": "salt", "quantity": null, "unit": "to taste", "required": true}
+      {
+        "name": "red lentils",
+        "quantity": 0.5,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "spinach",
+        "quantity": 2,
+        "unit": "cups",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "small",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 1,
+        "unit": "small",
+        "required": false
+      },
+      {
+        "name": "garlic",
+        "quantity": 3,
+        "unit": "cloves",
+        "required": true
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "cumin seeds",
+        "quantity": 1,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "red chilli powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 2,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
     ],
     "steps": [
       "Pressure cook red lentils with 1.5 cups water, turmeric and salt until very soft.",
@@ -582,10 +1580,20 @@
     "servings": 2,
     "difficulty": "easy",
     "cuisine": "Indian",
-    "diet_tags": ["vegetarian", "vegan"],
+    "diet_tags": [
+      "vegetarian",
+      "vegan"
+    ],
     "allergen_tags": [],
-    "nutrition_per_serving": {"calories_kcal": null, "protein_g": null, "carbohydrates_g": null, "fat_g": null, "source": null, "is_estimate": true},
-    "image_url": null,
+    "nutrition_per_serving": {
+      "calories_kcal": null,
+      "protein_g": null,
+      "carbohydrates_g": null,
+      "fat_g": null,
+      "source": null,
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=800&auto=format&fit=crop&q=80",
     "source_url": null,
     "attribution": "manual — original recipe",
     "quantity_aware": true
@@ -595,17 +1603,72 @@
     "external_id": "aloo-paratha",
     "title": "Aloo Paratha (Stuffed Potato Flatbread)",
     "description": "Whole wheat flatbread stuffed with spiced mashed potato — a classic Indian breakfast.",
-    "ingredient_names": ["wheat flour", "potato", "onion", "green chilli", "coriander leaves", "cumin seeds", "red chilli powder", "cooking oil", "salt"],
+    "ingredient_names": [
+      "wheat flour",
+      "potato",
+      "onion",
+      "green chilli",
+      "coriander leaves",
+      "cumin seeds",
+      "red chilli powder",
+      "cooking oil",
+      "salt"
+    ],
     "ingredients_detail": [
-      {"name": "wheat flour", "quantity": 2, "unit": "cups", "required": true},
-      {"name": "potato", "quantity": 3, "unit": "medium", "required": true},
-      {"name": "onion", "quantity": 0.5, "unit": "small", "required": false},
-      {"name": "green chilli", "quantity": 1, "unit": null, "required": false},
-      {"name": "coriander leaves", "quantity": null, "unit": "handful", "required": false},
-      {"name": "cumin seeds", "quantity": 0.5, "unit": "tsp", "required": false},
-      {"name": "red chilli powder", "quantity": 0.5, "unit": "tsp", "required": false},
-      {"name": "cooking oil", "quantity": 2, "unit": "tbsp", "required": true},
-      {"name": "salt", "quantity": null, "unit": "to taste", "required": true}
+      {
+        "name": "wheat flour",
+        "quantity": 2,
+        "unit": "cups",
+        "required": true
+      },
+      {
+        "name": "potato",
+        "quantity": 3,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 0.5,
+        "unit": "small",
+        "required": false
+      },
+      {
+        "name": "green chilli",
+        "quantity": 1,
+        "unit": null,
+        "required": false
+      },
+      {
+        "name": "coriander leaves",
+        "quantity": null,
+        "unit": "handful",
+        "required": false
+      },
+      {
+        "name": "cumin seeds",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "red chilli powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 2,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
     ],
     "steps": [
       "Mix wheat flour with a pinch of salt and enough water to knead into a soft dough. Cover and rest 20 minutes.",
@@ -622,10 +1685,21 @@
     "servings": 2,
     "difficulty": "medium",
     "cuisine": "Indian",
-    "diet_tags": ["vegetarian"],
-    "allergen_tags": ["gluten"],
-    "nutrition_per_serving": {"calories_kcal": null, "protein_g": null, "carbohydrates_g": null, "fat_g": null, "source": null, "is_estimate": true},
-    "image_url": null,
+    "diet_tags": [
+      "vegetarian"
+    ],
+    "allergen_tags": [
+      "gluten"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": null,
+      "protein_g": null,
+      "carbohydrates_g": null,
+      "fat_g": null,
+      "source": null,
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1626074353765-517a681e40be?w=800&auto=format&fit=crop&q=80",
     "source_url": null,
     "attribution": "manual — original recipe",
     "quantity_aware": true
@@ -635,17 +1709,65 @@
     "external_id": "maggi-masala",
     "title": "Masala Maggi (Spiced Instant Noodles)",
     "description": "Elevated instant noodles with vegetables and extra spices — the classic student meal.",
-    "ingredient_names": ["oats", "onion", "tomato", "green chilli", "cumin seeds", "turmeric powder", "cooking oil", "salt"],
-    "ingredient_names": ["tomato", "onion", "green chilli", "carrot", "peas", "cumin seeds", "turmeric powder", "cooking oil"],
+    "ingredient_names": [
+      "tomato",
+      "onion",
+      "green chilli",
+      "carrot",
+      "peas",
+      "cumin seeds",
+      "turmeric powder",
+      "cooking oil"
+    ],
     "ingredients_detail": [
-      {"name": "tomato", "quantity": 1, "unit": "small", "required": true},
-      {"name": "onion", "quantity": 0.5, "unit": "small", "required": true},
-      {"name": "green chilli", "quantity": 1, "unit": null, "required": false},
-      {"name": "carrot", "quantity": 0.5, "unit": "small", "required": false},
-      {"name": "green peas", "quantity": 2, "unit": "tbsp", "required": false},
-      {"name": "cumin seeds", "quantity": 0.5, "unit": "tsp", "required": false},
-      {"name": "turmeric powder", "quantity": 1, "unit": "pinch", "required": false},
-      {"name": "cooking oil", "quantity": 1, "unit": "tsp", "required": true}
+      {
+        "name": "tomato",
+        "quantity": 1,
+        "unit": "small",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 0.5,
+        "unit": "small",
+        "required": true
+      },
+      {
+        "name": "green chilli",
+        "quantity": 1,
+        "unit": null,
+        "required": false
+      },
+      {
+        "name": "carrot",
+        "quantity": 0.5,
+        "unit": "small",
+        "required": false
+      },
+      {
+        "name": "green peas",
+        "quantity": 2,
+        "unit": "tbsp",
+        "required": false
+      },
+      {
+        "name": "cumin seeds",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 1,
+        "unit": "pinch",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 1,
+        "unit": "tsp",
+        "required": true
+      }
     ],
     "steps": [
       "Heat oil. Add cumin seeds. Add onions and cook 2 minutes.",
@@ -662,10 +1784,21 @@
     "servings": 1,
     "difficulty": "easy",
     "cuisine": "Indian",
-    "diet_tags": ["vegetarian"],
-    "allergen_tags": ["gluten"],
-    "nutrition_per_serving": {"calories_kcal": null, "protein_g": null, "carbohydrates_g": null, "fat_g": null, "source": null, "is_estimate": true},
-    "image_url": null,
+    "diet_tags": [
+      "vegetarian"
+    ],
+    "allergen_tags": [
+      "gluten"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": null,
+      "protein_g": null,
+      "carbohydrates_g": null,
+      "fat_g": null,
+      "source": null,
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1612927601601-6638404737ce?w=800&auto=format&fit=crop&q=80",
     "source_url": null,
     "attribution": "manual — original recipe",
     "quantity_aware": true

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, ViewStyle } from 'react-native';
 import { RecommendationItem } from '../types';
 import { colors, radius, shadows, spacing } from '../theme/tokens';
+import { getRecipeImageUrl } from '../data/recipeImages';
 
 interface RecipeCardProps {
   item: RecommendationItem;
@@ -10,7 +11,9 @@ interface RecipeCardProps {
 }
 
 export const RecipeCard: React.FC<RecipeCardProps> = ({ item, onPress, style }) => {
+  const [imageError, setImageError] = useState(false);
   const isCookNow = item.missing_ingredients.length === 0;
+  const imageUrl = getRecipeImageUrl(item);
 
   return (
     <TouchableOpacity
@@ -21,8 +24,13 @@ export const RecipeCard: React.FC<RecipeCardProps> = ({ item, onPress, style }) 
       accessibilityLabel={`${item.title}, ${isCookNow ? 'ready to cook' : `needs ${item.missing_ingredients.length} items`}`}
     >
       <View style={styles.imageContainer}>
-        {item.image_url ? (
-          <Image source={{ uri: item.image_url }} style={styles.image} resizeMode="cover" />
+        {!imageError ? (
+          <Image
+            source={{ uri: imageUrl }}
+            style={styles.image}
+            resizeMode="cover"
+            onError={() => setImageError(true)}
+          />
         ) : (
           <View style={styles.placeholderBox}>
             <Text style={styles.placeholderEmoji}>🍳</Text>
