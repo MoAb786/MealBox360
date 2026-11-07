@@ -23,6 +23,10 @@ ALIAS_MAP: dict[str, str] = {
     # Onion family
     "onion": "onion",
     "onions": "onion",
+    "red onion": "onion",
+    "red onions": "onion",
+    "yellow onion": "onion",
+    "brown onion": "onion",
     "pyaz": "onion",
     "spring onion": "spring onion",
     "spring onions": "spring onion",
@@ -90,6 +94,8 @@ ALIAS_MAP: dict[str, str] = {
     "chawal": "rice",
 
     # Lentils / Dal
+    "dal": "red lentils",
+    "daal": "red lentils",
     "lentils": "red lentils",
     "red lentils": "red lentils",
     "masoor dal": "red lentils",
@@ -121,6 +127,30 @@ ALIAS_MAP: dict[str, str] = {
     "egg": "egg",
     "eggs": "egg",
     "anda": "egg",
+    "farm fresh eggs": "egg",
+    "fresh eggs": "egg",
+    "egg whites": "egg",
+    "egg yolk": "egg",
+
+    # Meat & Poultry
+    "chicken": "chicken",
+    "chicken breast": "chicken",
+    "chicken breasts": "chicken",
+    "chicken thigh": "chicken",
+    "chicken thighs": "chicken",
+    "boneless chicken": "chicken",
+    "minced chicken": "chicken",
+    "murgh": "chicken",
+
+    # Tofu
+    "tofu": "tofu",
+    "firm tofu": "tofu",
+    "silken tofu": "tofu",
+
+    # Beans
+    "kidney beans": "kidney beans",
+    "rajma": "kidney beans",
+    "black beans": "black beans",
 
     # Paneer
     "paneer": "paneer",

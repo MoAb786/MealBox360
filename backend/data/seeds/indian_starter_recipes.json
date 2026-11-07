@@ -1802,5 +1802,2172 @@
     "source_url": null,
     "attribution": "manual — original recipe",
     "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "rajma-chawal",
+    "title": "Rajma Chawal (Red Kidney Bean Curry with Steamed Rice)",
+    "description": "Classic North Indian comfort food: tender red kidney beans slow-cooked in a rich onion-tomato gravy, served over hot basmati rice.",
+    "ingredient_names": [
+      "kidney beans",
+      "rice",
+      "onion",
+      "tomato",
+      "ginger",
+      "garlic",
+      "cumin seeds",
+      "coriander powder",
+      "garam masala",
+      "turmeric powder",
+      "red chilli powder",
+      "cooking oil",
+      "salt"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "kidney beans",
+        "quantity": 1.0,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "rice",
+        "quantity": 1.0,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 2,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 2,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 1,
+        "unit": "inch",
+        "required": true
+      },
+      {
+        "name": "garlic",
+        "quantity": 4,
+        "unit": "cloves",
+        "required": true
+      },
+      {
+        "name": "cumin seeds",
+        "quantity": 1.0,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "coriander powder",
+        "quantity": 1.0,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "garam masala",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "red chilli powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 2.0,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
+    ],
+    "steps": [
+      "Soak kidney beans overnight for 8 hours. Pressure cook with 3 cups water and salt for 15 minutes until soft.",
+      "Cook basmati rice with 2 cups water until fluffy; set aside.",
+      "Heat oil in a pan. Add cumin seeds and let splutter.",
+      "Add finely chopped onions, minced ginger, and garlic. Sauté until deep golden brown.",
+      "Add pureed tomatoes, turmeric, chilli powder, and coriander powder. Cook until oil separates.",
+      "Add cooked kidney beans with their cooking water. Simmer on medium-low for 15-20 minutes, lightly mashing some beans to thicken gravy.",
+      "Finish with garam masala and fresh coriander leaves. Serve hot with steamed rice."
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 35,
+    "total_time_minutes": 50,
+    "servings": 3,
+    "difficulty": "medium",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "vegetarian",
+      "vegan"
+    ],
+    "allergen_tags": [],
+    "nutrition_per_serving": {
+      "calories_kcal": 420.0,
+      "protein_g": 16.0,
+      "carbohydrates_g": 72.0,
+      "fat_g": 7.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "chana-masala",
+    "title": "Chana Masala (Spiced Chickpea Curry)",
+    "description": "A flavorful, tangy chickpea curry simmered in a spiced onion-tomato gravy with warm spices.",
+    "ingredient_names": [
+      "chickpeas",
+      "onion",
+      "tomato",
+      "ginger",
+      "garlic",
+      "green chilli",
+      "cumin seeds",
+      "coriander powder",
+      "turmeric powder",
+      "garam masala",
+      "lemon",
+      "cooking oil",
+      "salt"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "chickpeas",
+        "quantity": 1.0,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "large",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 2,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 1,
+        "unit": "inch",
+        "required": true
+      },
+      {
+        "name": "garlic",
+        "quantity": 4,
+        "unit": "cloves",
+        "required": true
+      },
+      {
+        "name": "green chilli",
+        "quantity": 1,
+        "unit": null,
+        "required": false
+      },
+      {
+        "name": "cumin seeds",
+        "quantity": 1.0,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "coriander powder",
+        "quantity": 1.0,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "garam masala",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "lemon",
+        "quantity": 0.5,
+        "unit": null,
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 2.0,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
+    ],
+    "steps": [
+      "Soak chickpeas overnight. Boil or pressure cook with water and salt until tender.",
+      "Heat oil in a kadai. Add cumin seeds and let them sizzle.",
+      "Add finely chopped onions and sauté until golden brown.",
+      "Add minced ginger, garlic, and chopped green chilli. Fry for 1 minute.",
+      "Add chopped tomatoes, turmeric, coriander powder, and salt. Cook until tomatoes are mushy.",
+      "Add boiled chickpeas and 1 cup of water. Simmer on low for 10-15 minutes.",
+      "Stir in garam masala and lemon juice. Garnish with coriander leaves."
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 30,
+    "total_time_minutes": 40,
+    "servings": 3,
+    "difficulty": "easy",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "vegetarian",
+      "vegan"
+    ],
+    "allergen_tags": [],
+    "nutrition_per_serving": {
+      "calories_kcal": 340.0,
+      "protein_g": 14.0,
+      "carbohydrates_g": 52.0,
+      "fat_g": 8.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "paneer-butter-masala",
+    "title": "Paneer Butter Masala (Cottage Cheese in Rich Tomato Makhani Gravy)",
+    "description": "Restaurant-style cottage cheese cubes bathed in a velvety, mildly spiced creamy tomato gravy with butter and aromatic fenugreek.",
+    "ingredient_names": [
+      "paneer",
+      "butter",
+      "tomato",
+      "onion",
+      "ginger",
+      "garlic",
+      "cream",
+      "kashmiri red chilli powder",
+      "garam masala",
+      "kasuri methi",
+      "cooking oil",
+      "salt"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "paneer",
+        "quantity": 200,
+        "unit": "g",
+        "required": true
+      },
+      {
+        "name": "butter",
+        "quantity": 2,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 4,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 1,
+        "unit": "inch",
+        "required": true
+      },
+      {
+        "name": "garlic",
+        "quantity": 4,
+        "unit": "cloves",
+        "required": true
+      },
+      {
+        "name": "cream",
+        "quantity": 2,
+        "unit": "tbsp",
+        "required": false
+      },
+      {
+        "name": "kashmiri red chilli powder",
+        "quantity": 1.0,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "garam masala",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "kasuri methi",
+        "quantity": 1.0,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 1.0,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
+    ],
+    "steps": [
+      "Boil chopped tomatoes, onions, ginger, and garlic in 1 cup water for 10 minutes until soft. Cool and blend into a smooth puree.",
+      "Strain puree through a fine sieve for a silky restaurant texture.",
+      "Heat butter and oil in a pan. Add red chilli powder on low flame for vibrant color.",
+      "Pour in the strained tomato gravy. Simmer for 10-12 minutes until oil surfaces.",
+      "Add salt, garam masala, and crushed kasuri methi.",
+      "Gently slide in fresh paneer cubes and simmer for 3 minutes.",
+      "Swirl in fresh cream and serve hot with naan or jeera rice."
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 25,
+    "total_time_minutes": 40,
+    "servings": 3,
+    "difficulty": "medium",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "vegetarian"
+    ],
+    "allergen_tags": [
+      "dairy"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": 380.0,
+      "protein_g": 15.0,
+      "carbohydrates_g": 14.0,
+      "fat_g": 28.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "butter-chicken",
+    "title": "Butter Chicken (Murgh Makhani)",
+    "description": "Tender marinated chicken chunks simmered in a spiced, buttery and velvety tomato cream sauce.",
+    "ingredient_names": [
+      "chicken",
+      "yogurt",
+      "butter",
+      "tomato",
+      "onion",
+      "ginger",
+      "garlic",
+      "kashmiri red chilli powder",
+      "garam masala",
+      "cream",
+      "kasuri methi",
+      "cooking oil",
+      "salt"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "chicken",
+        "quantity": 350,
+        "unit": "g",
+        "required": true
+      },
+      {
+        "name": "yogurt",
+        "quantity": 3,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "butter",
+        "quantity": 2,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 4,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 1,
+        "unit": "inch",
+        "required": true
+      },
+      {
+        "name": "garlic",
+        "quantity": 5,
+        "unit": "cloves",
+        "required": true
+      },
+      {
+        "name": "kashmiri red chilli powder",
+        "quantity": 1.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "garam masala",
+        "quantity": 1.0,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "cream",
+        "quantity": 3,
+        "unit": "tbsp",
+        "required": false
+      },
+      {
+        "name": "kasuri methi",
+        "quantity": 1.0,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 1.0,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
+    ],
+    "steps": [
+      "Marinate chicken pieces in yogurt, ginger-garlic paste, red chilli powder, and salt for 20 minutes.",
+      "Pan-sear the chicken pieces in oil over high heat until browned (about 6-8 minutes). Set aside.",
+      "Cook onions, tomatoes, ginger, and garlic in butter. Puree until silky smooth.",
+      "Return gravy to the pan. Add chilli powder, garam masala, and salt. Simmer 10 minutes.",
+      "Add the seared chicken into the sauce and simmer for 8 minutes until cooked through.",
+      "Stir in fresh cream and crushed kasuri methi. Serve with hot butter naan."
+    ],
+    "prep_minutes": 20,
+    "cook_minutes": 30,
+    "total_time_minutes": 50,
+    "servings": 3,
+    "difficulty": "medium",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "non_vegetarian"
+    ],
+    "allergen_tags": [
+      "dairy"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": 460.0,
+      "protein_g": 32.0,
+      "carbohydrates_g": 12.0,
+      "fat_g": 30.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "chicken-curry",
+    "title": "Homestyle Chicken Curry (Tariwala Chicken)",
+    "description": "A comforting everyday chicken curry cooked with onions, tomatoes, ginger, garlic, and freshly roasted Indian spices.",
+    "ingredient_names": [
+      "chicken",
+      "onion",
+      "tomato",
+      "ginger",
+      "garlic",
+      "green chilli",
+      "turmeric powder",
+      "coriander powder",
+      "cumin seeds",
+      "red chilli powder",
+      "garam masala",
+      "cooking oil",
+      "salt"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "chicken",
+        "quantity": 400,
+        "unit": "g",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 2,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 2,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 1,
+        "unit": "inch",
+        "required": true
+      },
+      {
+        "name": "garlic",
+        "quantity": 5,
+        "unit": "cloves",
+        "required": true
+      },
+      {
+        "name": "green chilli",
+        "quantity": 2,
+        "unit": null,
+        "required": false
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "coriander powder",
+        "quantity": 1.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "cumin seeds",
+        "quantity": 1.0,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "red chilli powder",
+        "quantity": 1.0,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "garam masala",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 2.0,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
+    ],
+    "steps": [
+      "Heat oil in a heavy-bottomed pot. Crackle cumin seeds.",
+      "Add finely chopped onions and sauté until nicely browned, about 8 minutes.",
+      "Add crushed ginger, garlic, and slit chillies. Sauté for 1 minute.",
+      "Add chopped tomatoes and dry spices (turmeric, coriander, chilli powder, salt). Cook until oil releases.",
+      "Add chicken pieces and sear in the masala on high heat for 5 minutes.",
+      "Add 1.5 cups water, cover with lid, and simmer on medium heat for 20 minutes until chicken is tender.",
+      "Sprinkle garam masala and chopped coriander leaves before serving."
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 30,
+    "total_time_minutes": 45,
+    "servings": 3,
+    "difficulty": "medium",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "non_vegetarian"
+    ],
+    "allergen_tags": [],
+    "nutrition_per_serving": {
+      "calories_kcal": 360.0,
+      "protein_g": 28.0,
+      "carbohydrates_g": 8.0,
+      "fat_g": 22.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1565557623262-b51c2513a641?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "masala-dosa",
+    "title": "Masala Dosa (Crispy Rice Crepe with Spiced Potato Bhaji)",
+    "description": "Golden, crisp fermented rice and lentil crepe stuffed with aromatic turmeric spiced mashed potato filling.",
+    "ingredient_names": [
+      "rice",
+      "urad dal",
+      "potato",
+      "onion",
+      "green chilli",
+      "mustard seeds",
+      "curry leaves",
+      "turmeric powder",
+      "cooking oil",
+      "salt"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "rice",
+        "quantity": 1.0,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "urad dal",
+        "quantity": 0.33,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "potato",
+        "quantity": 3,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "green chilli",
+        "quantity": 2,
+        "unit": null,
+        "required": true
+      },
+      {
+        "name": "mustard seeds",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "curry leaves",
+        "quantity": 8,
+        "unit": "leaves",
+        "required": true
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 2.0,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
+    ],
+    "steps": [
+      "Boil and coarsely mash potatoes.",
+      "Heat 1 tbsp oil in a pan, add mustard seeds, curry leaves, and green chillies.",
+      "Add sliced onions and cook till translucent, then add turmeric and salt.",
+      "Toss in mashed potatoes with 2 tbsp water to create a soft, spreadable filling.",
+      "Heat a flat cast iron tawa, pour a ladle of dosa batter and spread thinly in concentric circles.",
+      "Drizzle oil around edges until the crepe turns golden and crisp.",
+      "Place potato masala in the center, fold, and serve hot with coconut chutney and sambar."
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 20,
+    "total_time_minutes": 35,
+    "servings": 2,
+    "difficulty": "medium",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "vegetarian",
+      "vegan"
+    ],
+    "allergen_tags": [],
+    "nutrition_per_serving": {
+      "calories_kcal": 320.0,
+      "protein_g": 8.0,
+      "carbohydrates_g": 58.0,
+      "fat_g": 6.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "sambar",
+    "title": "South Indian Sambar (Lentil & Mixed Vegetable Stew)",
+    "description": "A nutritious, tangy South Indian lentil and vegetable stew spiced with tamarind and freshly roasted sambar powder.",
+    "ingredient_names": [
+      "toor dal",
+      "tomato",
+      "onion",
+      "drumstick",
+      "mustard seeds",
+      "curry leaves",
+      "turmeric powder",
+      "sambar powder",
+      "tamarind",
+      "cooking oil",
+      "salt"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "toor dal",
+        "quantity": 0.5,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "small",
+        "required": true
+      },
+      {
+        "name": "drumstick",
+        "quantity": 1,
+        "unit": "piece",
+        "required": false
+      },
+      {
+        "name": "mustard seeds",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "curry leaves",
+        "quantity": 8,
+        "unit": "leaves",
+        "required": true
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.25,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "sambar powder",
+        "quantity": 1.5,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "tamarind",
+        "quantity": 1,
+        "unit": "small lime size",
+        "required": true
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 1.0,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
+    ],
+    "steps": [
+      "Pressure cook toor dal with water and turmeric until mushy; whisk smooth.",
+      "Extract tamarind juice in 1 cup warm water.",
+      "Boil vegetables in tamarind water with salt and turmeric until tender.",
+      "Add sambar powder and simmer for 5 minutes until raw spice aroma fades.",
+      "Pour in cooked mashed dal, adjust consistency with water, and bring to a gentle boil.",
+      "In a small pan, temper mustard seeds, curry leaves, and dried chillies in oil; pour over hot sambar."
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 25,
+    "total_time_minutes": 35,
+    "servings": 4,
+    "difficulty": "easy",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "vegetarian",
+      "vegan"
+    ],
+    "allergen_tags": [],
+    "nutrition_per_serving": {
+      "calories_kcal": 160.0,
+      "protein_g": 8.0,
+      "carbohydrates_g": 26.0,
+      "fat_g": 3.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "lemon-rice",
+    "title": "Lemon Rice (Chitranna / South Indian Tempered Rice)",
+    "description": "Bright yellow, tangy tempered rice with peanuts, curry leaves, mustard seeds, and freshly squeezed lemon juice.",
+    "ingredient_names": [
+      "rice",
+      "lemon",
+      "peanuts",
+      "mustard seeds",
+      "curry leaves",
+      "green chilli",
+      "turmeric powder",
+      "ginger",
+      "cooking oil",
+      "salt"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "rice",
+        "quantity": 1.5,
+        "unit": "cup cooked",
+        "required": true
+      },
+      {
+        "name": "lemon",
+        "quantity": 1,
+        "unit": "whole",
+        "required": true
+      },
+      {
+        "name": "peanuts",
+        "quantity": 2,
+        "unit": "tbsp",
+        "required": false
+      },
+      {
+        "name": "mustard seeds",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "curry leaves",
+        "quantity": 8,
+        "unit": "leaves",
+        "required": true
+      },
+      {
+        "name": "green chilli",
+        "quantity": 2,
+        "unit": null,
+        "required": true
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 0.5,
+        "unit": "inch",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 1.5,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
+    ],
+    "steps": [
+      "Cook rice and spread on a wide plate to cool so grains remain separate.",
+      "Heat oil in a pan. Fry peanuts until crisp and golden; push to the side.",
+      "Add mustard seeds, curry leaves, minced ginger, and slit chillies.",
+      "Turn off flame, add turmeric powder and salt to hot oil.",
+      "Squeeze fresh lemon juice into the tempering.",
+      "Gently fold into the cooled rice until evenly golden yellow and fragrant."
+    ],
+    "prep_minutes": 5,
+    "cook_minutes": 15,
+    "total_time_minutes": 20,
+    "servings": 2,
+    "difficulty": "easy",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "vegetarian",
+      "vegan"
+    ],
+    "allergen_tags": [
+      "peanuts"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": 290.0,
+      "protein_g": 6.0,
+      "carbohydrates_g": 48.0,
+      "fat_g": 8.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "chicken-biryani",
+    "title": "Chicken Dum Biryani (Fragrant Layered Basmati Rice)",
+    "description": "Royal Mughlai one-pot feast featuring tender marinated chicken, fragrant saffron basmati rice, caramelized onions, and fresh mint.",
+    "ingredient_names": [
+      "chicken",
+      "basmati rice",
+      "yogurt",
+      "onion",
+      "ginger",
+      "garlic",
+      "mint leaves",
+      "coriander leaves",
+      "biryani masala",
+      "turmeric powder",
+      "ghee",
+      "cooking oil",
+      "salt"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "chicken",
+        "quantity": 400,
+        "unit": "g",
+        "required": true
+      },
+      {
+        "name": "basmati rice",
+        "quantity": 1.5,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "yogurt",
+        "quantity": 0.5,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 2,
+        "unit": "large",
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 1,
+        "unit": "inch",
+        "required": true
+      },
+      {
+        "name": "garlic",
+        "quantity": 6,
+        "unit": "cloves",
+        "required": true
+      },
+      {
+        "name": "mint leaves",
+        "quantity": 0.25,
+        "unit": "cup",
+        "required": false
+      },
+      {
+        "name": "coriander leaves",
+        "quantity": 0.25,
+        "unit": "cup",
+        "required": false
+      },
+      {
+        "name": "biryani masala",
+        "quantity": 1.5,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "ghee",
+        "quantity": 2.0,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 2.0,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
+    ],
+    "steps": [
+      "Marinate chicken in yogurt, ginger-garlic paste, biryani masala, turmeric, and salt for 30 minutes.",
+      "Deep fry sliced onions in oil until dark golden (birista); drain.",
+      "Parboil basmati rice with whole spices in boiling salted water until 70% cooked (about 6 minutes); drain.",
+      "In a heavy pot, cook marinated chicken with ghee until 80% tender.",
+      "Layer parboiled rice over the chicken. Scatter fried onions, chopped mint, and coriander.",
+      "Drizzle melted ghee, cover with tight lid, and steam on lowest flame (dum) for 15 minutes.",
+      "Gently fluff from the bottom to preserve layers. Serve hot with raita."
+    ],
+    "prep_minutes": 25,
+    "cook_minutes": 35,
+    "total_time_minutes": 60,
+    "servings": 4,
+    "difficulty": "hard",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "non_vegetarian"
+    ],
+    "allergen_tags": [
+      "dairy"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": 540.0,
+      "protein_g": 34.0,
+      "carbohydrates_g": 62.0,
+      "fat_g": 18.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "dal-tadka",
+    "title": "Dal Tadka (Yellow Lentil Soup with Ghee Tempering)",
+    "description": "Smooth yellow lentils simmered with turmeric and garlic, finished with a smoking ghee tempering of cumin, dried red chillies, and garlic.",
+    "ingredient_names": [
+      "toor dal",
+      "moong dal",
+      "onion",
+      "tomato",
+      "garlic",
+      "ginger",
+      "cumin seeds",
+      "ghee",
+      "turmeric powder",
+      "red chilli powder",
+      "coriander leaves",
+      "salt"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "toor dal",
+        "quantity": 0.5,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "moong dal",
+        "quantity": 0.25,
+        "unit": "cup",
+        "required": false
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "garlic",
+        "quantity": 5,
+        "unit": "cloves",
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 0.5,
+        "unit": "inch",
+        "required": true
+      },
+      {
+        "name": "cumin seeds",
+        "quantity": 1.0,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "ghee",
+        "quantity": 2.0,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "red chilli powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "coriander leaves",
+        "quantity": 2,
+        "unit": "tbsp",
+        "required": false
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
+    ],
+    "steps": [
+      "Pressure cook toor and moong dal with turmeric, salt, and water until very soft (about 4 whistles).",
+      "Whisk the dal lightly to achieve a smooth consistency.",
+      "Heat 1 tbsp ghee in a pan. Add onions, ginger, and chopped tomatoes; sauté until mushy.",
+      "Pour in boiled dal and simmer for 5 minutes. Adjust water as needed.",
+      "In a small tadka pan, heat remaining ghee until hot. Add cumin seeds and sliced garlic; fry until golden.",
+      "Add a pinch of red chilli powder and pour sizzling tadka immediately over the dal.",
+      "Garnish with fresh coriander leaves and serve with hot rotis or rice."
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 20,
+    "total_time_minutes": 30,
+    "servings": 3,
+    "difficulty": "easy",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "vegetarian"
+    ],
+    "allergen_tags": [
+      "dairy"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": 220.0,
+      "protein_g": 11.0,
+      "carbohydrates_g": 28.0,
+      "fat_g": 7.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "palak-paneer",
+    "title": "Palak Paneer (Cottage Cheese in Pureed Spinach Gravy)",
+    "description": "Wholesome fresh spinach blanched and pureed with garlic and mild spices, gently folded with soft cottage cheese cubes.",
+    "ingredient_names": [
+      "spinach",
+      "paneer",
+      "onion",
+      "tomato",
+      "garlic",
+      "ginger",
+      "green chilli",
+      "cumin seeds",
+      "garam masala",
+      "cream",
+      "cooking oil",
+      "salt"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "spinach",
+        "quantity": 250,
+        "unit": "g",
+        "required": true
+      },
+      {
+        "name": "paneer",
+        "quantity": 200,
+        "unit": "g",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 1,
+        "unit": "small",
+        "required": false
+      },
+      {
+        "name": "garlic",
+        "quantity": 5,
+        "unit": "cloves",
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 1,
+        "unit": "inch",
+        "required": true
+      },
+      {
+        "name": "green chilli",
+        "quantity": 2,
+        "unit": null,
+        "required": true
+      },
+      {
+        "name": "cumin seeds",
+        "quantity": 1.0,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "garam masala",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "cream",
+        "quantity": 1,
+        "unit": "tbsp",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 1.5,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
+    ],
+    "steps": [
+      "Blanch spinach leaves in boiling water for 2 minutes, then immediately plunge into ice-cold water to retain bright green color.",
+      "Blend blanched spinach with green chillies into a smooth puree.",
+      "Heat oil in a pan, add cumin seeds, minced garlic, ginger, and chopped onions; fry until translucent.",
+      "Add chopped tomato and salt. Cook until soft.",
+      "Pour in the spinach puree and simmer gently for 5 minutes on low heat.",
+      "Add garam masala and slide in paneer cubes. Cook for 2 minutes so paneer absorbs the gravy.",
+      "Finish with a splash of cream and serve hot."
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 15,
+    "total_time_minutes": 30,
+    "servings": 3,
+    "difficulty": "easy",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "vegetarian"
+    ],
+    "allergen_tags": [
+      "dairy"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": 280.0,
+      "protein_g": 16.0,
+      "carbohydrates_g": 10.0,
+      "fat_g": 20.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "pav-bhaji",
+    "title": "Pav Bhaji (Spiced Mashed Vegetable Curry with Buttered Buns)",
+    "description": "Famous Mumbai street food: buttery, spiced mashed mixed vegetables served with golden toasted pav buns and lemon wedges.",
+    "ingredient_names": [
+      "potato",
+      "cauliflower",
+      "green peas",
+      "capsicum",
+      "tomato",
+      "onion",
+      "butter",
+      "pav bhaji masala",
+      "kashmiri red chilli powder",
+      "lemon",
+      "salt"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "potato",
+        "quantity": 2,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "cauliflower",
+        "quantity": 1,
+        "unit": "cup florets",
+        "required": false
+      },
+      {
+        "name": "green peas",
+        "quantity": 0.5,
+        "unit": "cup",
+        "required": false
+      },
+      {
+        "name": "capsicum",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 3,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 2,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "butter",
+        "quantity": 3,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "pav bhaji masala",
+        "quantity": 2,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "kashmiri red chilli powder",
+        "quantity": 1,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "lemon",
+        "quantity": 1,
+        "unit": null,
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
+    ],
+    "steps": [
+      "Boil potatoes, cauliflower, and peas until very soft. Mash thoroughly.",
+      "Melt 2 tbsp butter on a wide tawa or pan. Sauté chopped onions and capsicum until fragrant.",
+      "Add chopped tomatoes, pav bhaji masala, red chilli powder, and salt. Cook until mushy and butter separates.",
+      "Add the mashed boiled vegetables with 1/2 cup water. Mash continuously with a potato masher while simmering.",
+      "Simmer for 10 minutes, adjusting butter and water for a silky, rich consistency.",
+      "Slit pav buns and toast on tawa with generous butter.",
+      "Serve bhaji hot with dollop of butter, chopped onions, and lemon wedges."
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 25,
+    "total_time_minutes": 40,
+    "servings": 3,
+    "difficulty": "medium",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "vegetarian"
+    ],
+    "allergen_tags": [
+      "dairy"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": 390.0,
+      "protein_g": 9.0,
+      "carbohydrates_g": 56.0,
+      "fat_g": 16.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1606491956689-2ea866880c84?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "chole-bhature",
+    "title": "Chole Bhature (Punjabi Spiced Chickpeas with Fried Puffy Bread)",
+    "description": "Iconic North Indian specialty: dark, aromatic spiced chickpeas cooked with dried amla and whole spices, paired with hot, fluffy fried bhature.",
+    "ingredient_names": [
+      "chickpeas",
+      "flour",
+      "onion",
+      "tomato",
+      "ginger",
+      "garlic",
+      "tea leaves",
+      "coriander powder",
+      "garam masala",
+      "amchur powder",
+      "cooking oil",
+      "salt"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "chickpeas",
+        "quantity": 1.0,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "flour",
+        "quantity": 1.5,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 2,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 2,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 1,
+        "unit": "inch",
+        "required": true
+      },
+      {
+        "name": "garlic",
+        "quantity": 5,
+        "unit": "cloves",
+        "required": true
+      },
+      {
+        "name": "coriander powder",
+        "quantity": 1.0,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "garam masala",
+        "quantity": 1.0,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "amchur powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 3.0,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
+    ],
+    "steps": [
+      "Boil soaked chickpeas with a tea bag and salt to achieve deep dark brown color.",
+      "Knead flour with yogurt and a pinch of baking powder; let dough rest 2 hours.",
+      "In hot oil, sauté finely chopped onions, ginger, and garlic until golden brown.",
+      "Add pureed tomatoes, coriander powder, amchur, and chole masala; cook till oil floats.",
+      "Add boiled chickpeas, lightly mash a few to thicken, and simmer 15 minutes.",
+      "Roll out dough portions and deep fry in hot oil until puffed and golden.",
+      "Serve piping hot chole with puffed bhature, pickled onions, and green chillies."
+    ],
+    "prep_minutes": 20,
+    "cook_minutes": 30,
+    "total_time_minutes": 50,
+    "servings": 3,
+    "difficulty": "medium",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "vegetarian"
+    ],
+    "allergen_tags": [
+      "gluten"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": 520.0,
+      "protein_g": 16.0,
+      "carbohydrates_g": 78.0,
+      "fat_g": 18.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1626074353765-517a681e40be?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "kadai-paneer",
+    "title": "Kadai Paneer (Bell Pepper & Cottage Cheese Stir-Fry)",
+    "description": "Succulent cottage cheese cubes and crunchy bell peppers tossed in a robust, freshly ground kadai spice masala with tomatoes.",
+    "ingredient_names": [
+      "paneer",
+      "capsicum",
+      "onion",
+      "tomato",
+      "ginger",
+      "garlic",
+      "coriander seeds",
+      "cumin seeds",
+      "dried red chillies",
+      "garam masala",
+      "cooking oil",
+      "salt"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "paneer",
+        "quantity": 200,
+        "unit": "g",
+        "required": true
+      },
+      {
+        "name": "capsicum",
+        "quantity": 1,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 1,
+        "unit": "large",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 3,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 1,
+        "unit": "inch",
+        "required": true
+      },
+      {
+        "name": "garlic",
+        "quantity": 4,
+        "unit": "cloves",
+        "required": true
+      },
+      {
+        "name": "coriander seeds",
+        "quantity": 1.0,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "cumin seeds",
+        "quantity": 1.0,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "dried red chillies",
+        "quantity": 2,
+        "unit": null,
+        "required": true
+      },
+      {
+        "name": "cooking oil",
+        "quantity": 2.0,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
+    ],
+    "steps": [
+      "Dry roast coriander seeds, cumin seeds, and dry red chillies; crush coarsely into kadai masala.",
+      "Dice onions and capsicum into squares.",
+      "Heat oil in a kadai. Add minced ginger and garlic, then add pureed tomatoes and salt. Cook until thick.",
+      "Add crushed kadai masala and sauté for 2 minutes.",
+      "In a separate pan, quickly blister diced capsicum and onions in 1 tsp oil on high heat so they remain crunchy.",
+      "Combine vegetables and paneer cubes into the tomato masala; toss gently on medium heat for 3 minutes.",
+      "Garnish with julienned ginger and fresh coriander leaves."
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 20,
+    "total_time_minutes": 35,
+    "servings": 3,
+    "difficulty": "medium",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "vegetarian"
+    ],
+    "allergen_tags": [
+      "dairy"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": 310.0,
+      "protein_g": 14.0,
+      "carbohydrates_g": 12.0,
+      "fat_g": 24.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "jeera-rice",
+    "title": "Jeera Rice (Fragrant Cumin-Spiced Basmati Rice)",
+    "description": "Long-grain basmati rice cooked with whole cumin seeds, ghee, and aromatic cloves for the perfect curry accompaniment.",
+    "ingredient_names": [
+      "basmati rice",
+      "cumin seeds",
+      "ghee",
+      "cloves",
+      "cardamom",
+      "water",
+      "salt"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "basmati rice",
+        "quantity": 1.0,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "cumin seeds",
+        "quantity": 1.5,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "ghee",
+        "quantity": 1.5,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "cloves",
+        "quantity": 2,
+        "unit": null,
+        "required": false
+      },
+      {
+        "name": "cardamom",
+        "quantity": 2,
+        "unit": null,
+        "required": false
+      },
+      {
+        "name": "water",
+        "quantity": 2.0,
+        "unit": "cups",
+        "required": true
+      },
+      {
+        "name": "salt",
+        "quantity": 0.75,
+        "unit": "tsp",
+        "required": true
+      }
+    ],
+    "steps": [
+      "Wash basmati rice until water runs clear and soak for 20 minutes; drain.",
+      "Heat ghee in a pot on medium flame. Add cumin seeds, cloves, and cardamom pods.",
+      "Let cumin crackle and release its nutty fragrance (do not burn).",
+      "Add drained rice and gently sauté for 1 minute so grains are coated in aromatic ghee.",
+      "Pour in 2 cups of hot water and salt. Bring to a rolling boil.",
+      "Cover with tight-fitting lid, lower flame to lowest setting, and cook undisturbed for 10 minutes.",
+      "Turn off heat, let rest for 5 minutes, and fluff gently with a fork."
+    ],
+    "prep_minutes": 5,
+    "cook_minutes": 15,
+    "total_time_minutes": 20,
+    "servings": 3,
+    "difficulty": "easy",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "vegetarian"
+    ],
+    "allergen_tags": [
+      "dairy"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": 240.0,
+      "protein_g": 4.0,
+      "carbohydrates_g": 42.0,
+      "fat_g": 6.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "dal-makhani",
+    "title": "Dal Makhani (Slow-Cooked Creamy Black Lentil Stew)",
+    "description": "Whole black lentils and kidney beans slow-simmered overnight with butter, fresh cream, and subtle Kashmiri spices.",
+    "ingredient_names": [
+      "whole black lentils",
+      "kidney beans",
+      "butter",
+      "cream",
+      "tomato",
+      "ginger",
+      "garlic",
+      "kashmiri red chilli powder",
+      "kasuri methi",
+      "salt"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "whole black lentils",
+        "quantity": 0.75,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "kidney beans",
+        "quantity": 0.25,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "butter",
+        "quantity": 3.0,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "cream",
+        "quantity": 3.0,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 3,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 1,
+        "unit": "inch",
+        "required": true
+      },
+      {
+        "name": "garlic",
+        "quantity": 4,
+        "unit": "cloves",
+        "required": true
+      },
+      {
+        "name": "kashmiri red chilli powder",
+        "quantity": 1.0,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "kasuri methi",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
+    ],
+    "steps": [
+      "Soak black lentils and kidney beans overnight. Pressure cook with salt and water until completely tender.",
+      "In a heavy pot, heat 1 tbsp butter, add minced ginger-garlic and tomato puree. Cook until butter separates.",
+      "Add red chilli powder and salt.",
+      "Pour in the cooked lentils along with their broth. Mash lightly with the back of a ladle.",
+      "Simmer on very low heat for at least 30-45 minutes, stirring periodically to develop rich creaminess.",
+      "Stir in remaining butter, fresh cream, and crushed kasuri methi.",
+      "Serve rich and hot with garlic naan or steamed rice."
+    ],
+    "prep_minutes": 15,
+    "cook_minutes": 45,
+    "total_time_minutes": 60,
+    "servings": 4,
+    "difficulty": "medium",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "vegetarian"
+    ],
+    "allergen_tags": [
+      "dairy"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": 380.0,
+      "protein_g": 14.0,
+      "carbohydrates_g": 36.0,
+      "fat_g": 20.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "baingan-bharta",
+    "title": "Baingan Bharta (Smoky Roasted Eggplant Mash)",
+    "description": "Whole eggplant roasted directly on open flame for a rustic smoky char, mashed and sautéed with onions, green chillies, and tomatoes.",
+    "ingredient_names": [
+      "eggplant",
+      "onion",
+      "tomato",
+      "green chilli",
+      "ginger",
+      "garlic",
+      "turmeric powder",
+      "red chilli powder",
+      "mustard oil",
+      "coriander leaves",
+      "salt"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "eggplant",
+        "quantity": 1,
+        "unit": "large bharta eggplant",
+        "required": true
+      },
+      {
+        "name": "onion",
+        "quantity": 2,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "tomato",
+        "quantity": 2,
+        "unit": "medium",
+        "required": true
+      },
+      {
+        "name": "green chilli",
+        "quantity": 2,
+        "unit": null,
+        "required": true
+      },
+      {
+        "name": "ginger",
+        "quantity": 1,
+        "unit": "inch",
+        "required": true
+      },
+      {
+        "name": "garlic",
+        "quantity": 4,
+        "unit": "cloves",
+        "required": true
+      },
+      {
+        "name": "turmeric powder",
+        "quantity": 0.25,
+        "unit": "tsp",
+        "required": true
+      },
+      {
+        "name": "red chilli powder",
+        "quantity": 0.5,
+        "unit": "tsp",
+        "required": false
+      },
+      {
+        "name": "mustard oil",
+        "quantity": 2.0,
+        "unit": "tbsp",
+        "required": true
+      },
+      {
+        "name": "coriander leaves",
+        "quantity": 2,
+        "unit": "tbsp",
+        "required": false
+      },
+      {
+        "name": "salt",
+        "quantity": null,
+        "unit": "to taste",
+        "required": true
+      }
+    ],
+    "steps": [
+      "Slit eggplant and insert garlic cloves inside. Roast over open flame turning until skin is completely charred and flesh is tender.",
+      "Cover in a bowl for 5 minutes, peel off charred skin, and mash the pulp thoroughly.",
+      "Heat mustard oil in a pan until hot. Add chopped onions and ginger; fry till golden.",
+      "Add chopped tomatoes, green chillies, turmeric, chilli powder, and salt. Cook till soft.",
+      "Add mashed roasted eggplant. Cook on medium-high heat for 7-8 minutes, stirring continuously.",
+      "Garnish with abundant fresh coriander leaves and serve with hot phulkas."
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 25,
+    "total_time_minutes": 35,
+    "servings": 3,
+    "difficulty": "easy",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "vegetarian",
+      "vegan"
+    ],
+    "allergen_tags": [],
+    "nutrition_per_serving": {
+      "calories_kcal": 160.0,
+      "protein_g": 4.0,
+      "carbohydrates_g": 18.0,
+      "fat_g": 9.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
+  },
+  {
+    "external_source": "manual",
+    "external_id": "kheer",
+    "title": "Rice Kheer (Creamy Cardamom & Nut Rice Pudding)",
+    "description": "Traditional Indian festival dessert: fragrant basmati rice slow-simmered in whole milk with green cardamom, saffron, and slivered almonds.",
+    "ingredient_names": [
+      "milk",
+      "basmati rice",
+      "sugar",
+      "cardamom",
+      "almonds",
+      "cashews",
+      "ghee"
+    ],
+    "ingredients_detail": [
+      {
+        "name": "milk",
+        "quantity": 4.0,
+        "unit": "cups",
+        "required": true
+      },
+      {
+        "name": "basmati rice",
+        "quantity": 0.25,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "sugar",
+        "quantity": 0.33,
+        "unit": "cup",
+        "required": true
+      },
+      {
+        "name": "cardamom",
+        "quantity": 4,
+        "unit": "pods crushed",
+        "required": true
+      },
+      {
+        "name": "almonds",
+        "quantity": 10,
+        "unit": "slivered",
+        "required": false
+      },
+      {
+        "name": "cashews",
+        "quantity": 10,
+        "unit": "chopped",
+        "required": false
+      },
+      {
+        "name": "ghee",
+        "quantity": 1.0,
+        "unit": "tsp",
+        "required": false
+      }
+    ],
+    "steps": [
+      "Wash rice and soak in water for 15 minutes; drain and crush coarsely with fingers.",
+      "Bring milk to a boil in a heavy pot, then lower flame to simmer.",
+      "Add crushed rice to milk and simmer on low heat for 25 minutes, stirring frequently so it doesn’t stick.",
+      "When rice is completely soft and milk has thickened to a creamy consistency, stir in sugar.",
+      "Cook for another 5 minutes until sugar dissolves.",
+      "Add crushed cardamom powder and toasted nuts.",
+      "Serve warm or chilled."
+    ],
+    "prep_minutes": 10,
+    "cook_minutes": 30,
+    "total_time_minutes": 40,
+    "servings": 4,
+    "difficulty": "easy",
+    "cuisine": "Indian",
+    "diet_tags": [
+      "vegetarian"
+    ],
+    "allergen_tags": [
+      "dairy",
+      "nuts"
+    ],
+    "nutrition_per_serving": {
+      "calories_kcal": 260.0,
+      "protein_g": 8.0,
+      "carbohydrates_g": 38.0,
+      "fat_g": 9.0,
+      "source": "Curated",
+      "is_estimate": true
+    },
+    "image_url": "https://images.unsplash.com/photo-1505253716362-afaea1d3d1af?w=800&auto=format&fit=crop&q=80",
+    "source_url": null,
+    "attribution": "MealBox360 Curated Staples",
+    "quantity_aware": true
   }
 ]
