@@ -9,13 +9,31 @@
     },
     "preview": {
       "distribution": "internal",
+      "channel": "preview",
       "android": {
         "buildType": "apk"
+      },
+      "env": {
+        "EXPO_ANDROID_ARCHS": "arm64-v8a"
+      }
+    },
+    "preview-universal": {
+      "distribution": "internal",
+      "channel": "preview",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_ANDROID_ARCHS": "armeabi-v7a,arm64-v8a,x86,x86_64"
       }
     },
     "production": {
+      "channel": "production",
       "android": {
         "buildType": "apk"
+      },
+      "env": {
+        "EXPO_ANDROID_ARCHS": "arm64-v8a"
       }
     }
   },

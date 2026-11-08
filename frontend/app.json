@@ -5,9 +5,17 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
+    "icon": "./assets/icon.png",
     "splash": {
+      "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#003B36"
+      "backgroundColor": "#4A6B3A"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/d97b53ea-23cd-40b2-903d-6cd5e21269e9"
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
     },
     "ios": {
       "supportsTablet": true,
@@ -17,12 +25,18 @@
       "package": "com.mealbox.app",
       "usesCleartextTraffic": true,
       "adaptiveIcon": {
-        "backgroundColor": "#003B36"
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#4A6B3A"
       }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
     },
     "plugins": [
       "expo-secure-store",
-      "./plugins/withCleartextTraffic.js"
+      "expo-updates",
+      "./plugins/withCleartextTraffic.js",
+      "./plugins/withAndroidCompress.js"
     ],
     "extra": {
       "eas": {
